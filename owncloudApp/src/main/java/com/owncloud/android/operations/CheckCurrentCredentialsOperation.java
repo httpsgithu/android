@@ -23,7 +23,7 @@ package com.owncloud.android.operations;
 
 import android.accounts.Account;
 
-import com.owncloud.android.datamodel.OCFile;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.lib.common.OwnCloudClient;
 import com.owncloud.android.lib.common.operations.RemoteOperation;
 import com.owncloud.android.lib.common.operations.RemoteOperationResult;
@@ -50,7 +50,7 @@ public class CheckCurrentCredentialsOperation extends SyncOperation<Account> {
             return new RemoteOperationResult<>(new IllegalStateException(
                     "Account to validate is not the account connected to!"));
         } else {
-            RemoteOperation checkPathExistenceOperation = new CheckPathExistenceRemoteOperation(OCFile.ROOT_PATH, false);
+            RemoteOperation checkPathExistenceOperation = new CheckPathExistenceRemoteOperation(OCFile.ROOT_PATH, false, null);
             final RemoteOperationResult existenceCheckResult = checkPathExistenceOperation.execute(client);
             final RemoteOperationResult<Account> result
                     = new RemoteOperationResult<>(existenceCheckResult.getCode());

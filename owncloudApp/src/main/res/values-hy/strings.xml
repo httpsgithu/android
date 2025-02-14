@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_version">տարբերակ %1$s</string>
-  <string name="actionbar_sync">Թարմացնել հաշիվը</string>
+    <string name="actionbar_sync">Թարմացնել հաշիվը</string>
   <string name="actionbar_upload">Բեռնել</string>
   <string name="actionbar_upload_files">Ֆայլեր</string>
   <string name="actionbar_open_with">Բացել միջոցով</string>
@@ -18,8 +17,8 @@
   <string name="drawer_feedback">Արձագանք</string>
   <string name="drawer_help">Օգնություն</string>
   <string name="prefs_category_general">Ընդհանուր</string>
-  <string name="prefs_category_more">Ավելի</string>
-  <string name="prefs_category_security">Անվտանգություն</string>
+  <string name="prefs_subsection_more">Ավելի</string>
+  <string name="prefs_subsection_security">Անվտանգություն</string>
   <string name="prefs_accounts">Հաշիվներ</string>
   <string name="prefs_passcode">Անցաբառով կողպում</string>
   <string name="prefs_log_delete_history_button">Ջնջել պատմությունը</string>
@@ -35,7 +34,6 @@
   <string name="uploader_btn_upload_text">Բեռնել</string>
   <string name="uploader_wrn_no_account_title">Հաշիվ չգտնվեց</string>
   <string name="file_list_seconds_ago">վրկ. առաջ</string>
-  <string name="file_list_empty">Ոչինչ չկա։ Բեռնի՛ր որևէ բան։</string>
   <string name="local_file_list_empty">Այս պանակում ֆայլեր չկան:</string>
   <string name="local_file_list_empty_just_folders">Այս պանակում պանակներ չկան:</string>
   <string name="file_list_folder">պանակ</string>
@@ -54,8 +52,7 @@
   <string name="common_error">Սխալ</string>
   <string name="common_unknown">անհայտ</string>
   <string name="common_error_unknown">Անհայտ սխալ</string>
-  <string name="about_title">Մասին</string>
-  <string name="change_password">Փոխել գաղտնաբառը</string>
+    <string name="change_password">Փոխել գաղտնաբառը</string>
   <string name="delete_account">Ջնջել հաշիվը</string>
   <string name="create_account">Ստեղծել հաշիվ</string>
   <string name="upload_chooser_title">Բեռնել…</string>
@@ -95,18 +92,12 @@
   <string name="sync_fail_content_unauthorized">Անվավեր գաղտնաբառ %1$sի համար</string>
   <string name="sync_conflicts_in_favourites_ticker">Հակասություն գտնվեց</string>
   <string name="sync_current_folder_was_removed">%1$s պանակը այլևս գոյություն չունի</string>
-  <string name="foreign_files_move">Տեղափոխել բոլորը</string>
-  <string name="foreign_files_success">Բոլոր ֆայլերը տեղափոխվեցին</string>
-  <string name="foreign_files_fail">Որոշ ֆայլեր չեն կարող տեղափոխվել</string>
-  <string name="foreign_files_remote_text">Հեռակա. %1$s</string>
-  <string name="pass_code_enter_pass_code">Ներմուծիր քո անցաբառը</string>
+    <string name="pass_code_enter_pass_code">Ներմուծիր քո անցաբառը</string>
   <string name="pass_code_configure_your_pass_code">Ներմուծիր քո անցաբառը</string>
   <string name="pass_code_reenter_your_pass_code">Կրկին ներմուծիր քո անցաբառը</string>
   <string name="pass_code_remove_your_pass_code">Ջնջել քո անցաբառը</string>
   <string name="pass_code_mismatch">Անցաբառերը նույնը չեն</string>
   <string name="pass_code_wrong">Սխալ անցաբառ</string>
-  <string name="pass_code_removed">Անցաբառը ջնջվեց</string>
-  <string name="pass_code_stored">Անցաբառը պահվեց</string>
   <string name="media_notif_ticker">%1$s նվագարկիչ</string>
   <string name="auth_connection_established">Կապը հաստատվեց</string>
   <string name="auth_testing_connection">Փորձարկում եմ կապը</string>
@@ -118,7 +109,7 @@
   <string name="rename_server_fail_msg">Վերանվանումը չի կարող ավարտվել</string>
   <string name="create_dir_fail_msg">Պանակ չի կարող ստեղծվել</string>
   <string name="filename_forbidden_characters">Արգելված նիշեր. / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Ֆայլի անունը առնվազն մի անվավեր նիշ է պարունակում</string>
+  <string name="filename_forbidden_characters_from_server">Ֆայլի անունը առնվազն մի անվավեր նիշ է պարունակում</string>
   <string name="filename_empty">Ֆայլի անունը դատարկ լինել չի կարող</string>
   <string name="wait_a_moment">Մի պահ սպասիր</string>
   <string name="filedisplay_no_file_selected">Ֆայլ չի նշվել</string>
@@ -140,8 +131,7 @@
   <string name="placeholder_filesize">389 ԿԲ</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="conflict_title">Ֆայլի հակասություն</string>
-  <string name="preview_image_description">Պատկերի նախադիտում</string>
+    <string name="preview_image_description">Պատկերի նախադիտում</string>
   <string name="activity_chooser_send_file_title">Ուղարկել</string>
   <string name="copy_link">Պատճենել հղումը</string>
   <string name="forbidden_permissions_rename">այս ֆայլը վերանվանելու համար</string>

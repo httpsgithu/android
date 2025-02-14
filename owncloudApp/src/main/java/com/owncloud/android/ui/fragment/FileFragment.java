@@ -4,7 +4,9 @@
  * @author David A. Velasco
  * @author Christian Schabesberger
  * @author David González Verdugo
- * Copyright (C) 2020 ownCloud GmbH.
+ * @author Aitor Ballesteros Pavón
+ *
+ * Copyright (C) 2024 ownCloud GmbH.
  * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,
@@ -22,12 +24,20 @@
 package com.owncloud.android.ui.fragment;
 
 import android.content.Context;
+import android.os.Build;
+import android.view.Menu;
+import android.view.MenuInflater;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.owncloud.android.datamodel.OCFile;
-import com.owncloud.android.files.services.FileDownloader;
-import com.owncloud.android.files.services.FileUploader;
+import com.owncloud.android.R;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.ui.activity.ComponentsGetter;
+
+import static com.owncloud.android.usecases.transfers.TransferConstantsKt.DOWNLOAD_ADDED_MESSAGE;
+import static com.owncloud.android.usecases.transfers.TransferConstantsKt.DOWNLOAD_FINISH_MESSAGE;
+import static com.owncloud.android.usecases.transfers.TransferConstantsKt.UPLOAD_FINISH_MESSAGE;
+import static com.owncloud.android.usecases.transfers.TransferConstantsKt.UPLOAD_START_MESSAGE;
 
 /**
  * Common methods for {@link Fragment}s containing {@link OCFile}s
@@ -86,10 +96,9 @@ public abstract class FileFragment extends Fragment {
     }
 
     public void onSyncEvent(String syncEvent, boolean success, OCFile updatedFile) {
-        if (syncEvent.equals(FileUploader.getUploadStartMessage())) {
+        if (syncEvent.equals(UPLOAD_START_MESSAGE)) {
             updateViewForSyncInProgress();
-
-        } else if (syncEvent.equals(FileUploader.getUploadFinishMessage())) {
+        } else if (syncEvent.equals(UPLOAD_FINISH_MESSAGE)) {
             if (success) {
                 if (updatedFile != null) {
                     onFileMetadataChanged(updatedFile);
@@ -99,10 +108,10 @@ public abstract class FileFragment extends Fragment {
             }
             updateViewForSyncOff();
 
-        } else if (syncEvent.equals(FileDownloader.getDownloadAddedMessage())) {
+        } else if (syncEvent.equals(DOWNLOAD_ADDED_MESSAGE)) {
             updateViewForSyncInProgress();
 
-        } else if (syncEvent.equals(FileDownloader.getDownloadFinishMessage())) {
+        } else if (syncEvent.equals(DOWNLOAD_FINISH_MESSAGE)) {
             if (success) {
                 if (updatedFile != null) {
                     onFileMetadataChanged(updatedFile);
@@ -118,8 +127,6 @@ public abstract class FileFragment extends Fragment {
     public abstract void updateViewForSyncInProgress();
 
     public abstract void updateViewForSyncOff();
-
-    public abstract void onTransferServiceConnected();
 
     public abstract void onFileMetadataChanged(OCFile updatedFile);
 
@@ -143,13 +150,19 @@ public abstract class FileFragment extends Fragment {
         ///// TO UNIFY IN A SINGLE CALLBACK METHOD - EVENT NOTIFICATIONs  -> something happened
         // inside the fragment, MAYBE activity is interested --> unify in notification method
 
-        /**
-         * Callback method invoked when a the user browsed into a different folder through the
-         * list of files
-         *
-         * @param folder
-         */
-        void onBrowsedDownTo(OCFile folder);
+    }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.file_actions_menu, menu);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String roleAccessibilityDescription = getString(R.string.button_role_accessibility);
+            menu.findItem(R.id.action_open_file_with).setContentDescription(getString(R.string.actionbar_open_with) + " " + roleAccessibilityDescription);
+            menu.findItem(R.id.action_send_file).setContentDescription(getString(R.string.actionbar_send_file) + " " + roleAccessibilityDescription);
+            menu.findItem(R.id.action_set_available_offline).setContentDescription(getString(R.string.set_available_offline) + " " + roleAccessibilityDescription);
+            menu.findItem(R.id.action_unset_available_offline).setContentDescription(getString(R.string.set_available_offline) + " " + roleAccessibilityDescription);
+        }
     }
 }

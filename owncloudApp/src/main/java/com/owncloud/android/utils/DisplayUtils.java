@@ -32,7 +32,6 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.snackbar.Snackbar;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
-import com.owncloud.android.datamodel.OCFile;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -80,7 +79,7 @@ public class DisplayUtils {
      * @param bytes Input file size
      * @return Like something readable like "12 MB"
      */
-    public static String bytesToHumanReadable(long bytes, Context context) {
+    public static String bytesToHumanReadable(long bytes, Context context, boolean includeMultipleDecimals) {
         if (bytes < 0) {
             return context.getString(R.string.common_pending);
 
@@ -96,6 +95,10 @@ public class DisplayUtils {
                     sizeScales[attachedSuff],
                     BigDecimal.ROUND_HALF_UP
             ).stripTrailingZeros();
+
+            if (!includeMultipleDecimals && readableResult.scale() > 0) { // Only for decimal numbers
+                readableResult = readableResult.setScale(1, BigDecimal.ROUND_HALF_UP);
+            }
 
             // Unscale only values with ten exponent
             return (readableResult.scale() < 0 ?
@@ -178,7 +181,7 @@ public class DisplayUtils {
     }
 
     /**
-     * calculates the relative time string based on the given modificaion timestamp.
+     * calculates the relative time string based on the given modification timestamp.
      *
      * @param context               the app's context
      * @param modificationTimestamp the UNIX timestamp of the file modification time.

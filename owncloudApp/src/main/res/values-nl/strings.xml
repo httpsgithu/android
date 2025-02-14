@@ -4,8 +4,6 @@
   <string name="global_name">Naam</string>
   <string name="global_date">Datum</string>
   <string name="global_size">Grootte</string>
-  <string name="about_android">%1$s voor Android</string>
-  <string name="about_version">Versie %1$s</string>
   <string name="actionbar_search">Zoek in deze map</string>
   <string name="actionbar_sync">Account verversen</string>
   <string name="actionbar_upload">Uploaden</string>
@@ -18,6 +16,7 @@
   <string name="actionbar_send_file">Versturen</string>
   <string name="actionbar_descending">Aflopend</string>
   <string name="actionbar_sort_title">Sorteer op</string>
+  <string name="fab_new_file">Nieuw document</string>
   <string name="drawer_item_all_files">Alle bestanden</string>
   <string name="drawer_item_only_available_offline">Beschikbaar off-line</string>
   <string name="drawer_item_shared_by_link_files">Gedeeld via een link</string>
@@ -32,21 +31,33 @@
   <string name="drawer_feedback">Feedback</string>
   <string name="drawer_help">Help</string>
   <string name="prefs_category_general">Algemeen</string>
-  <string name="prefs_category_more">Meer</string>
-  <string name="prefs_category_security">Beveiliging</string>
+  <string name="prefs_subsection_logging">Logging</string>
+  <string name="prefs_subsection_more">Meer</string>
+  <string name="prefs_subsection_security">Beveiliging</string>
   <string name="prefs_accounts">Accounts</string>
   <string name="prefs_manage_accounts">Accounts beheren</string>
   <string name="prefs_passcode">Pincode slot</string>
   <string name="prefs_biometric">Biometrisch slot</string>
   <string name="prefs_biometric_summary">Zet de toegangscode of de patroonvergrendeling aan om deze optie te activeren </string>
+  <string name="prefs_lock_application">Vergrendel applicatie</string>
+  <string name="prefs_lock_application_entries_immediately">Direct</string>
+  <string name="prefs_lock_application_entries_1minute">Na 1 minuut</string>
+  <string name="prefs_lock_application_entries_5minutes">Na 5 minuten</string>
+  <string name="prefs_lock_application_entries_30minutes">Na 30 minuten</string>
   <string name="prefs_touches_with_other_visible_windows">Aanraken bij andere zichtbare vensters</string>
   <string name="prefs_touches_with_other_visible_windows_summary">Sta acties toe als het scherm wordt beinvloed door een andere app. Zet dit aan als je licht-filter apps gebruikt.</string>
   <string name="confirmation_touches_with_other_windows_title">Weet je zeker dat je deze functionaliteit wilt aanzetten?</string>
   <string name="confirmation_touches_with_other_windows_message">Gebruik deze functie op eigen verantwoordelijkheid. Een kwaadaardig programma zou kunnen proberen u te misleiden om, onbewust, bepaalde acties uit te voeren met behulp van andere weergaven.</string>
   <string name="prefs_camera_picture_upload">Afbeeldingen uploaden</string>
   <string name="prefs_camera_picture_upload_summary">Automatisch afbeeldingen uploaden die met de camera genomen zijn</string>
+  <string name="prefs_camera_picture_upload_path_title">Afbeelding upload bestemming</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Upload afbeeldingen alleen via WiFi</string>
   <string name="prefs_camera_video_upload">Video’s uploaden</string>
   <string name="prefs_camera_video_upload_summary">Automatisch video’s uploaden die met de camera gemaakt zijn</string>
+  <string name="prefs_camera_video_upload_path_title">Video upload bestemming</string>
+  <string name="prefs_camera_video_upload_on_wifi">Upload videos alleen via WiFi</string>
+  <string name="prefs_subsection_advanced">Geavanceerd</string>
+  <string name="prefs_show_hidden_files">Toon verborgen bestanden</string>
   <string name="prefs_log_title">Logging inschakelen</string>
   <string name="prefs_log_summary">Dit wordt gebruikt om problemen te loggen.</string>
   <string name="prefs_log_title_history">Logging geschiedenis</string>
@@ -61,26 +72,26 @@
   <string name="prefs_remember_last_share_location">Onthoud de share locatie</string>
   <string name="prefs_remember_last_upload_location_summary">Onthoud de laatste upload locatie</string>
   <string name="prefs_pattern">Patroonvergrendeling</string>
+  <string name="prefs_enable_logging">Logging inschakelen</string>
+  <string name="prefs_send_feedback">Stuur feedback</string>
   <string name="pattern_enter_pattern">Voer aub de vergrendelingspatroon in</string>
   <string name="pattern_configure_pattern">Voer de vergrendelingspatroon in</string>
   <string name="pattern_remove_pattern">Verwijder uw vergrendelingspatroon</string>
   <string name="pattern_incorrect_pattern">Onjuiste vergrendelingspatroon</string>
   <string name="pattern_reenter_pattern">Voer aub opnieuw uw vergrendelingspatroon in</string>
   <string name="pattern_not_same_pattern">De vergrendelingspatronen komen niet overeen</string>
-  <string name="pattern_stored">Vergrendelingspatroon opgeslagen</string>
-  <string name="pattern_removed">Vergrendelingspatroon opgeslagen</string>
   <string name="pattern_already_set">Patroon- en toegangscodes kunnen niet tegelijkertijd actief zijn, deactiveer eerst de patroonbeveiliging</string>
   <string name="passcode_already_set">Patroon- en toegangscodes kunnen niet tegelijkertijd actief zijn, deactiveer eerst de toegangscode</string>
   <string name="pattern_no_longer_required">Het patroon zal niet meer worden gevraagd</string>
   <string name="pattern_configure_your_pattern_explanation">Telkens wanneer de app is gestart zal er om een patroon worden gevraagd</string>
-  <string name="pass_code_locked">Vergrendeld met wachtwoord</string>
-  <string name="pattern_locked">Vergrendeld met patroon</string>
   <string name="illegal_argument_exception_message">Een geldige ACTIE is nodig in de Intentie die wordt doorgegeven aan</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Bestanden</string>
+  <string name="bottom_nav_personal">Persoonlijk</string>
   <string name="bottom_nav_uploads">Uploads</string>
   <string name="bottom_nav_offline">Offline</string>
   <string name="bottom_nav_links">Links</string>
+  <string name="bottom_nav_shares">Gedeeld</string>
   <string name="recommend_subject">Probeer %1$s op uw smartphone!</string>
   <string name="recommend_text">Uitnodiging om %1$s op uw smartphone uit te proberen!
 Download hier: %2$s</string>
@@ -111,9 +122,10 @@ Download hier: %2$s</string>
   <string name="uploader_error_message_source_file_not_found">Het te uploaden bestand is hier niet. Controleer of het bestand wel bestaat.</string>
   <string name="uploader_error_message_source_file_not_copied">Er trad een fout op bij het kopiëren van het bestand naar een tijdelijke map. Probeer het opnieuw te versturen.</string>
   <string name="file_list_seconds_ago">seconden geleden</string>
-  <string name="file_list_empty">Er bevindt zich hier niets. Upload een bestand!</string>
-  <string name="file_list_empty_available_offline">Er zijn geen offline bestanden beschikbaar</string>
-  <string name="file_list_empty_shared_by_links">Er zijn geen bestanden gedeeld via een link</string>
+  <string name="file_list_empty_title_all_files">Hier geen bestanden</string>
+  <string name="file_list_empty_title_shared_by_links">Geen gedeelde links</string>
+  <string name="file_list_empty_subtitle_all_files">Upload bestanden of synchroniseer met uw apparaten!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Bestanden en mappen die u via links deelt, worden hier getoond</string>
   <string name="file_list_loading">Laden...</string>
   <string name="file_list_no_app_for_file_type">Geen app gevonden voor het bestandsformaat</string>
   <string name="local_file_list_empty">Er staan geen bestanden in deze map.</string>
@@ -130,6 +142,7 @@ Download hier: %2$s</string>
   <string name="filedetails_size">Grootte:</string>
   <string name="filedetails_type">Type:</string>
   <string name="filedetails_created">Aangemaakt:</string>
+  <string name="filedetails_last_sync">Laatste sync:</string>
   <string name="filedetails_modified">Aangepast:</string>
   <string name="filedetails_download">Download</string>
   <string name="filedetails_sync_file">Synchroniseren</string>
@@ -149,7 +162,6 @@ Download hier: %2$s</string>
   <string name="common_error_unknown">onbekende fout</string>
   <string name="common_pending">In behandeling</string>
   <string name="common_important">Belangrijk</string>
-  <string name="about_title">Over</string>
   <string name="change_password">Wijzig wachtwoord</string>
   <string name="delete_account">Account uitloggen</string>
   <string name="create_account">Maak account aan</string>
@@ -165,7 +177,6 @@ Download hier: %2$s</string>
   <string name="uploader_upload_failed_ssl_certificate_not_trusted">Het servercertificaat is niet vertrouwd</string>
   <string name="uploader_upload_text_dialog_title">Voer de naam in van het nieuwe bestand</string>
   <string name="uploader_upload_text_dialog_filename_error_empty">Bestandsnaam mag niet leeg zijn</string>
-  <string name="uploader_upload_text_dialog_filename_error_length_max">De bestandsnaam mag niet langer zijn dan %d tekens</string>
   <string name="uploader_upload_text_filename_hint">Bestandsnaam</string>
   <string name="uploader_upload_camera_upload_files">Camera bestanden worden geupload</string>
   <string name="uploader_upload_available_offline_files">Uploaden van beschikbare offline bestanden</string>
@@ -212,18 +223,7 @@ Download hier: %2$s</string>
   <string name="sync_conflicts_in_favourites_content">%1$d in-synch-houden bestanden konden niet worden gesync\'d</string>
   <string name="sync_fail_in_favourites_ticker">In-sync-houden bestanden mislukt</string>
   <string name="sync_fail_in_favourites_content">Inhoud van %1$d bestanden kon niet worden gesynchroniseerd (%2$d conflicten)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Een paar lokale bestanden werden vergeten</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d bestanden uit de %2$s map konden niet worden gekopieerd naar</string>
-  <string name="sync_foreign_files_forgotten_explanation">Vanaf versie 1.3.16, worden bestanden die vanaf dit apparaat worden ge-uploaded ook gekopieerd naar de lokale %1$s map om gegevensverlies te voorkomen als een enkel bestand wordt gesynchroniseerd met meerdere accounts.
-Door deze aanpassing werden alle bestanden die met een eerdere versie zijn ge-uploaded gekopieerd naar de %2$s map. Maar een fout voorkwam het succesvol afronden van deze actie tijdens het synchroniseren. U kunt de/het bestand(en) laten staan zoals ze nu zijn en de link naar %3$s verwijderen, of u kunt de bestanden verplaatsen naar de %1$s map en de link naar %4$s laten staan.
-Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar verwezen.</string>
   <string name="sync_current_folder_was_removed">Map %1$s bestaat niet meer</string>
-  <string name="foreign_files_move">Alles verplaatsen</string>
-  <string name="foreign_files_success">Alle bestanden zijn verplaatst</string>
-  <string name="foreign_files_fail">Een paar bestanden konden niet worden verplaatst</string>
-  <string name="foreign_files_local_text">Lokaal: %1$s</string>
-  <string name="foreign_files_remote_text">Extern: %1$s</string>
-  <string name="upload_query_move_foreign_files">Er is niet genoeg ruimte om de geselecteerde bestanden te kopieren naar %1$s. Wilt u ze in plaats daarvan verplaatsen? </string>
   <string name="pass_code_enter_pass_code">Voer uw pincode in</string>
   <string name="pass_code_configure_your_pass_code">Invoeren pincode</string>
   <string name="pass_code_configure_your_pass_code_explanation">De pincode wordt elke keer gevraagd bij opstarten van de app</string>
@@ -231,9 +231,13 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="pass_code_remove_your_pass_code">Verwijderen pincode</string>
   <string name="pass_code_mismatch">De pincodes komen niet overeen</string>
   <string name="pass_code_wrong">Onjuiste pincode</string>
-  <string name="pass_code_removed">Pincode verwijderd</string>
-  <string name="pass_code_stored">Pincode opgeslagen</string>
-  <string name="biometric_not_hardware_detected">Dit apparaat ondersteunt geen biometrische authenticatie</string>
+  <string name="numberkeyboard_zero">0</string>
+  <string name="numberkeyboard_one">1</string>
+  <string name="numberkeyboard_two">2</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
+  <string name="numberkeyboard_six">6</string>
   <string name="biometric_not_enrolled">Registreer ten minste één biometrie om deze functie te gebruiken</string>
   <string name="biometric_prompt_title">Biometrisch aanmelden</string>
   <string name="biometric_prompt_subtitle">Aanmelden met uw biometrische gegevens</string>
@@ -281,7 +285,6 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="auth_expired_basic_auth_toast">Voer uw huidige wachtwoord in</string>
   <string name="auth_connecting_auth_server">Verbinden met authenticatieserver...</string>
   <string name="auth_unsupported_auth_method">De server ondersteunt deze authenticatiemethode niet</string>
-  <string name="auth_unsupported_multiaccount">%1$s ondersteunt het gebruik van meerdere accounts niet</string>
   <string name="auth_fail_get_user_name">Uw server geeft geen goede userid terug, neem contact op met uw beheerder
 	</string>
   <string name="auth_can_not_auth_against_server">Kan niet authenticeren tegen deze server</string>
@@ -306,8 +309,7 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="sync_file_fail_msg">Extern bestand kon niet worden gecontroleerd</string>
   <string name="sync_file_nothing_to_do_msg">Bestandsinhoud is al gesynchroniseerd</string>
   <string name="create_dir_fail_msg">Map kon niet worden aangemaakt</string>
-  <string name="filename_forbidden_characters">Verboden tekens: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">De bestandsnaam bevat ten minste één ongeldig teken</string>
+  <string name="filename_forbidden_characters_from_server">De bestandsnaam bevat ten minste één ongeldig teken</string>
   <string name="filename_empty">Bestandsnaam mag niet leeg zijn</string>
   <string name="wait_a_moment">Even geduld</string>
   <string name="wait_checking_credentials">Opgeslagen inloggegevens nakijken</string>
@@ -350,14 +352,11 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Upload afbeeldingen alleen via WiFi</string>
-  <string name="camera_video_upload_on_wifi">Upload videos alleen via WiFi</string>
   <string name="confirmation_disable_camera_uploads_title">Bevestigen</string>
   <string name="confirmation_disable_pictures_upload_message">Weet u zeker dat u deze optie uit wilt schakelen? Klaarstaande afbeeldingen worden niet geuploade</string>
   <string name="confirmation_disable_videos_upload_message">Weet u zeker dat u deze optie uit wilt schakelen? Klaarstaande video’s worden niet geuploade</string>
   <string name="proper_pics_folder_warning_camera_upload">Zorg ervoor dat de map is geselecteerd waar de camera foto\'s opslaat na het opnemen. Anders is deze functionaliteit niet in staat om de foto\'s te detecteren. Houd er rekening mee dat uploaden van video\'s tot 15 minuten kan duren.</string>
   <string name="proper_videos_folder_warning_camera_upload">Zorg ervoor dat de map is geselecteerd waar de camera video\'s opslaat na het opnemen. Anders is deze functionaliteit niet in staat om de video\'s te detecteren. Houd er rekening mee dat uploaden van video\'s tot 15 minuten kan duren.</string>
-  <string name="conflict_title">Bestandsconflict</string>
   <string name="conflict_description">Er is een conflict in bestand %1$s, klik om het op te lossen</string>
   <string name="conflict_message">Welke bestanden wilt u bewaren? Als u beide versies selecteert zal het lokale bestand een nummer aan de naam toegevoegd krijgen.</string>
   <string name="conflict_keep_both">Beide bewaren</string>
@@ -366,7 +365,6 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="preview_image_description">Afbeelding voorbeeld</string>
   <string name="preview_image_error_unknown_format">Deze afbeelding kan niet worden getoond</string>
   <string name="error__upload__local_file_not_copied">%1$s kon niet worden gekopieerd naar de %2$s lokale map</string>
-  <string name="prefs_camera_picture_upload_path_title">Afbeelding upload bestemming</string>
   <string name="get_shares_error">Het was niet mogelijk om de gedeelde bestanden van de server op te halen</string>
   <string name="get_sharees_error">Het was niet mogelijk om gebruikers en groepen van de server op te halen</string>
   <string name="get_capabilities_error">Het was niet mogelijk om de mogelijkheden van de server op te halen</string>
@@ -423,7 +421,6 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="copy_file_error">Er trad een fout op bij uw poging dit bestand of deze map te kopiëren</string>
   <string name="forbidden_permissions_copy">om dit bestand te kopiëren</string>
   <string name="prefs_category_camera_upload">Camera uploads</string>
-  <string name="prefs_camera_video_upload_path_title">Video upload bestemming</string>
   <string name="sync_folder_failed_content">Synchronisatie van map %1$s kon niet worden voltooid</string>
   <string name="shared_subject_header">gedeeld</string>
   <string name="with_you_subject_header">met u</string>
@@ -443,13 +440,11 @@ Hieronder staan de lokale bestanden en de externe bestanden in %5$s waar ze naar
   <string name="file_list__footer__files_and_folders">%1$d bestanden, %2$d mappen</string>
   <string name="prefs_camera_upload_source_path_title">Cameramap (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">vereist</string>
-  <string name="prefs_camera_upload_source_path_title_optional">optioneel</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Origineel bestand zal zijn</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Origineel bestand zal zijn</string>
   <string name="prefs_camera_upload_behaviour_title">Origineel bestand zal zijn</string>
   <string name="upload_copy_files">Kopiëren bestand</string>
   <string name="upload_move_files">Verplaatsen bestand</string>
   <string name="pref_behaviour_entries_keep_file">bewaard in originele map</string>
-  <string name="pref_behaviour_entries_move">verplaatst naar app map</string>
   <string name="share_dialog_title">Deel</string>
   <string name="share_file">Deel %1$s</string>
   <string name="share_with_user_section_title">Gebruikers en Groepen</string>
@@ -487,13 +482,7 @@ Neem contact op met uw beheerder</string>
   <string name="edit_share_done">gedaan</string>
   <string name="action_upload_retry">Opniew</string>
   <string name="action_upload_clear">Opschonen</string>
-  <string name="manage_space_title">Beheer ruimte</string>
-  <string name="manage_space_description">Instellingen, database en servercertificaten van %1$s\'s data zullen permanent worden verwijderd. \n\nGedownloade bestanden blijven onaangeroerd.\n\nDit proces kan even duren.</string>
-  <string name="manage_space_clear_data">Verwijder data</string>
-  <string name="manage_space_error">Sommige bestanden konden niet worden verwijderd</string>
-  <string name="permission_storage_access">Aanvullende permssies vereist voor het uploaden en downloaden van bestanden.</string>
   <string name="local_file_not_found_toast">Het bestand is niet te vinden binnen het lokale bestandssysteem.</string>
-  <string name="confirmation_remove_files_alert">Wilt u werkelijk de geselecteerde onderwerpen verwijderen?</string>
   <string name="confirmation_remove_folders_alert">Wilt u werkelijk de geselecteerde onderwerpen en de inhoud ervan verwijderen?</string>
   <string name="failed_upload_quota_exceeded_text">Niet genoeg ruimte in dit account</string>
   <string name="auth_forbidden">Verboden authenticatie</string>
@@ -518,7 +507,7 @@ Neem contact op met uw beheerder</string>
   <string name="share_via_link_expiration_date_explanation_label">De openbare link vervalt niet eerder dan %1$d dagen na het aanmaken</string>
   <string name="share_via_link_default_name_template">%1$s link</string>
   <string name="share_via_link_empty_password">Het wachtwoord-veld is leeg</string>
-  <string name="private_link_info">Dit is een privélink, alleen mensen met toegang tot het bestand/map kunnen hem gebruiken. Gebruik het als een permanente link voor uwzelf of om andere naar bestanden de wijzen in gedeelde mappen.</string>
+  <string name="private_link_info">Privélink: alleen personen die toegang hebben tot het bestand of de map kunnen deze gebruiken. Gebruik het als een permanente link voor uzelf of om anderen te verwijzen naar bestanden binnen shares.</string>
   <string name="file_private_link_error">Privelink naar dit bestand is niet beschikbaar</string>
   <string name="download_notification_channel_name">Downloads</string>
   <string name="download_notification_channel_description">Zie de bestandsnaam en de voortgang van het bestand dat wordt gedownload</string>
@@ -550,8 +539,20 @@ Neem contact op met uw beheerder</string>
   <string name="welcome_feature_4_text">Uw afbeeldingen/video\'s automatisch uploaden</string>
   <string name="welcome_feature_5_title">Video streaming</string>
   <string name="welcome_feature_5_text">Speel uw video\'s af zonder te downloaden</string>
-  <string name="no_borwser_installed_alert">Geen browser geinstalleerd. Installeer een browser om een veilige login mogelijk te maken.</string>
+  <string name="no_browser_installed_alert">Geen browser geinstalleerd. Installeer een browser om een veilige login mogelijk te maken.</string>
   <string name="common_not_found">Niet gevonden</string>
   <string name="supports_oauth2_error">Het was niet mogelijk om te weten of OAuth2 wordt ondersteund</string>
   <string name="get_base_url_error">Het was niet mogelijk om de basis-URL van de server te kennen</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Pincode slot</string>
+  <string name="folder_upload_some_content_or_sync_devices">Upload bestanden of synchroniseer met uw apparaten!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Ga verder</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Ga verder</string>
+  <!--Open in web-->
+  <!--oCIS accounts warning-->
+  <string name="ocis_accounts_warning_checkbox_message">Toon niet nogmaals</string>
+  <string name="tab_label_ascii">Tekst</string>
 </resources>

@@ -1,7 +1,13 @@
+# Table of Contents
+
+{{ range . -}}
+  * [Changelog for {{ .Version }}](#changelog-for-owncloud-android-client-{{ .Version | replace "." ""}}-{{ .Date | lower -}})
+{{ end -}}
+  * [Changelog for 2.17 versions and below](#changelog-for-217-versions-and-below)
 {{ $allVersions := . }}
 {{- range $index, $changes := . }}{{ with $changes -}}
-Changelog for ownCloud Android Client [{{ .Version }}] ({{ .Date }})
-=======================================
+# Changelog for ownCloud Android Client [{{ .Version }}] ({{ .Date }})
+
 The following sections list the changes in ownCloud Android Client {{ .Version }} relevant to
 ownCloud admins and users.
 
@@ -22,14 +28,12 @@ ownCloud admins and users.
 [{{ .Version }}]: https://github.com/owncloud/android/compare/v2.16...v{{ .Version }}
 {{- end }}
 
-Summary
--------
+## Summary
 {{ range $entry := .Entries }}{{ with $entry }}
 * {{ .Type }} - {{ .Title }}: [#{{ .PrimaryID }}]({{ .PrimaryURL }})
 {{- end }}{{ end }}
 
-Details
--------
+## Details
 {{ range $entry := .Entries }}{{ with $entry }}
 * {{ .Type }} - {{ .Title }}: [#{{ .PrimaryID }}]({{ .PrimaryURL }})
 {{ range $par := .Paragraphs }}
@@ -48,6 +52,7 @@ Details
 {{ end }}{{ end -}}
 
 {{/* Start of old changelog */ -}}
+# Changelog for 2.17 versions and below
 
 ## 2.17 (March 2021)
 - Toolbar redesign
@@ -124,7 +129,7 @@ Details
 - Bug fixes, including:
   + Fix crash when changing orientation in some operations
   + Fix OAuth2 token is not renewed after being revoked
-  + Fix ocasional crash when opening share by link
+  + Fix occasional crash when opening share by link
   + Fix navigation loop in shared by link and Av. Offline options
 
 ## 2.15 beta v2 (May 2020)

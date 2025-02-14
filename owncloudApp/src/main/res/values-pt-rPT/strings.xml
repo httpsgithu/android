@@ -4,7 +4,6 @@
   <string name="global_name">Nome</string>
   <string name="global_date">Data</string>
   <string name="global_size">Tamanho</string>
-  <string name="about_version">Versão %1$s</string>
   <string name="actionbar_search">Procurar esta pasta</string>
   <string name="actionbar_sync">Atualizar conta</string>
   <string name="actionbar_upload">Enviar</string>
@@ -28,12 +27,19 @@
   <string name="drawer_feedback">Opinião</string>
   <string name="drawer_help">Ajuda</string>
   <string name="prefs_category_general">Geral</string>
-  <string name="prefs_category_more">Mais</string>
-  <string name="prefs_category_security">Segurança</string>
+  <string name="prefs_subsection_more">Mais</string>
+  <string name="prefs_subsection_security">Segurança</string>
   <string name="prefs_accounts">Contas</string>
   <string name="prefs_manage_accounts">Gerir contas</string>
   <string name="prefs_passcode">Proteção por código</string>
+  <string name="prefs_lock_application">Bloquear aplicação</string>
+  <string name="prefs_lock_application_entries_1minute">Depois de 1 minuto</string>
+  <string name="prefs_lock_application_entries_5minutes">Depois de 5 minutos</string>
+  <string name="prefs_lock_application_entries_30minutes">Depois de 30 minutos</string>
   <string name="prefs_camera_picture_upload_summary">Carregar automaticamente fotografias tiradas pela camera</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Enviar as imagens apenas via wi-fi</string>
+  <string name="prefs_camera_video_upload_path_title">Caminho do envio de vídeo</string>
+  <string name="prefs_camera_video_upload_on_wifi">Enviar vídeos apenas via wi-fi</string>
   <string name="prefs_log_title">Ativar registo de alterações</string>
   <string name="prefs_log_summary">É utilizado para registar problemas</string>
   <string name="prefs_log_title_history">Histórico de registos de alterações</string>
@@ -45,6 +51,8 @@
   <string name="prefs_imprint">Marca</string>
   <string name="prefs_remember_last_share_location">Lembrar localização de partilha</string>
   <string name="prefs_remember_last_upload_location_summary">Lembrar a última localização de partilha dos carregamentos</string>
+  <string name="prefs_enable_logging">Ativar registo de alterações</string>
+  <string name="prefs_send_feedback">Enviar opinião</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Ficheiros</string>
   <string name="bottom_nav_uploads">Envios</string>
@@ -75,7 +83,6 @@
   <string name="uploader_error_message_source_file_not_found">O ficheiro a enviar não foi encontrado nesta localização. Por favor, verifique se o ficheiro existe.</string>
   <string name="uploader_error_message_source_file_not_copied">Ocorreu um erro durante a cópia do ficheiro para uma pasta temporária. Por favor, tente submeter novamente.</string>
   <string name="file_list_seconds_ago">segundos atrás</string>
-  <string name="file_list_empty">Aqui não existe nada. Envie qualquer coisa!</string>
   <string name="file_list_loading">A carregar...</string>
   <string name="file_list_no_app_for_file_type">Nenhuma aplicação encontrada para o tipo de ficheiro</string>
   <string name="local_file_list_empty">Não existem ficheiros nesta pasta.</string>
@@ -109,7 +116,6 @@
   <string name="common_unknown">desconhecido</string>
   <string name="common_pending">Pendente</string>
   <string name="common_important">Importante</string>
-  <string name="about_title">Sobre</string>
   <string name="change_password">Alterar palavra-passe</string>
   <string name="delete_account">Remover conta</string>
   <string name="create_account">Criar conta</string>
@@ -164,16 +170,7 @@
   <string name="sync_conflicts_in_favourites_content">Não foi possível sincronizar %1$d ficheiros definidos para serem mantidos sincronizados</string>
   <string name="sync_fail_in_favourites_ticker">Falhou a operação de manter os ficheiros sincronizados</string>
   <string name="sync_fail_in_favourites_content">Não foi possível sincronizar o conteúdo de %1$d ficheiros  (%2$d conflitos)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Alguns ficheiros locais ficaram esquecidos</string>
-  <string name="sync_foreign_files_forgotten_content">Não foi possível copiar %1$d ficheiros da pasta %2$s para</string>
-  <string name="sync_foreign_files_forgotten_explanation">A partir da versão 1.3.16, os ficheiros enviados deste dispositivo são copiados para a pasta local %1$s para evitar a perda de dados quando é sincronizado um só ficheiro com várias contas.\n\nDevido a esta alteração, todos os ficheiros enviados nas versões anteriores desta aplicação foram copiados para a pasta %2$s. No entanto, um erro impediu a conclusão desta operação durante a sincronização da conta. Pode deixar o ficheiro(s) como estão e remover a hiperligação para %3$s, ou mover o(s) ficheiro(s) para a pasta %1$s e guardar a hiperligação para %4$s.\n\nEm baixo estão listados os ficheiro(s) locais e remotos em %5$s que foram associados.</string>
   <string name="sync_current_folder_was_removed">A pasta %1$s já não existe</string>
-  <string name="foreign_files_move">Mover todos</string>
-  <string name="foreign_files_success">Foram movidos todos os ficheiros</string>
-  <string name="foreign_files_fail">Não foi possível mover alguns ficheiros</string>
-  <string name="foreign_files_local_text">Local: %1$s</string>
-  <string name="foreign_files_remote_text">Remoto: %1$s</string>
-  <string name="upload_query_move_foreign_files">Não existe espaço suficiente para copiar os ficheiros selecionados para a pasta %1$s. Em vez disso, gostaria de os mover?</string>
   <string name="pass_code_enter_pass_code">Por favor, insira o seu código</string>
   <string name="pass_code_configure_your_pass_code">Insira o seu código</string>
   <string name="pass_code_configure_your_pass_code_explanation">O código será solicitado sempre que a aplicação for iniciada</string>
@@ -181,8 +178,6 @@
   <string name="pass_code_remove_your_pass_code">Remova o seu código</string>
   <string name="pass_code_mismatch">Os códigos não coincidem</string>
   <string name="pass_code_wrong">Código incorreto</string>
-  <string name="pass_code_removed">Código removido</string>
-  <string name="pass_code_stored">Código guardado</string>
   <string name="media_notif_ticker">%1$s reprodutor de música</string>
   <string name="media_state_playing">%1$s (a reproduzir)</string>
   <string name="media_state_loading">%1$s (a carregar)</string>
@@ -226,7 +221,6 @@
   <string name="auth_expired_basic_auth_toast">Por favor, introduza a sua passe actual</string>
   <string name="auth_connecting_auth_server">A ligar ao servidor de autenticação...</string>
   <string name="auth_unsupported_auth_method">O servidor não suporta este método de autenticação</string>
-  <string name="auth_unsupported_multiaccount">%1$s não suporta várias contas</string>
   <string name="auth_fail_get_user_name">O seu servidor não está a devolver a id. correcta, por favor, contacte um administrador.</string>
   <string name="auth_can_not_auth_against_server">Impossível autenticar neste servidor</string>
   <string name="auth_account_does_not_exist">A conta ainda não existe no dispositivo</string>
@@ -249,7 +243,7 @@
   <string name="sync_file_nothing_to_do_msg">O conteúdo do ficheiro já foi sincronizado</string>
   <string name="create_dir_fail_msg">Não foi possível criar a pasta</string>
   <string name="filename_forbidden_characters">Carateres proibidos: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">O nome de ficheiro contém pelo menos um carácter inválido</string>
+  <string name="filename_forbidden_characters_from_server">O nome de ficheiro contém pelo menos um carácter inválido</string>
   <string name="filename_empty">O nome do ficheiro não pode estar vazio.</string>
   <string name="wait_a_moment">Aguarde um momento</string>
   <string name="wait_checking_credentials">Verificando as credenciais guardadas</string>
@@ -291,11 +285,8 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Enviar as imagens apenas via wi-fi</string>
-  <string name="camera_video_upload_on_wifi">Enviar vídeos apenas via wi-fi</string>
   <string name="confirmation_disable_camera_uploads_title">Confirme</string>
-  <string name="conflict_title">Conflito de ficheiro</string>
-  <string name="conflict_message">Quais os ficheiros que pretende manter? Se seleccionar ambas as versões, o ficheiro local irá ter um número adicionado ao seu nome.</string>
+    <string name="conflict_message">Quais os ficheiros que pretende manter? Se seleccionar ambas as versões, o ficheiro local irá ter um número adicionado ao seu nome.</string>
   <string name="conflict_keep_both">Manter ambos</string>
   <string name="conflict_use_local_version">versão local</string>
   <string name="conflict_use_server_version">versão do servidor</string>
@@ -350,7 +341,6 @@
   <string name="copy_file_invalid_overwrite">O ficheiro já existe na pasta de destino</string>
   <string name="copy_file_error">Ocorreu um ocorreu quando tentava copiar este ficheiro ou pasta</string>
   <string name="forbidden_permissions_copy">para copiar este ficheiro</string>
-  <string name="prefs_camera_video_upload_path_title">Caminho do envio de vídeo</string>
   <string name="sync_folder_failed_content">Não foi possível completar a sincronização da pasta %1$s</string>
   <string name="shared_subject_header">partilhado</string>
   <string name="with_you_subject_header">consigo</string>
@@ -370,12 +360,10 @@
   <string name="file_list__footer__files_and_folders">%1$d ficheiros, %2$d pastas</string>
   <string name="prefs_camera_upload_source_path_title">Pasta da Camara (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">obrigatório</string>
-  <string name="prefs_camera_upload_source_path_title_optional">opcional</string>
   <string name="upload_copy_files">Copiar ficheiro</string>
   <string name="upload_move_files">Mover ficheiro</string>
   <string name="pref_behaviour_entries_keep_file">mantido na pasta original</string>
-  <string name="pref_behaviour_entries_move">movido para pasta da aplicação</string>
-  <string name="share_dialog_title">Partilhar</string>
+    <string name="share_dialog_title">Partilhar</string>
   <string name="share_file">Partilhar %1$s</string>
   <string name="share_with_user_section_title">Utilizadores e Grupos</string>
   <string name="share_no_users">Ainda não foram partilhados os dados com os utilizadores</string>
@@ -411,13 +399,7 @@
   <string name="edit_share_done">feito</string>
   <string name="action_upload_retry">Repetir</string>
   <string name="action_upload_clear">Limpar</string>
-  <string name="manage_space_title">Gerir espaço</string>
-  <string name="manage_space_description">As configurações, base de dados e certificados de servidor dos dados de %1$s serão eliminados para sempre. \n\nOs ficheiros transferidos serão mantidos.\n\nEste processo pode demorar algum tempo.</string>
-  <string name="manage_space_clear_data">Limpar dados</string>
-  <string name="manage_space_error">Alguns ficheiros não podem ser apagados.</string>
-  <string name="permission_storage_access">São necessárias permissões adicionais para enviar e transferir ficheiros.</string>
   <string name="local_file_not_found_toast">O ficheiro não foi encontrado no sistema de ficheiros local</string>
-  <string name="confirmation_remove_files_alert">Tem a certeza que deseja remover os items selecionados?</string>
   <string name="confirmation_remove_folders_alert">Tem a certeza que deseja remover os items selecionados e os seus respetivos conteúdos?</string>
   <string name="failed_upload_quota_exceeded_text">Não existe espaço suficiente na conta</string>
   <string name="auth_forbidden">Autenticação não permitida</string>
@@ -441,6 +423,7 @@
   <string name="share_via_link_expiration_date_enforced_label">Expiração *</string>
   <string name="share_via_link_expiration_date_explanation_label">A hiperligação pública irá expirar, o mais tardar %1$d dias após a sua criação </string>
   <string name="share_via_link_default_name_template">%1$s hiperligação</string>
+  <string name="private_link_info">Hiperligação privada: apenas as pessoas que têm acesso ao ficheiro / pasta podem usá-la. Use-a como uma ligação permanente para si mesmo ou para apontar outros para os ficheiros dentro das partilhas</string>
   <string name="download_notification_channel_name">Transferências</string>
   <string name="upload_notification_channel_name">Carregamentos</string>
   <string name="media_service_notification_channel_name">Reprodutor de música</string>
@@ -453,4 +436,6 @@
   </plurals>
   <!--Welcome to oC intro features-->
   <string name="welcome_feature_skip_button">Ignorar</string>
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Proteção por código</string>
 </resources>

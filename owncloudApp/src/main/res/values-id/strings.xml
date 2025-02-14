@@ -4,8 +4,6 @@
   <string name="global_name">Nama</string>
   <string name="global_date">Tanggal</string>
   <string name="global_size">Ukuran</string>
-  <string name="about_android">%1$suntuk Android</string>
-  <string name="about_version">Versi %1$s</string>
   <string name="actionbar_search">Cari folder ini</string>
   <string name="actionbar_sync">Segarkan akun</string>
   <string name="actionbar_upload">Unggah</string>
@@ -18,6 +16,7 @@
   <string name="actionbar_send_file">Kirim</string>
   <string name="actionbar_descending">Turun</string>
   <string name="actionbar_sort_title">Urutan</string>
+  <string name="fab_new_file">Dokumen Baru</string>
   <string name="drawer_item_all_files">Semua berkas</string>
   <string name="drawer_item_only_available_offline">Tersedia offline</string>
   <string name="drawer_item_shared_by_link_files">Dibagikan dengan tautan</string>
@@ -32,21 +31,32 @@
   <string name="drawer_feedback">Umpan balik</string>
   <string name="drawer_help">Bantuan</string>
   <string name="prefs_category_general">Umum</string>
-  <string name="prefs_category_more">Lainnya</string>
-  <string name="prefs_category_security">Keamanan</string>
+  <string name="prefs_subsection_logging">Masuk</string>
+  <string name="prefs_subsection_more">Lainnya</string>
+  <string name="prefs_subsection_security">Keamanan</string>
   <string name="prefs_accounts">Akun</string>
   <string name="prefs_manage_accounts">Kelola akun</string>
   <string name="prefs_passcode">Kunci kode sandi</string>
   <string name="prefs_biometric">Kunci biometrik</string>
   <string name="prefs_biometric_summary">Aktifkan kode sandi atau kunci pola untuk mengaktifkan opsi ini</string>
+  <string name="prefs_lock_application">Kunci aplikasi</string>
+  <string name="prefs_lock_application_entries_1minute">Setelah 1 menit</string>
+  <string name="prefs_lock_application_entries_5minutes">Setelah 5 menit</string>
+  <string name="prefs_lock_application_entries_30minutes">Setelah 30 menit</string>
   <string name="prefs_touches_with_other_visible_windows">Bersentuhan dengan jendela lainnya</string>
   <string name="prefs_touches_with_other_visible_windows_summary">Perbolehkan sentuhan ketika penglihatan dikaburkan oleh jendela lain yang terlihat. Aktifkanlah untuk menggunakan aplikasi penyaring cahaya.</string>
   <string name="confirmation_touches_with_other_windows_title">Anda yakin ingin mengaktifkan fitur ini?</string>
   <string name="confirmation_touches_with_other_windows_message">Gunakan feature ini dibawah tanggungjawab anda sendiri, aplikasi yang mencurigakan dapat mencoba untuk mengganggu anda untuk melakukan tindakan, tanpa disadari, menggunakan pandangan lain.</string>
   <string name="prefs_camera_picture_upload">Unggah gambar</string>
   <string name="prefs_camera_picture_upload_summary">Otomatis unggah gambar yang diambil kamera</string>
+  <string name="prefs_camera_picture_upload_path_title">Jalur unggah gambar</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Unggah gambar hanya melalui WiFi</string>
   <string name="prefs_camera_video_upload">Unggahan video</string>
   <string name="prefs_camera_video_upload_summary">Unggah video yang direkam secara otomatis oleh kamera</string>
+  <string name="prefs_camera_video_upload_path_title">Jalur unggah video</string>
+  <string name="prefs_camera_video_upload_on_wifi">Unggah video hanya melalui WiFi</string>
+  <string name="prefs_subsection_advanced">Lanjutan</string>
+  <string name="prefs_show_hidden_files">Tampilkan berkas tersembunyi</string>
   <string name="prefs_log_title">Aktifkan pencatatan</string>
   <string name="prefs_log_summary">Ini digunakan untuk mencatat masalah</string>
   <string name="prefs_log_title_history">History pencatatan</string>
@@ -61,26 +71,25 @@
   <string name="prefs_remember_last_share_location">Ingat lokasi berbagi</string>
   <string name="prefs_remember_last_upload_location_summary">Ingat lokasi unggahan berbagi terakhir</string>
   <string name="prefs_pattern">Kunci pola</string>
+  <string name="prefs_enable_logging">Aktifkan pencatatan</string>
   <string name="pattern_enter_pattern">Silakan masukkan pola Anda</string>
   <string name="pattern_configure_pattern">Masukkan pola Anda</string>
   <string name="pattern_remove_pattern">Hapus pola Anda</string>
   <string name="pattern_incorrect_pattern">Pola yang salah</string>
   <string name="pattern_reenter_pattern">Harap masukkan kembali pola Anda</string>
   <string name="pattern_not_same_pattern">Pola tidak sama</string>
-  <string name="pattern_stored">Pola Disimpan</string>
-  <string name="pattern_removed">Pola Dihapus</string>
   <string name="pattern_already_set">Pola dan kunci kode sandi tidak dapat diaktifkan pada saat yang sama, harap nonaktifkan pola terlebih dahulu</string>
   <string name="passcode_already_set">Pola dan kunci kode sandi tidak dapat diaktifkan secara bersamaan, harap nonaktifkan kode sandi terlebih dahulu</string>
   <string name="pattern_no_longer_required">Pola tidak akan ditanyakan lagi</string>
   <string name="pattern_configure_your_pattern_explanation">Pola akan diminta setiap kali aplikasi dimulai</string>
-  <string name="pass_code_locked">Dikunci dengan sandi</string>
-  <string name="pattern_locked">Dikunci dengan pola</string>
   <string name="illegal_argument_exception_message">AKSI yang sah dibutuhkan dalam maksud melewati ke </string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Berkas</string>
+  <string name="bottom_nav_personal">Pribadi</string>
   <string name="bottom_nav_uploads">Unggah</string>
   <string name="bottom_nav_offline">Putus jaringan</string>
   <string name="bottom_nav_links">Tautan</string>
+  <string name="bottom_nav_shares">Dibagikan</string>
   <string name="recommend_subject">Cobalah %1$s pada ponsel cerdas Anda!</string>
   <string name="recommend_text">Saya mengajak Anda untuk menggunakan %1$s di ponsel cerdas Anda!\nUnduh gratis disini: %2$s</string>
   <string name="error_reason">karena</string>
@@ -110,9 +119,10 @@
   <string name="uploader_error_message_source_file_not_found">Berkas yang diunggah tidak ditemukan. Silakan periksa apakah terdapat berkas</string>
   <string name="uploader_error_message_source_file_not_copied">Terjadi kesalahan saat menyalin berkas ke folder. Coba lagi</string>
   <string name="file_list_seconds_ago">beberapa detik yang lalu</string>
-  <string name="file_list_empty">Tidak ada apa-apa di sini. Unggah sesuatu!</string>
-  <string name="file_list_empty_available_offline">Tidak ada file offline yang tersedia.</string>
-  <string name="file_list_empty_shared_by_links">Tidak ada file yang dibagikan dengan tautan.</string>
+  <string name="file_list_empty_title_all_files">Tidak ada berkas disini</string>
+  <string name="file_list_empty_title_shared_by_links">Tidak ada tautan berbagi</string>
+  <string name="file_list_empty_subtitle_all_files">Unggah beberapa konten dan sinkronisasikan dengan perangkat Anda!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Berkas dan folder yang Anda bagikan menggunakan tautan akan ditampilkan disini</string>
   <string name="file_list_loading">Memuat...</string>
   <string name="file_list_no_app_for_file_type">Tidak ditemukan aplikasi untuk membaca berkas</string>
   <string name="local_file_list_empty">Tidak ada satupun berkas dalam folder ini.</string>
@@ -129,6 +139,7 @@
   <string name="filedetails_size">Ukuran:</string>
   <string name="filedetails_type">Tipe:</string>
   <string name="filedetails_created">Dibuat:</string>
+  <string name="filedetails_last_sync">Sinkronisasi terakhir:</string>
   <string name="filedetails_modified">Diubah:</string>
   <string name="filedetails_download">Unduh</string>
   <string name="filedetails_sync_file">Sinkronisasi</string>
@@ -148,7 +159,6 @@
   <string name="common_error_unknown">Kesalahan tidak diketahui</string>
   <string name="common_pending">Tertunda</string>
   <string name="common_important">Penting</string>
-  <string name="about_title">Tentang</string>
   <string name="change_password">Ubah sandi</string>
   <string name="delete_account">Hapus akun</string>
   <string name="create_account">Buat akun</string>
@@ -211,16 +221,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d berkas kept-in-sync tidak dapat disinkronkan</string>
   <string name="sync_fail_in_favourites_ticker">Berkas kept-in-sync gagal</string>
   <string name="sync_fail_in_favourites_content">Konten berkas %1$d tidak dapat disinkronasikan (%2$d konflik)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Beberapa berkas lokal terlupakan</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d berkas diluar folder %2$s tidak dapat disalin kedalamnya</string>
-  <string name="sync_foreign_files_forgotten_explanation">Sejak versi  1.3.16, berkas-berkas yang diunggah dari perangkat ini akan disalin kedalam folder %1$s lokal untuk mencagah kehilangan data saat berkas tunggal disinkronkan dengan akun lebih dari satu.\n\nAkibat perubahan ini, semua berkas yang diunggah di versi aplikasi sebelumnya disalin kedalam folder %2$s. Namun, sebuah kesalahan mencegah penyelesaian operasi ini saat sinkronisasi akun. Anda boleh meninggalkan berkas seperti ini dan menghapus tautan ke %3$s atau memindahkan berkas kedalam folder %1$s dan membiarkan tautan ke %4$s.\n\nYang tampak dibawah adalah berkas lokal, dan berkas remote didalam %5$s yang dihubungkan dengannya.</string>
   <string name="sync_current_folder_was_removed">Folder %1$s tidak ada lagi</string>
-  <string name="foreign_files_move">Pindahkan semua</string>
-  <string name="foreign_files_success">Semua berkas sudah dipindahkan</string>
-  <string name="foreign_files_fail">Beberapa berkas tidak dapat dipindahkan</string>
-  <string name="foreign_files_local_text">Lokal: %1$s</string>
-  <string name="foreign_files_remote_text">Remote: %1$s</string>
-  <string name="upload_query_move_foreign_files">Tidak cukup ruang untuk menyalin berkas terpilih ke dalam folder %1$s. Apakah anda mau memindahkannya saja?</string>
   <string name="pass_code_enter_pass_code">Masukkan passcode anda</string>
   <string name="pass_code_configure_your_pass_code">Masukkan kode sandi Anda</string>
   <string name="pass_code_configure_your_pass_code_explanation">Kode sandi akan diminta setiap kali apl dijalankan.</string>
@@ -228,9 +229,9 @@
   <string name="pass_code_remove_your_pass_code">Hapus kode sandi Anda</string>
   <string name="pass_code_mismatch">Kode sandi tidak sama</string>
   <string name="pass_code_wrong">Kode sandi salah</string>
-  <string name="pass_code_removed">Kode sandi dihapus</string>
-  <string name="pass_code_stored">Kode sandi disimpan</string>
-  <string name="biometric_not_hardware_detected">Gawai Anda tidak mendukung otentikasi biometrik</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="biometric_not_enrolled">Daftar dengan setidaknya satu biometrik untuk menggunakan fitur ini</string>
   <string name="biometric_prompt_title">Masuk dengan biometrik</string>
   <string name="media_notif_ticker">Pemutar musik %1$s</string>
@@ -277,7 +278,6 @@
   <string name="auth_expired_basic_auth_toast">Masukkan password</string>
   <string name="auth_connecting_auth_server">Menyambung ke penyedia otentikasi ...</string>
   <string name="auth_unsupported_auth_method">Server tidak mendukung medote otentikasi ini</string>
-  <string name="auth_unsupported_multiaccount">%1$s tidak mendukung banyak akun </string>
   <string name="auth_fail_get_user_name">Server Anda tidak membalas id pengguna dengan banar, Sialakn hubungi Administrator
 	</string>
   <string name="auth_can_not_auth_against_server">Tidak dapat mengotentikasi server ini</string>
@@ -300,8 +300,7 @@
   <string name="sync_file_fail_msg">Berkas jauh tidak dapat diperiksa</string>
   <string name="sync_file_nothing_to_do_msg">Isi berkas sudah diselaraskan</string>
   <string name="create_dir_fail_msg">Folder tidak dapat dibuat</string>
-  <string name="filename_forbidden_characters">Karakter yang dilarang: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Nama berkas berisi setidaknya satu karakter yang tidak sah</string>
+  <string name="filename_forbidden_characters_from_server">Nama berkas berisi setidaknya satu karakter yang tidak sah</string>
   <string name="filename_empty">Nama berkas tidak boleh kosong</string>
   <string name="wait_a_moment">Tunggu sebentar</string>
   <string name="wait_checking_credentials">Mengecek kredensial yang disimpan</string>
@@ -344,14 +343,11 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">18/05/2012 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Unggah gambar hanya melalui WiFi</string>
-  <string name="camera_video_upload_on_wifi">Unggah video hanya melalui WiFi</string>
   <string name="confirmation_disable_camera_uploads_title">Memastikan</string>
   <string name="confirmation_disable_pictures_upload_message">Anda yakin ingin menonaktifkan fitur ini? Gambar yang tertunda tidak akan diunggah</string>
   <string name="confirmation_disable_videos_upload_message">Anda yakin ingin menonaktifkan feature ini? Video yang tertunda tidak akan diunggah</string>
   <string name="proper_pics_folder_warning_camera_upload">Mohon pastikan folder yang dipilih adalah tempat dimana kamera Anda menyimpan gambar-gambar yang diambil. Jika tidak, feature ini tidak akan bisa mendeteksi gambar-gambar anda. Ingat bahwa gambar akan diunggah setidaknya 15 menit setelah diambil.</string>
   <string name="proper_videos_folder_warning_camera_upload">Mohon pastikan folder yang dipilih adalah tempat kamera anda menyimpan video yang direkam. Jika tidak, feature ini tidak akan dapat mendeteksi video anda. Mohon diingat bahwa video akan diunggah setidaknya 15 menit setelah merekam.</string>
-  <string name="conflict_title">Berkas konflik</string>
   <string name="conflict_description">Terdapat konflik dalam data %1$s, ketuk untuk menyelesaikan</string>
   <string name="conflict_message">Berkas mana yang ingin Anda simpan? Jika Anda memilih kedua versi, berkas lokal akan memiliki angka yang ditambahkan pada namanya.</string>
   <string name="conflict_keep_both">Biarkan keduannya</string>
@@ -360,7 +356,6 @@
   <string name="preview_image_description">Pratilik gambar</string>
   <string name="preview_image_error_unknown_format">Gambar ini tidak dapat ditampilkan</string>
   <string name="error__upload__local_file_not_copied">%1$s tidak dapat disalin ke folder lokal %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">Jalur unggah gambar</string>
   <string name="share_link_no_support_share_api">Maaf, berbagi tidak diaktifkan pada server Anda. Silakan hubungi
 		administrator Anda.</string>
   <string name="share_link_password_title">Masukkan sandi</string>
@@ -411,7 +406,6 @@
   <string name="copy_file_error">Terjadi kesalahan ketika mencoba menyalin berkas atau folder ini</string>
   <string name="forbidden_permissions_copy">untuk menyalin berkas ini</string>
   <string name="prefs_category_camera_upload">Unggahan kamera</string>
-  <string name="prefs_camera_video_upload_path_title">Jalur unggah video</string>
   <string name="sync_folder_failed_content">Sinkronisasi dari folder %1$s tidak dapat diselesaikan</string>
   <string name="shared_subject_header">dibagikan</string>
   <string name="with_you_subject_header">kepada Anda</string>
@@ -431,13 +425,11 @@
   <string name="file_list__footer__files_and_folders">%1$d berkas, %2$d folder</string>
   <string name="prefs_camera_upload_source_path_title">Folder kamera (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">Diperlukan</string>
-  <string name="prefs_camera_upload_source_path_title_optional">Pilihan</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">File asli akan di</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">File asli akan di</string>
   <string name="prefs_camera_upload_behaviour_title">File asli akan di</string>
   <string name="upload_copy_files">Salin file</string>
   <string name="upload_move_files">Pindahkan file</string>
   <string name="pref_behaviour_entries_keep_file">Disimpan dalam folder asli</string>
-  <string name="pref_behaviour_entries_move">Pindah ke folder aplikasi</string>
   <string name="share_dialog_title">Bagikan</string>
   <string name="share_file">Bagikan %1$s</string>
   <string name="share_with_user_section_title">Pengguna dan Kelompok</string>
@@ -474,14 +466,7 @@
   <string name="edit_share_done">Selesai</string>
   <string name="action_upload_retry">Ulangi</string>
   <string name="action_upload_clear">Bersihkan</string>
-  <string name="manage_space_title">Kelola ruang </string>
-  <string name="manage_space_description">Pengaturan, basisdata dan sertifikat server dari %1$s data akan dihapus permanen.
-\n\nBerkas terunduh tidak akan terhapus.\n\nProses dapat memakan waktu.</string>
-  <string name="manage_space_clear_data">Membersihkan data</string>
-  <string name="manage_space_error">Beberapa berkas tidak dapat dihapus.</string>
-  <string name="permission_storage_access">Izin tambahan diperlukan untuk mengunggah &amp; amp; Download file</string>
   <string name="local_file_not_found_toast">Berkas tidak ditemukan di lokal sistem</string>
-  <string name="confirmation_remove_files_alert">Apakah anda yakin ingin menghapus item terpilih?</string>
   <string name="confirmation_remove_folders_alert">Apakah anda yakin ingin menghapus item terpilih beserta isinya?</string>
   <string name="failed_upload_quota_exceeded_text">Tidak terdapat cukup ruang di akun</string>
   <string name="auth_forbidden">Otentikasi terlarang</string>
@@ -505,7 +490,6 @@
   <string name="share_via_link_expiration_date_enforced_label">Kadaluwarsa</string>
   <string name="share_via_link_expiration_date_explanation_label">Tautan publik akan kadaluwarsa tidak lebih dari %1$d hari setelah dibuat</string>
   <string name="share_via_link_default_name_template">%1$s tautan</string>
-  <string name="private_link_info">Ini adalah tautan privat, hanya orang yang punya akses ke berkas/ folder dapat menggunakannya. Gunakan sebagai tautan permanen untuk diri sendiri, atau arahkan kepada lainnya untuk file yang dibagi</string>
   <string name="file_private_link_error">Tautan pribadi tidak tersedia untuk file ini</string>
   <string name="download_notification_channel_name">Unduh</string>
   <string name="download_notification_channel_description">Lihat nama file unduhan dan kemajuan</string>
@@ -536,5 +520,16 @@
   <string name="welcome_feature_4_text">Gambar / video Anda diunggah secara otomatis</string>
   <string name="welcome_feature_5_title">Streaming video</string>
   <string name="welcome_feature_5_text">Putar video Anda tanpa mengunduhnya</string>
-  <string name="no_borwser_installed_alert">Tidak ada browser yang diinstal. Silakan instal Browser untuk memperbolehkan login yang aman.</string>
+  <string name="no_browser_installed_alert">Tidak ada browser yang diinstal. Silakan instal Browser untuk memperbolehkan login yang aman.</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Kunci kode sandi</string>
+  <string name="folder_upload_some_content_or_sync_devices">Unggah beberapa konten dan sinkronisasikan dengan perangkat Anda!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Melanjutkan</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Melanjutkan</string>
+  <!--Open in web-->
+  <!--oCIS accounts warning-->
+  <string name="tab_label_ascii">Teks</string>
 </resources>

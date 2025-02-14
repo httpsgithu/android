@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_android">Android-aplikaĵo %1$s</string>
-  <string name="about_version">eldono %1$s</string>
   <string name="actionbar_sync">Freŝigi konton</string>
   <string name="actionbar_upload">Alŝuti dosieron</string>
   <string name="actionbar_upload_from_apps">Enhavo el aliaj aplikaĵoj</string>
@@ -20,8 +18,8 @@
   <string name="drawer_open">Malfermi</string>
   <string name="drawer_help">Helpo</string>
   <string name="prefs_category_general">Ĝeneralo</string>
-  <string name="prefs_category_more">Pli</string>
-  <string name="prefs_category_security">Sekuro</string>
+  <string name="prefs_subsection_more">Pli</string>
+  <string name="prefs_subsection_security">Sekuro</string>
   <string name="prefs_accounts">Kontoj</string>
   <string name="prefs_manage_accounts">Administri kontojn</string>
   <string name="prefs_log_delete_history_button">Forviŝi historion</string>
@@ -38,7 +36,6 @@
   <string name="uploader_wrn_no_account_setup_btn_text">Agordi</string>
   <string name="uploader_wrn_no_account_quit_btn_text">Forlasi</string>
   <string name="file_list_seconds_ago">sekundoj antaŭe</string>
-  <string name="file_list_empty">Nenio estas ĉi tie. Alŝutu ion!</string>
   <string name="file_list_loading">Ŝargante…</string>
   <string name="local_file_list_empty">Estas neniu dosiero en ĉi tiu dosierujo.</string>
   <string name="file_list_folder">dosierujo</string>
@@ -63,8 +60,7 @@
   <string name="common_unknown">nekonata</string>
   <string name="common_error_unknown">Nekonata eraro</string>
   <string name="common_pending">Traktotaj</string>
-  <string name="about_title">Pri</string>
-  <string name="change_password">Ŝanĝi la pasvorton</string>
+    <string name="change_password">Ŝanĝi la pasvorton</string>
   <string name="delete_account">Forigi konton</string>
   <string name="create_account">Krei konton</string>
   <string name="upload_chooser_title">Alŝuti dosieron el…</string>
@@ -103,14 +99,8 @@
   <string name="sync_conflicts_in_favourites_content">%1$d ade sinkronigataj dosieroj ne povis sinkroniĝi</string>
   <string name="sync_fail_in_favourites_ticker">Malsukcesis ada sinkronigo de dosieroj</string>
   <string name="sync_fail_in_favourites_content">Enhavoj de %1$d dosieroj ne povis sinkroniĝi (%2$d konfliktas)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Iuj lokaj dosieroj forgesiĝis</string>
-  <string name="sync_current_folder_was_removed">La dosierujo %1$s ne plu ekzistas</string>
-  <string name="foreign_files_move">Movi ĉion</string>
-  <string name="foreign_files_success">Ĉiuj dosieroj moviĝis</string>
-  <string name="foreign_files_fail">Iuj dosieroj ne povis moviĝi</string>
-  <string name="foreign_files_local_text">Loka: %1$s</string>
-  <string name="foreign_files_remote_text">Fora: %1$s</string>
-  <string name="media_state_playing">%1$s (ludanta)</string>
+    <string name="sync_current_folder_was_removed">La dosierujo %1$s ne plu ekzistas</string>
+    <string name="media_state_playing">%1$s (ludanta)</string>
   <string name="media_state_loading">%1$s (ŝarganta)</string>
   <string name="media_err_not_in_owncloud">Dosiero ne estas en valida konto</string>
   <string name="auth_getting_authorization">Ekhavante rajtigon…</string>
@@ -130,7 +120,6 @@
   <string name="auth_unauthorized">Malĝusta uzantonomo aŭ pasvorto</string>
   <string name="auth_oauth_error">Malsukcesa rajtigo</string>
   <string name="auth_unsupported_auth_method">La servilo ne kongruas kun ĉi tiu aŭtentiga metodo</string>
-  <string name="auth_unsupported_multiaccount">%1$s ne subtenas plurajn kontojn</string>
   <string name="auth_account_does_not_exist">Konto ankoraŭ ne ekzistas en la aparato</string>
   <string name="common_rename">Alinomigi</string>
   <string name="common_remove">Forigi</string>
@@ -147,7 +136,7 @@
   <string name="sync_file_nothing_to_do_msg">Dosierenhavoj jam sinkroniĝis</string>
   <string name="create_dir_fail_msg">Dosiero ne povis kreiĝi</string>
   <string name="filename_forbidden_characters">Malpermesataj signoj: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Dosiernomo enhavas almenaŭ unu nevalidan signon</string>
+  <string name="filename_forbidden_characters_from_server">Dosiernomo enhavas almenaŭ unu nevalidan signon</string>
   <string name="filename_empty">Dosieronomo ne povas malpleni</string>
   <string name="wait_a_moment">Atendu momenton</string>
   <string name="filedisplay_unexpected_bad_get_content">Neatendita problemo; bonvolu provi alian aplikaĵon por elekti la dosieron</string>
@@ -240,13 +229,12 @@
   <string name="file_list__footer__files">%1$d dosieroj</string>
   <string name="file_list__footer__files_and_folder">%1$d dosieroj, 1 dosierujo</string>
   <string name="file_list__footer__files_and_folders">%1$d dosieroj, %2$d dosierujoj</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Origina dosiero estos…</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Origina dosiero estos…</string>
   <string name="prefs_camera_upload_behaviour_title">Origina dosiero estos…</string>
   <string name="upload_copy_files">Kopii dosieron</string>
   <string name="upload_move_files">Movi dosieron</string>
   <string name="pref_behaviour_entries_keep_file">konservita en origina dosierujo</string>
-  <string name="pref_behaviour_entries_move">movita al aplikaĵa dosierujo</string>
-  <string name="share_dialog_title">Kunhavigi</string>
+    <string name="share_dialog_title">Kunhavigi</string>
   <string name="share_no_users">Nenio da datumoj kunhaviĝis kun uzantoj ankoraŭ</string>
   <string name="share_add_user_or_group">Aldoni uzanton aŭ grupon</string>
   <string name="share_cancel_public_link_button">Nuligi</string>
@@ -265,7 +253,4 @@
   <string name="share_privilege_can_edit_delete">forigi</string>
   <string name="edit_share_unshare">Ĉesi kunhavigi</string>
   <string name="edit_share_done">farita</string>
-  <string name="manage_space_title">Administri spacon</string>
-  <string name="manage_space_clear_data">Forviŝi datumojn</string>
-  <string name="manage_space_error">Kelkaj dosieroj ne povis foriĝi.</string>
 </resources>

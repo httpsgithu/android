@@ -1,11 +1,14 @@
-/**
+/*
  * ownCloud Android client application
  *
  * @author LukeOwncloud
  * @author David A. Velasco
  * @author masensio
  * @author Christian Schabesberger
- * Copyright (C) 2020 ownCloud GmbH.
+ * @author Juan Carlos Garrote Gascón
+ * @author Aitor Ballesteros Pavón
+ *
+ * Copyright (C) 2024 ownCloud GmbH.
  * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,
@@ -19,53 +22,45 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.owncloud.android.ui.activity;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.IBinder;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 
 import androidx.fragment.app.FragmentTransaction;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.owncloud.android.R;
-import com.owncloud.android.authentication.AccountUtils;
-import com.owncloud.android.datamodel.OCUpload;
-import com.owncloud.android.datamodel.UploadsStorageManager;
-import com.owncloud.android.db.UploadResult;
-import com.owncloud.android.files.services.FileUploader;
-import com.owncloud.android.files.services.FileUploader.FileUploaderBinder;
-import com.owncloud.android.files.services.TransferRequester;
 import com.owncloud.android.lib.common.operations.RemoteOperation;
 import com.owncloud.android.lib.common.operations.RemoteOperationResult;
 import com.owncloud.android.operations.CheckCurrentCredentialsOperation;
-import com.owncloud.android.ui.fragment.UploadListFragment;
+import com.owncloud.android.presentation.authentication.AccountUtils;
+import com.owncloud.android.presentation.transfers.TransferListFragment;
+import com.owncloud.android.presentation.transfers.TransfersViewModel;
 import com.owncloud.android.utils.MimetypeIconUtil;
+import kotlin.Lazy;
+import org.jetbrains.annotations.NotNull;
 import timber.log.Timber;
 
 import java.io.File;
 
+import static org.koin.java.KoinJavaComponent.inject;
+
 /**
- * Activity listing pending, active, and completed uploads. User can delete
- * completed uploads from view. Content of this list of coming from
- * {@link UploadsStorageManager}.
+ * Activity listing pending, active, failed and completed uploads. User can delete
+ * completed and failed uploads from view.
  */
-public class UploadListActivity extends FileActivity implements UploadListFragment.ContainerActivity {
+public class UploadListActivity extends FileActivity {
 
     private static final String TAG_UPLOAD_LIST_FRAGMENT = "UPLOAD_LIST_FRAGMENT";
 
-    private UploadMessagesReceiver mUploadMessagesReceiver;
-
-    private LocalBroadcastManager mLocalBroadcastManager;
+    @NotNull Lazy<TransfersViewModel> transfersViewModelLazy = inject(TransfersViewModel.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +71,13 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
         View rightFragmentContainer = findViewById(R.id.right_fragment_container);
         rightFragmentContainer.setVisibility(View.GONE);
 
-        // this activity has no file really bound, it's for mulitple accounts at the same time; should no inherit
+        // this activity has no file really bound, it's for multiple accounts at the same time; should no inherit
         // from FileActivity; moreover, some behaviours inherited from FileActivity should be delegated to Fragments;
         // but that's other story
         setFile(null);
 
         // setup toolbar
-        setupRootToolbar(getString(R.string.uploads_view_title), false);
+        setupRootToolbar(getString(R.string.uploads_view_title), false, false);
 
         // setup drawer
         setupDrawer();
@@ -94,60 +89,14 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
         if (savedInstanceState == null) {
             createUploadListFragment();
         } // else, the Fragment Manager makes the job on configuration changes
-
-        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
     }
 
     private void createUploadListFragment() {
-        UploadListFragment uploadList = new UploadListFragment();
+        //UploadListFragment uploadList = new UploadListFragment();
+        TransferListFragment uploadList = new TransferListFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.left_fragment_container, uploadList, TAG_UPLOAD_LIST_FRAGMENT);
         transaction.commit();
-    }
-
-    @Override
-    protected void onResume() {
-        Timber.v("onResume() start");
-        super.onResume();
-
-        // Listen for upload messages
-        mUploadMessagesReceiver = new UploadMessagesReceiver();
-        IntentFilter uploadIntentFilter = new IntentFilter();
-        uploadIntentFilter.addAction(FileUploader.getUploadsAddedMessage());
-        uploadIntentFilter.addAction(FileUploader.getUploadStartMessage());
-        uploadIntentFilter.addAction(FileUploader.getUploadFinishMessage());
-        mLocalBroadcastManager.registerReceiver(mUploadMessagesReceiver, uploadIntentFilter);
-
-        Timber.v("onResume() end");
-    }
-
-    @Override
-    protected void onPause() {
-        Timber.v("onPause() start");
-        if (mUploadMessagesReceiver != null) {
-            mLocalBroadcastManager.unregisterReceiver(mUploadMessagesReceiver);
-            mUploadMessagesReceiver = null;
-        }
-        super.onPause();
-        Timber.v("onPause() end");
-    }
-
-    // ////////////////////////////////////////
-    // UploadListFragment.ContainerActivity
-    // ////////////////////////////////////////
-    @Override
-    public boolean onUploadItemClick(OCUpload file) {
-        /// TODO is this path still active?
-        File f = new File(file.getLocalPath());
-        if (!f.exists()) {
-            showSnackMessage(
-                    getString(R.string.local_file_not_found_toast)
-            );
-
-        } else {
-            openFileWithDefault(file.getLocalPath());
-        }
-        return true;
     }
 
     /**
@@ -181,13 +130,10 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
                     this,
                     data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME)
             );
-            TransferRequester requester = new TransferRequester();
-            requester.retryFailedUploads(
-                    this,
-                    account,
-                    UploadResult.CREDENTIAL_ERROR,
-                    false
-            );
+            if (account == null) {
+                return;
+            }
+            transfersViewModelLazy.getValue().retryUploadsForAccount(account.name);
         }
     }
 
@@ -198,7 +144,7 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
     @Override
     public void onRemoteOperationFinish(RemoteOperation operation, RemoteOperationResult result) {
         if (operation instanceof CheckCurrentCredentialsOperation) {
-            // Do not call super in this case; more refactoring needed around onRemoteOeprationFinish :'(
+            // Do not call super in this case; more refactoring needed around onRemoteOperationFinish :'(
             getFileOperationsHelper().setOpIdWaitingFor(Long.MAX_VALUE);
             dismissLoadingDialog();
             Account account = ((RemoteOperationResult<Account>) result).getData();
@@ -208,68 +154,11 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
 
             } else {
                 // already updated -> just retry!
-                TransferRequester requester = new TransferRequester();
-                requester.retryFailedUploads(this, account, UploadResult.CREDENTIAL_ERROR, false);
+                transfersViewModelLazy.getValue().retryUploadsForAccount(account.name);
             }
 
         } else {
             super.onRemoteOperationFinish(operation, result);
-        }
-    }
-
-    @Override
-    protected ServiceConnection newTransferenceServiceConnection() {
-        return new UploadListServiceConnection();
-    }
-
-    /**
-     * Defines callbacks for service binding, passed to bindService()
-     */
-    private class UploadListServiceConnection implements ServiceConnection {
-
-        @Override
-        public void onServiceConnected(ComponentName component, IBinder service) {
-            if (service instanceof FileUploaderBinder) {
-                if (mUploaderBinder == null) {
-                    mUploaderBinder = (FileUploaderBinder) service;
-                    Timber.d("UploadListActivity connected to Upload service. component: " + component + " service: " + service);
-                    // Say to UploadListFragment that the Binder is READY in the Activity
-                    UploadListFragment uploadListFragment =
-                            (UploadListFragment) getSupportFragmentManager().findFragmentByTag(TAG_UPLOAD_LIST_FRAGMENT);
-                    if (uploadListFragment != null) {
-                        uploadListFragment.binderReady();
-                    }
-                } else {
-                    Timber.d("mUploaderBinder already set. mUploaderBinder: " +
-                            mUploaderBinder + " service:" + service);
-                }
-            } else {
-                Timber.d("UploadListActivity not connected to Upload service. component: " + component + " service: " + service);
-            }
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName component) {
-            if (component.equals(new ComponentName(UploadListActivity.this, FileUploader.class))) {
-                Timber.d("UploadListActivity suddenly disconnected from Upload service");
-                mUploaderBinder = null;
-            }
-        }
-    }
-
-    /**
-     * Once the file upload has changed its status -> update uploads list view
-     */
-    private class UploadMessagesReceiver extends BroadcastReceiver {
-        /**
-         * {@link BroadcastReceiver} to enable syncing feedback in UI
-         */
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            UploadListFragment uploadListFragment =
-                    (UploadListFragment) getSupportFragmentManager().findFragmentByTag(TAG_UPLOAD_LIST_FRAGMENT);
-
-            uploadListFragment.updateUploads();
         }
     }
 
@@ -284,4 +173,23 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
         }
     }
 
+    // The main_menu won't be displayed
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+            if (findViewById(R.id.owncloud_app_bar).hasFocus()) {
+                boolean nonEmptyView = findViewById(R.id.left_fragment_container).requestFocus();
+                if (!nonEmptyView) {
+                    findViewById(R.id.bottom_nav_view).requestFocus();
+                }
+                return true;
+            }
+        }
+        return super.onKeyUp(keyCode, event);
+    }
 }

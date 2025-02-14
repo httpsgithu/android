@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ListItemLayout"
     android:layout_width="match_parent"
     android:orientation="horizontal"
@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/standard_half_padding"
     android:paddingBottom="@dimen/standard_half_padding"
     android:filterTouchesWhenObscured="true"
-    >
+    android:baselineAligned="false">
 
     <FrameLayout
         android:layout_width="60dp"
@@ -21,7 +21,8 @@
             android:layout_width="@dimen/file_icon_size"
             android:layout_height="@dimen/file_icon_size"
             android:layout_gravity="center"
-            android:src="@drawable/ic_menu_archive" />
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_menu_archive" />
 
     </FrameLayout>
 
@@ -41,7 +42,7 @@
             android:ellipsize="middle"
             android:singleLine="true"
             android:textColor="@color/textColor"
-            android:text="@string/placeholder_filename"
+            tools:text="@string/placeholder_filename"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -56,7 +57,7 @@
                 android:textColor="@color/list_item_lastmod_and_filesize_text"
                 android:ellipsize="middle"
                 android:singleLine="true"
-                android:text="@string/placeholder_filesize"
+                tools:text="@string/placeholder_filesize"
                 android:textSize="12sp" />
 
             <TextView
@@ -64,9 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/list_item_lastmod_and_filesize_text"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:text="@string/placeholder_timestamp"
+                tools:text="@string/placeholder_timestamp"
                 android:textSize="12sp" />
 
             <TextView
@@ -74,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/list_item_lastmod_and_filesize_text"
-                android:text="@string/uploads_view_upload_status_succeeded"
+                tools:text="@string/uploads_view_upload_status_succeeded"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -92,17 +91,14 @@
             android:layout_height="wrap_content"
             android:textColor="@color/list_item_lastmod_and_filesize_text"
             android:singleLine="true"
-            android:text="@string/auth_username"
-            android:textSize="12dip" />
+            tools:text="@string/auth_username"
+            android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/upload_remote_path"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/list_item_lastmod_and_filesize_text"
-            android:ellipsize="middle"
-            android:singleLine="true"
-            android:textSize="12dip" />
+        <include
+            android:id="@+id/space_path_line"
+            layout="@layout/space_path_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -112,7 +108,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:layout_gravity="center_vertical"
-        android:paddingStart="8dp"
+        android:paddingHorizontal="8dp"
         >
 
         <ImageButton

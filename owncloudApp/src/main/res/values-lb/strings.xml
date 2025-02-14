@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_android">%1$s Android-App </string>
-  <string name="about_version">Versioun %1$s</string>
   <string name="actionbar_sync">Kont opfrëschen</string>
   <string name="actionbar_upload">Eroplueden</string>
   <string name="actionbar_upload_from_apps">Contenu aus aneren Appen</string>
@@ -20,8 +18,8 @@
   <string name="drawer_feedback">Feedback</string>
   <string name="drawer_help">Hëllef</string>
   <string name="prefs_category_general">Allgemeng</string>
-  <string name="prefs_category_more">Méi</string>
-  <string name="prefs_category_security">Sécherheet</string>
+  <string name="prefs_subsection_more">Méi</string>
+  <string name="prefs_subsection_security">Sécherheet</string>
   <string name="prefs_accounts">Konten</string>
   <string name="prefs_manage_accounts">Konte geréieren</string>
   <string name="prefs_passcode">Passwuert gespaart</string>
@@ -58,7 +56,6 @@
   <string name="uploader_error_message_read_permission_not_granted">%1$s huet keng Erlaabnis fir den erhalene Fichier ze liesen</string>
   <string name="uploader_error_message_source_file_not_copied">Beim Kopéiere vun dësem Fichier op den temporäre Dossier ass e Feeler opgetrueden. Wann ech gelift versicht et nach eng Kéier ze schécken.</string>
   <string name="file_list_seconds_ago">Sekonnen hier</string>
-  <string name="file_list_empty">Hei ass näischt. Lued eppes erop!</string>
   <string name="file_list_loading">Et gëtt gelueden</string>
   <string name="local_file_list_empty">Et gi keng Fichieren fir dësen Dossier.</string>
   <string name="upload_list_empty">Keng Uploads verfügbar.</string>
@@ -86,8 +83,7 @@
   <string name="common_loading">Et gëtt gelueden …</string>
   <string name="common_unknown">Onbekannt</string>
   <string name="common_error_unknown">Onbekannte Feeler</string>
-  <string name="about_title">Iwwer</string>
-  <string name="change_password">Passwuert änneren</string>
+    <string name="change_password">Passwuert änneren</string>
   <string name="delete_account">De Kont läschen</string>
   <string name="create_account">Kont uleeën</string>
   <string name="upload_chooser_title">Eropluede vun … </string>
@@ -131,23 +127,14 @@
   <string name="sync_fail_content">Synchronisatioun vun %1$s konnt net ofgeschloss ginn</string>
   <string name="sync_fail_content_unauthorized">Ongëltegt Passwuert fir %1$s</string>
   <string name="sync_conflicts_in_favourites_ticker">Konflikter fonnt</string>
-  <string name="sync_foreign_files_forgotten_ticker">Verschidde lokal Fichiere goufe vergiess</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d Fichieren aus dem Dossier %2$s konnten net kopéiert ginn</string>
-  <string name="sync_current_folder_was_removed">Den Dossier %1$s existéiert net méi</string>
-  <string name="foreign_files_move">All réckelen</string>
-  <string name="foreign_files_success">All d\'Fichiere goufe geréckelt</string>
-  <string name="foreign_files_fail">Verschidde Fichiere konnten net geréckelt ginn</string>
-  <string name="foreign_files_local_text">Lokal: %1$s</string>
-  <string name="foreign_files_remote_text">Um Server: %1$s</string>
-  <string name="pass_code_enter_pass_code">Gëff w.e.g. däi Passwuert an</string>
+    <string name="sync_current_folder_was_removed">Den Dossier %1$s existéiert net méi</string>
+    <string name="pass_code_enter_pass_code">Gëff w.e.g. däi Passwuert an</string>
   <string name="pass_code_configure_your_pass_code">Passwuert aginn</string>
   <string name="pass_code_configure_your_pass_code_explanation">D\'Passwuert gëtt all Kéiers gefrot wann d\'App gestart gëtt</string>
   <string name="pass_code_reenter_your_pass_code">Gëff w.e.g. däi Passwuert nach emol an</string>
   <string name="pass_code_remove_your_pass_code">D\'Passwuert läschen</string>
   <string name="pass_code_mismatch">D\'Passwierder sinn net d\'selwecht</string>
   <string name="pass_code_wrong">Ongëltegt Passwuert</string>
-  <string name="pass_code_removed">Passwuert geläscht</string>
-  <string name="pass_code_stored">Passwuert gespeichert</string>
   <string name="media_notif_ticker">%1$s Musek-Programm</string>
   <string name="media_state_playing">%1$s (spillt of)</string>
   <string name="media_state_loading">%1$s (lued)</string>
@@ -191,7 +178,6 @@
   <string name="auth_expired_basic_auth_toast">W.e.g dat aktuellt Passwuert aginn</string>
     <string name="auth_connecting_auth_server">Verbanne mam Authentifizéier-Server</string>
   <string name="auth_unsupported_auth_method">De Server ënnerstëtzt dës Authentifizéierungsmethod net</string>
-  <string name="auth_unsupported_multiaccount">%1$s ënnerstëtzt keng multipel Konten</string>
   <string name="auth_fail_get_user_name">Däi Server schéckt keng korrekt Benotzer ID zeréck, w.e.g. kontaktéier däin Administrateur</string>
   <string name="auth_account_does_not_exist">De Konto gëtt et net op dësem Gerät</string>
   <string name="set_available_offline">Offline als verfügbar uweisen</string>
@@ -211,7 +197,7 @@
   <string name="sync_file_nothing_to_do_msg">Fichiersinhalter scho synchroniséiert</string>
   <string name="create_dir_fail_msg">Dossier konnt net ugeluecht ginn</string>
   <string name="filename_forbidden_characters">Verbueden Zeechen:  / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Den Numm vum Fichier entält min. een ongültegz Zeechen</string>
+  <string name="filename_forbidden_characters_from_server">Den Numm vum Fichier entält min. een ongültegz Zeechen</string>
   <string name="filename_empty">De Fichiersnumm kann net eidel sinn</string>
   <string name="wait_a_moment">Waart ee Moment</string>
   <string name="filedisplay_unexpected_bad_get_content">Onerwaarte Problem ; w.e.g. wiel de Fichier aus enger anerer App eraus</string>
@@ -251,10 +237,9 @@
   <string name="placeholder_filesize">389kB</string>
   <string name="placeholder_timestamp">18.05.2012 12:23</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">D\'Biller nëmmen iwwer WiFi eroplueden</string>
-  <string name="camera_video_upload_on_wifi">D\'Videoen nëmmen iwwer WiFi eroplueden</string>
-  <string name="conflict_title">Fichier-Konflikt</string>
-  <string name="conflict_message">Wéi eng Fichiere wëlls de halen? Wann s de déi zwou Versiounen auswiels kritt d\' kopéierte Fichier eng Nummer bei den Numm derbäi gesat</string>
+  <string name="prefs_camera_picture_upload_on_wifi">D\'Biller nëmmen iwwer WiFi eroplueden</string>
+  <string name="prefs_camera_video_upload_on_wifi">D\'Videoen nëmmen iwwer WiFi eroplueden</string>
+    <string name="conflict_message">Wéi eng Fichiere wëlls de halen? Wann s de déi zwou Versiounen auswiels kritt d\' kopéierte Fichier eng Nummer bei den Numm derbäi gesat</string>
   <string name="conflict_keep_both">Béid halen</string>
   <string name="conflict_use_local_version">Lokal Versioun</string>
   <string name="conflict_use_server_version">Server Versioun</string>
@@ -322,13 +307,12 @@
   <string name="file_list__footer__files">%1$d Fichieren</string>
   <string name="file_list__footer__files_and_folder">1 Fichier, %1$d Dossieren</string>
   <string name="file_list__footer__files_and_folders">%1$d Fichieren, %2$d Dossieren</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Den original Fichier gëtt …</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Den original Fichier gëtt …</string>
   <string name="prefs_camera_upload_behaviour_title">Den original Fichier gëtt …</string>
   <string name="upload_copy_files">Fichier kopéieren</string>
   <string name="upload_move_files">Fichier réckelen</string>
   <string name="pref_behaviour_entries_keep_file">Am original Dossier gehalen</string>
-  <string name="pref_behaviour_entries_move">An den App Fichier geréckelt</string>
-  <string name="share_dialog_title">Deelen</string>
+    <string name="share_dialog_title">Deelen</string>
   <string name="share_file">%1$s deelen</string>
   <string name="share_no_users">Nach keng Donnéeë mat Benotzer gedeelt</string>
   <string name="share_add_user_or_group">Benotzer oder Grupp bäisetzen</string>
@@ -350,7 +334,5 @@
   <string name="share_privilege_can_edit_delete">läschen</string>
   <string name="edit_share_unshare">Deelen ophalen</string>
   <string name="edit_share_done">gemaacht</string>
-  <string name="manage_space_clear_data">Donnéeë läschen</string>
-  <string name="manage_space_error">Verschidde Fichiere konnten net geläscht ginn.</string>
   <string name="local_file_not_found_toast">De Fichier konnt net am lokale Fichier System fonnt ginn</string>
 </resources>

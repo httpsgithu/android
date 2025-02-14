@@ -37,13 +37,20 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
+import com.owncloud.android.domain.files.model.OCFile;
+import com.owncloud.android.domain.files.usecases.DisableThumbnailsForFileUseCase;
+import com.owncloud.android.domain.files.usecases.GetWebDavUrlForSpaceUseCase;
+import com.owncloud.android.domain.spaces.model.SpaceSpecial;
 import com.owncloud.android.lib.common.OwnCloudAccount;
 import com.owncloud.android.lib.common.OwnCloudClient;
 import com.owncloud.android.lib.common.SingleSessionManager;
+import com.owncloud.android.lib.common.accounts.AccountUtils;
 import com.owncloud.android.lib.common.http.HttpConstants;
 import com.owncloud.android.lib.common.http.methods.nonwebdav.GetMethod;
 import com.owncloud.android.ui.adapter.DiskLruImageCache;
 import com.owncloud.android.utils.BitmapUtils;
+import kotlin.Lazy;
+import org.jetbrains.annotations.NotNull;
 import timber.log.Timber;
 
 import java.io.File;
@@ -51,6 +58,8 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.util.Locale;
+
+import static org.koin.java.KoinJavaComponent.inject;
 
 /**
  * Manager for concurrent access to thumbnails cache.
@@ -68,7 +77,8 @@ public class ThumbnailsCacheManager {
     private static final int mCompressQuality = 70;
     private static OwnCloudClient mClient = null;
 
-    private static final String PREVIEW_URI = "%s/remote.php/dav/files/%s%s?x=%d&y=%d&c=%s&preview=1";
+    private static final String PREVIEW_URI = "%s%s?x=%d&y=%d&c=%s&preview=1";
+    private static final String SPACE_SPECIAL_URI = "%s?scalingup=0&a=1&x=%d&y=%d&c=%s&preview=1";
 
     public static Bitmap mDefaultImg =
             BitmapFactory.decodeResource(
@@ -149,14 +159,9 @@ public class ThumbnailsCacheManager {
         private Object mFile;
         private FileDataStorageManager mStorageManager;
 
-        public ThumbnailGenerationTask(ImageView imageView, FileDataStorageManager storageManager,
-                                       Account account) {
+        public ThumbnailGenerationTask(ImageView imageView, Account account) {
             // Use a WeakReference to ensure the ImageView can be garbage collected
             mImageViewReference = new WeakReference<>(imageView);
-            if (storageManager == null) {
-                throw new IllegalArgumentException("storageManager must not be NULL");
-            }
-            mStorageManager = storageManager;
             mAccount = account;
         }
 
@@ -185,6 +190,8 @@ public class ThumbnailsCacheManager {
                     thumbnail = doOCFileInBackground();
                 } else if (mFile instanceof File) {
                     thumbnail = doFileInBackground();
+                } else if (mFile instanceof SpaceSpecial) {
+                    thumbnail = doSpaceImageInBackground();
                     //} else {  do nothing
                 }
 
@@ -206,9 +213,11 @@ public class ThumbnailsCacheManager {
                 if (this == bitmapWorkerTask) {
                     String tagId = "";
                     if (mFile instanceof OCFile) {
-                        tagId = String.valueOf(((OCFile) mFile).getFileId());
+                        tagId = String.valueOf(((OCFile) mFile).getId());
                     } else if (mFile instanceof File) {
                         tagId = String.valueOf(mFile.hashCode());
+                    } else if (mFile instanceof SpaceSpecial) {
+                        tagId = ((SpaceSpecial) mFile).getId();
                     }
                     if (String.valueOf(imageView.getTag()).equals(tagId)) {
                         imageView.setImageBitmap(bitmap);
@@ -251,10 +260,18 @@ public class ThumbnailsCacheManager {
         }
 
         private String getPreviewUrl(OCFile ocFile, Account account) {
+            String baseUrl = mClient.getBaseUri() + "/remote.php/dav/files/" + AccountUtils.getUserId(account, MainApp.Companion.getAppContext());
+
+            if (ocFile.getSpaceId() != null) {
+                Lazy<GetWebDavUrlForSpaceUseCase> getWebDavUrlForSpaceUseCaseLazy = inject(GetWebDavUrlForSpaceUseCase.class);
+                baseUrl = getWebDavUrlForSpaceUseCaseLazy.getValue().invoke(
+                        new GetWebDavUrlForSpaceUseCase.Params(ocFile.getOwner(), ocFile.getSpaceId())
+                );
+
+            }
             return String.format(Locale.ROOT,
                     PREVIEW_URI,
-                    mClient.getBaseUri(),
-                    account.name.split("@")[0],
+                    baseUrl,
                     Uri.encode(ocFile.getRemotePath(), "/"),
                     getThumbnailDimension(),
                     getThumbnailDimension(),
@@ -270,40 +287,44 @@ public class ThumbnailsCacheManager {
             Bitmap thumbnail = getBitmapFromDiskCache(imageKey);
 
             // Not found in disk cache
-            if (thumbnail == null || file.needsUpdateThumbnail()) {
+            if (thumbnail == null || file.getNeedsToUpdateThumbnail()) {
 
                 int px = getThumbnailDimension();
 
-                    // Download thumbnail from server
-                    if (mClient != null) {
-                        GetMethod get;
-                        try {
-                            String uri = getPreviewUrl(file, mAccount);
-                            Timber.d("URI: %s", uri);
-                            get = new GetMethod(new URL(uri));
-                            int status = mClient.executeHttpMethod(get);
-                            if (status == HttpConstants.HTTP_OK) {
-                                InputStream inputStream = get.getResponseBodyAsStream();
-                                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                                thumbnail = ThumbnailUtils.extractThumbnail(bitmap, px, px);
+                // Download thumbnail from server
+                if (mClient != null) {
+                    GetMethod get;
+                    try {
+                        String uri = getPreviewUrl(file, mAccount);
+                        Timber.d("URI: %s", uri);
+                        get = new GetMethod(new URL(uri));
+                        int status = mClient.executeHttpMethod(get);
+                        if (status == HttpConstants.HTTP_OK) {
+                            InputStream inputStream = get.getResponseBodyAsStream();
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                            thumbnail = ThumbnailUtils.extractThumbnail(bitmap, px, px);
 
-                                // Handle PNG
-                                if (file.getMimetype().equalsIgnoreCase("image/png")) {
-                                    thumbnail = handlePNG(thumbnail, px);
-                                }
-
-                                // Add thumbnail to cache
-                                if (thumbnail != null) {
-                                    addBitmapToCache(imageKey, thumbnail);
-                                }
-                            } else {
-                                mClient.exhaustResponse(get.getResponseBodyAsStream());
+                            // Handle PNG
+                            if (file.getMimeType().equalsIgnoreCase("image/png")) {
+                                thumbnail = handlePNG(thumbnail, px);
                             }
-                        } catch (Exception e) {
-                            Timber.e(e);
+
+                            // Add thumbnail to cache
+                            if (thumbnail != null) {
+                                addBitmapToCache(imageKey, thumbnail);
+                            }
+                        } else {
+                            mClient.exhaustResponse(get.getResponseBodyAsStream());
                         }
+                        if (status == HttpConstants.HTTP_OK || status == HttpConstants.HTTP_NOT_FOUND) {
+                            @NotNull Lazy<DisableThumbnailsForFileUseCase> disableThumbnailsForFileUseCaseLazy = inject(DisableThumbnailsForFileUseCase.class);
+                            disableThumbnailsForFileUseCaseLazy.getValue().invoke(new DisableThumbnailsForFileUseCase.Params(file.getId()));
+                        }
+                    } catch (Exception e) {
+                        Timber.e(e);
                     }
                 }
+            }
 
             return thumbnail;
 
@@ -344,6 +365,64 @@ public class ThumbnailsCacheManager {
             return thumbnail;
         }
 
+        private String getSpaceSpecialUri(SpaceSpecial spaceSpecial) {
+            // Converts dp to pixel
+            Resources r = MainApp.Companion.getAppContext().getResources();
+            Integer spacesThumbnailSize = Math.round(r.getDimension(R.dimen.spaces_thumbnail_height)) * 2;
+            return String.format(Locale.ROOT,
+                    SPACE_SPECIAL_URI,
+                    spaceSpecial.getWebDavUrl(),
+                    spacesThumbnailSize,
+                    spacesThumbnailSize,
+                    spaceSpecial.getETag());
+        }
+
+        private Bitmap doSpaceImageInBackground() {
+            SpaceSpecial spaceSpecial = (SpaceSpecial) mFile;
+
+            final String imageKey = spaceSpecial.getId();
+
+            // Check disk cache in background thread
+            Bitmap thumbnail = getBitmapFromDiskCache(imageKey);
+
+            // Not found in disk cache
+            if (thumbnail == null) {
+                int px = getThumbnailDimension();
+
+                // Download thumbnail from server
+                if (mClient != null) {
+                    GetMethod get;
+                    try {
+                        String uri = getSpaceSpecialUri(spaceSpecial);
+                        Timber.d("URI: %s", uri);
+                        get = new GetMethod(new URL(uri));
+                        int status = mClient.executeHttpMethod(get);
+                        if (status == HttpConstants.HTTP_OK) {
+                            InputStream inputStream = get.getResponseBodyAsStream();
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                            thumbnail = ThumbnailUtils.extractThumbnail(bitmap, px, px);
+
+                            // Handle PNG
+                            if (spaceSpecial.getFile().getMimeType().equalsIgnoreCase("image/png")) {
+                                thumbnail = handlePNG(thumbnail, px);
+                            }
+
+                            // Add thumbnail to cache
+                            if (thumbnail != null) {
+                                addBitmapToCache(imageKey, thumbnail);
+                            }
+                        } else {
+                            mClient.exhaustResponse(get.getResponseBodyAsStream());
+                        }
+                    } catch (Exception e) {
+                        Timber.e(e);
+                    }
+                }
+            }
+
+            return thumbnail;
+
+        }
     }
 
     public static boolean cancelPotentialThumbnailWork(Object file, ImageView imageView) {

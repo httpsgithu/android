@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_android">%1$s Android app</string>
-  <string name="about_version">verzija %1$s</string>
   <string name="actionbar_sync">Osvježi račun</string>
   <string name="actionbar_upload">Učitaj</string>
   <string name="actionbar_upload_from_apps">Sadržaj iz drugih aplikacija</string>
@@ -21,8 +19,8 @@
   <string name="drawer_feedback">Povratna informacija</string>
   <string name="drawer_help">Pomoć</string>
   <string name="prefs_category_general">Općenito</string>
-  <string name="prefs_category_more">više</string>
-  <string name="prefs_category_security">Sigurnost</string>
+  <string name="prefs_subsection_more">više</string>
+  <string name="prefs_subsection_security">Sigurnost</string>
   <string name="prefs_accounts">Korisnički računi</string>
   <string name="prefs_manage_accounts">Upravljaj računima</string>
   <string name="prefs_passcode">Zaključavanje zaporkom</string>
@@ -60,7 +58,6 @@
   <string name="uploader_error_message_source_file_not_found">Datoteka za slanje nije nađena na njezinoj lokaciji. Molimo provjeri da li datoteka postoji.</string>
   <string name="uploader_error_message_source_file_not_copied">Za vrijeme kopiranja datoteke u priveremenu mapu desila se greška. Molimo probaj poslati ponovo.</string>
   <string name="file_list_seconds_ago">prije par sekundi</string>
-  <string name="file_list_empty">Nema ničega u ovoj mapi. Pošalji nešto!</string>
   <string name="file_list_loading">Učitavanje…</string>
   <string name="file_list_no_app_for_file_type">Nije nađena aplikacija za ovaj tip datoteke</string>
   <string name="local_file_list_empty">Nema datoteka u ovoj mapi</string>
@@ -92,8 +89,7 @@
   <string name="common_unknown">nepoznato</string>
   <string name="common_error_unknown">Nepoznata pogreška</string>
   <string name="common_pending">Na čekanju</string>
-  <string name="about_title">O</string>
-  <string name="change_password">Izmjena lozinke</string>
+    <string name="change_password">Izmjena lozinke</string>
   <string name="delete_account">Izbriši račun</string>
   <string name="create_account">Kreiraj račun</string>
   <string name="upload_chooser_title">Pošalji od:</string>

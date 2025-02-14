@@ -36,15 +36,16 @@ import android.widget.TextView;
 
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.FileDataStorageManager;
-import com.owncloud.android.datamodel.OCFile;
 import com.owncloud.android.datamodel.ThumbnailsCacheManager;
 import com.owncloud.android.datamodel.ThumbnailsCacheManager.AsyncThumbnailDrawable;
 import com.owncloud.android.db.PreferenceManager;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.extensions.VectorExtKt;
 import com.owncloud.android.utils.DisplayUtils;
 import com.owncloud.android.utils.FileStorageUtils;
 import com.owncloud.android.utils.MimetypeIconUtil;
 import com.owncloud.android.utils.PreferenceUtils;
+import com.owncloud.android.utils.SortFilesUtils;
 
 import java.util.Vector;
 
@@ -58,14 +59,18 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
     private LayoutInflater mInflater;
     private OnSearchQueryUpdateListener mOnSearchQueryUpdateListener;
 
+    private Boolean mShowHiddenFiles;
+
     public ReceiveExternalFilesAdapter(Context context,
                                        FileDataStorageManager storageManager,
-                                       Account account) {
+                                       Account account,
+                                       boolean showHiddenFiles) {
         mStorageManager = storageManager;
         mContext = context;
         mInflater = (LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mAccount = account;
+        mShowHiddenFiles = showHiddenFiles;
         if (mContext instanceof OnSearchQueryUpdateListener) {
             mOnSearchQueryUpdateListener = (OnSearchQueryUpdateListener) mContext;
         }
@@ -86,8 +91,18 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
     }
 
     public void setNewItemVector(Vector<OCFile> newItemVector) {
-        mFiles = newItemVector;
-        mImmutableFilesList = (Vector<OCFile>) mFiles.clone();
+        mFiles.clear();
+        for (OCFile file : newItemVector) {
+            if (!mShowHiddenFiles) {
+                if (!file.getFileName().startsWith(".")) {
+                    mFiles.add(file);
+                }
+            } else {
+                mFiles.add(file);
+            }
+        }
+        mImmutableFilesList.clear();
+        mImmutableFilesList.addAll(mFiles);
         notifyDataSetChanged();
     }
 
@@ -96,7 +111,7 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
         if (mFiles == null || position < 0 || position >= mFiles.size()) {
             return -1;
         } else {
-            return mFiles.get(position).getFileId();
+            return mFiles.get(position).getId();
         }
     }
 
@@ -118,7 +133,7 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
         filename.setText(file.getFileName());
 
         ImageView fileIcon = vi.findViewById(R.id.thumbnail);
-        fileIcon.setTag(file.getFileId());
+        fileIcon.setTag(file.getId());
 
         TextView lastModV = vi.findViewById(R.id.last_mod);
         lastModV.setText(DisplayUtils.getRelativeTimestamp(mContext, file.getModificationTimestamp()));
@@ -128,7 +143,7 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
 
         fileSizeV.setVisibility(View.VISIBLE);
         fileSizeSeparatorV.setVisibility(View.VISIBLE);
-        fileSizeV.setText(DisplayUtils.bytesToHumanReadable(file.getFileLength(), mContext));
+        fileSizeV.setText(DisplayUtils.bytesToHumanReadable(file.getLength(), mContext, true));
 
         // get Thumbnail if file is image
         if (file.isImage() && file.getRemoteId() != null) {
@@ -136,14 +151,13 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
             Bitmap thumbnail = ThumbnailsCacheManager.getBitmapFromDiskCache(
                     String.valueOf(file.getRemoteId())
             );
-            if (thumbnail != null && !file.needsUpdateThumbnail()) {
+            if (thumbnail != null && !file.getNeedsToUpdateThumbnail()) {
                 fileIcon.setImageBitmap(thumbnail);
             } else {
                 // generate new Thumbnail
                 if (ThumbnailsCacheManager.cancelPotentialThumbnailWork(file, fileIcon)) {
                     final ThumbnailsCacheManager.ThumbnailGenerationTask task =
-                            new ThumbnailsCacheManager.ThumbnailGenerationTask(fileIcon, mStorageManager,
-                                    mAccount);
+                            new ThumbnailsCacheManager.ThumbnailGenerationTask(fileIcon, mAccount);
                     if (thumbnail == null) {
                         thumbnail = ThumbnailsCacheManager.mDefaultImg;
                     }
@@ -158,7 +172,7 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
             }
         } else {
             fileIcon.setImageResource(
-                    MimetypeIconUtil.getFileTypeIconId(file.getMimetype(), file.getFileName())
+                    MimetypeIconUtil.getFileTypeIconId(file.getMimeType(), file.getFileName())
             );
         }
         return vi;
@@ -170,8 +184,11 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
         FileStorageUtils.mSortOrderFileDisp = order;
         FileStorageUtils.mSortAscendingFileDisp = isAscending;
         if (mFiles != null && mFiles.size() > 0) {
-            FileStorageUtils.sortFolder((Vector<OCFile>) mFiles,
-                    FileStorageUtils.mSortOrderFileDisp, FileStorageUtils.mSortAscendingFileDisp);
+            new SortFilesUtils().sortFiles(
+                    (Vector<OCFile>) mFiles,
+                    FileStorageUtils.mSortOrderFileDisp,
+                    FileStorageUtils.mSortAscendingFileDisp
+            );
         }
         notifyDataSetChanged();
     }
@@ -180,12 +197,11 @@ public class ReceiveExternalFilesAdapter extends BaseAdapter implements ListAdap
         clearFilterBySearch();
         VectorExtKt.filterByQuery(mFiles, query);
 
-        if (mFiles.isEmpty()) {
+        if (mFiles.isEmpty() && !query.isEmpty()) {
             mOnSearchQueryUpdateListener.updateEmptyListMessage(
                     mContext.getString(R.string.local_file_list_search_with_no_matches));
-        }
-        else {
-            mOnSearchQueryUpdateListener.updateEmptyListMessage(mContext.getString(R.string.empty));
+        } else {
+            mOnSearchQueryUpdateListener.updateEmptyListMessage(mContext.getString(R.string.file_list_empty_title_all_files));
         }
 
         notifyDataSetChanged();

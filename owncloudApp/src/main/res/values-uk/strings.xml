@@ -4,8 +4,6 @@
   <string name="global_name">Ім’я</string>
   <string name="global_date">Дата</string>
   <string name="global_size">Розмір</string>
-  <string name="about_android">%1$s для Android</string>
-  <string name="about_version">Версія %1$s</string>
   <string name="actionbar_search">Пошук в цій теці</string>
   <string name="actionbar_sync">Оновити обліковий запис</string>
   <string name="actionbar_upload">Відвантажити</string>
@@ -32,17 +30,40 @@
   <string name="drawer_feedback">Зворотній зв\'язок</string>
   <string name="drawer_help">Допомога</string>
   <string name="prefs_category_general">Основне</string>
-  <string name="prefs_category_more">Більше</string>
-  <string name="prefs_category_security">Безпека</string>
+  <string name="prefs_subsection_logging">Ведення журналу </string>
+  <string name="prefs_subsection_more">Більше</string>
+  <string name="prefs_subsection_security">Безпека</string>
+  <string name="prefs_subsection_whatsnew">Що нового в останній версії?</string>
+  <string name="prefs_subsection_security_summary">Встановити блокування для доступу до додатку та дозволити взаємодію з іншими видимими ​​вікнами</string>
+  <string name="prefs_subsection_logging_summary">Відстежувати журнали, створені під час виконання додатку</string>
+  <string name="prefs_subsection_more_summary">Інформація про додаток, відгуки та інше</string>
   <string name="prefs_accounts">Облікові записи</string>
   <string name="prefs_manage_accounts">Управління обліковими записами</string>
   <string name="prefs_passcode">Захистити паролем</string>
+  <string name="prefs_biometric">Біометричне блокування</string>
   <string name="prefs_biometric_summary">Увімкніть блокування паролем або графічним ключем щоб увімкнути це налаштування</string>
+  <string name="prefs_lock_application">Заблокувати додаток</string>
+  <string name="prefs_lock_application_entries_immediately">Негайно</string>
+  <string name="prefs_lock_application_entries_1minute">Через 1 хвилину</string>
+  <string name="prefs_lock_application_entries_5minutes">Через 5 хвилин</string>
+  <string name="prefs_lock_application_entries_30minutes">Через 30 хвилин</string>
+  <string name="prefs_touches_with_other_visible_windows">Взаємодія з іншими відкритими вікнами</string>
   <string name="confirmation_touches_with_other_windows_title">Ви впевнені, що хочете включити цю функцію?</string>
+  <string name="prefs_subsection_video_uploads_summary">Керуйте місцеперебуванням та поведінкою відео, завантажених автоматично</string>
   <string name="prefs_camera_picture_upload">Завантаження зображень</string>
   <string name="prefs_camera_picture_upload_summary">Автоматично завантажувати зображення з камери</string>
+  <string name="prefs_camera_picture_upload_path_title">Шлях для завантаження зображень</string>
+  <string name="prefs_camera_picture_upload_conditions_title">Умови для виконання завантаження</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Завантажувати картинки лише за наявності WiFi</string>
+  <string name="prefs_camera_picture_upload_on_charging">Завантажте зображення лише при зарядці</string>
+  <string name="prefs_camera_upload_on_charging_summary">Увімкніть лише завантаження по Wi-Fi для активації цієї опції</string>
   <string name="prefs_camera_video_upload">Завантаження відео</string>
   <string name="prefs_camera_video_upload_summary">Автоматично завантажувати відео з камери</string>
+  <string name="prefs_camera_video_upload_path_title">Шлях для завантаження відео</string>
+  <string name="prefs_camera_video_upload_on_wifi">Завантажувати відео лише за наявності WiFi</string>
+  <string name="prefs_camera_video_upload_on_charging">Завантажте відео лише при зарядці</string>
+  <string name="prefs_subsection_advanced">Додатково</string>
+  <string name="prefs_show_hidden_files">Показати приховані файли</string>
   <string name="prefs_log_title">Увімкнути ведення журналу</string>
   <string name="prefs_log_summary">Використовується для реєстрації помилок</string>
   <string name="prefs_log_title_history">Історія журналювання</string>
@@ -57,14 +78,18 @@
   <string name="prefs_remember_last_share_location">Запам\'ятати позицію</string>
   <string name="prefs_remember_last_upload_location_summary">Запам\'ятати останній опублікований шлях завантаження</string>
   <string name="prefs_pattern">Графічний ключ</string>
+  <string name="prefs_enable_logging">Увімкнути ведення журналу</string>
+  <string name="prefs_send_feedback">Відправити відгук</string>
   <string name="pattern_enter_pattern">Будь ласка, введіть ваш шаблон</string>
   <string name="pattern_configure_pattern">Введіть ваш візерунок</string>
   <string name="pattern_incorrect_pattern">Невірний шаблон</string>
   <string name="pattern_reenter_pattern">Будь ласка, повторіть ваш шаблон</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Файли</string>
+  <string name="bottom_nav_personal">Особисте</string>
   <string name="bottom_nav_uploads">Відвантаження</string>
   <string name="bottom_nav_links">Посилання</string>
+  <string name="bottom_nav_shares">Розподільні</string>
   <string name="recommend_subject">Спробуйте %1$s на своєму смартфоні!</string>
   <string name="recommend_text">Пропоную вам користуватися %1$s на вашому смартфоні!\nЗавантажити можна за посиланням: %2$s</string>
   <string name="auth_failure_snackbar">Автентифікація не виконана</string>
@@ -91,7 +116,10 @@
   <string name="uploader_error_message_source_file_not_found">Файл для надсилання не знайдено у вказаному місці. Будь ласка, перевірте, чи існує файл.</string>
   <string name="uploader_error_message_source_file_not_copied">Сталася помилка під час копіювання файлу до тимчасової теки. Спробуйте надіслати знову.</string>
   <string name="file_list_seconds_ago">секунд тому</string>
-  <string name="file_list_empty">Тут нічого немає. Відвантажте що-небудь!</string>
+  <string name="file_list_empty_title_all_files">Тут немає файлів</string>
+  <string name="file_list_empty_title_shared_by_links">Немає опублікованих посилань</string>
+  <string name="file_list_empty_subtitle_all_files">Вивантажте щось або синхронізуйте з пристроями!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Файли і папки, якими ви поділилися за посиланням будуть відображатися тут</string>
   <string name="file_list_loading">Завантаження…</string>
   <string name="file_list_no_app_for_file_type">Не знайдено додатка для типу файла</string>
   <string name="local_file_list_empty">В цій теці немає файлів.</string>
@@ -127,7 +155,6 @@
   <string name="common_error_unknown">невідома помилка</string>
   <string name="common_pending">Очікування</string>
   <string name="common_important">Важливий</string>
-  <string name="about_title">Про</string>
   <string name="change_password">Змінити пароль</string>
   <string name="delete_account">Видалити обліковий запис</string>
   <string name="create_account">Створити обліковий запис</string>
@@ -187,16 +214,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d заплановані для синхронізації файли не можуть бути синхронізовані</string>
   <string name="sync_fail_in_favourites_ticker">Синхронізувати файли не вдалося</string>
   <string name="sync_fail_in_favourites_content">Зміст %1$d файлів не може бути синхронізований (%2$d конфліктів)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Деякі локальні файли були забуті</string>
-  <string name="sync_foreign_files_forgotten_content">Неможливо скопіювати %1$d файлів з теки %2$s</string>
-  <string name="sync_foreign_files_forgotten_explanation">\"Починаючи з версії 1.3.16, файли, завантажені з цього пристрою копіюються в локальну теку %1$s для запобігання втрати даних під час синхронізації одного файлу з кількома обліковими записами.\n\nТому всі файли, завантажені в попередніх версіях цього додатку були скопійовані в теку %2$s. Однак, під час синхронізації сталася помилка. Ви можете залишити файл(и) як є та видалити посилання на %3$s, або перемістити файл(и) в директорію %1$s і зберегти посилання на %4$s.\n\nНижче наведені локальні та віддалені файли у %5$s з якою вони були пов\'язані.</string>
   <string name="sync_current_folder_was_removed">Тека %1$s більше не існує</string>
-  <string name="foreign_files_move">Перемістити все</string>
-  <string name="foreign_files_success">Всі файли були переміщені</string>
-  <string name="foreign_files_fail">Деякі файли не можуть бути переміщені</string>
-  <string name="foreign_files_local_text">Локально: %1$s</string>
-  <string name="foreign_files_remote_text">Віддалено: %1$s</string>
-  <string name="upload_query_move_foreign_files">Недостатньо місця для копіювання вибраних файлів в теку %1$s. Можливо Ви бажаєте замість цього їх перемістити?</string>
   <string name="pass_code_enter_pass_code">Будь ласка, введіть Ваш пароль</string>
   <string name="pass_code_configure_your_pass_code">Введіть Ваш пароль</string>
   <string name="pass_code_configure_your_pass_code_explanation">Пароль буде запрошуватися кожного разу при завантажені додатку</string>
@@ -204,8 +222,8 @@
   <string name="pass_code_remove_your_pass_code">Видалити пароль</string>
   <string name="pass_code_mismatch">Паролі не співпадають</string>
   <string name="pass_code_wrong">Невірний пароль</string>
-  <string name="pass_code_removed">Пароль видалено</string>
-  <string name="pass_code_stored">Пароль збережено</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
   <string name="media_notif_ticker">%1$s музичний програвач</string>
   <string name="media_state_playing">%1$s (відтворюється)</string>
   <string name="media_state_loading">%1$s (завантажується)</string>
@@ -249,7 +267,6 @@
   <string name="auth_expired_basic_auth_toast">Будь ласка, введіть поточний пароль</string>
   <string name="auth_connecting_auth_server">Підключення до серверу аутентифікації ...</string>
   <string name="auth_unsupported_auth_method">Цей сервер не підтримує обраний метод аутентифікації</string>
-  <string name="auth_unsupported_multiaccount">%1$s не підтримує одночасно декілька облікових записів</string>
   <string name="auth_fail_get_user_name">Ваш сервер не повертає коректний ідентифікатор користувача, будь ласка зверніться до адміністратора
 ⇥</string>
   <string name="auth_can_not_auth_against_server">Неможливо виконати аутентифікацію на цьому сервері</string>
@@ -273,7 +290,7 @@
   <string name="sync_file_nothing_to_do_msg">Зміст файлу вже синхронізовано</string>
   <string name="create_dir_fail_msg">Не вдалося створити теку</string>
   <string name="filename_forbidden_characters">Заборонені символи: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Ім’я файлу містить принаймні один некоректний символ</string>
+  <string name="filename_forbidden_characters_from_server">Ім’я файлу містить принаймні один некоректний символ</string>
   <string name="filename_empty"> Ім\'я файлу не може бути порожнім.</string>
   <string name="wait_a_moment">Зачекайте хвилинку</string>
   <string name="wait_checking_credentials">Перевірка збережених облікових даних</string>
@@ -314,10 +331,7 @@
   <string name="placeholder_filesize">389 КБ</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Завантажувати картинки лише за наявності WiFi</string>
-  <string name="camera_video_upload_on_wifi">Завантажувати відео лише за наявності WiFi</string>
   <string name="confirmation_disable_camera_uploads_title">Підтвердити</string>
-  <string name="conflict_title">Конфлікт файлу</string>
   <string name="conflict_message">Які файли Ви хочете залишити? Якщо Ви оберете обидві версії, локальний файл матиме номер, що додається до його імені.</string>
   <string name="conflict_keep_both">Залишити обидва</string>
   <string name="conflict_use_local_version">Локальна версія</string>
@@ -325,7 +339,6 @@
   <string name="preview_image_description">Попередній перегляд зображення</string>
   <string name="preview_image_error_unknown_format">Не вдалося показати зображення</string>
   <string name="error__upload__local_file_not_copied">%1$s неможливо скопіювати до %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">Шлях для завантаження зображень</string>
   <string name="share_link_no_support_share_api">На жаль, обмін не включений на вашому сервері. Будь ласка, зв\'яжіться з вашим адмінистратором.</string>
   <string name="share_link_password_title">Ввести пароль</string>
   <string name="share_link_empty_password">Ви повинні ввести пароль</string>
@@ -374,7 +387,6 @@
   <string name="copy_file_error">Виникла помилка під час спроби скопіювати даний файл чи папку</string>
   <string name="forbidden_permissions_copy">скопіювати даний файл</string>
   <string name="prefs_category_camera_upload">Завантаження з камери</string>
-  <string name="prefs_camera_video_upload_path_title">Шлях для завантаження відео</string>
   <string name="sync_folder_failed_content">Синхронізація теки %1$s неможливо завершити</string>
   <string name="shared_subject_header">поширений</string>
   <string name="with_you_subject_header">з Вами</string>
@@ -394,11 +406,9 @@
   <string name="file_list__footer__files_and_folders">%1$d файлів, %2$d тек</string>
   <string name="prefs_camera_upload_source_path_title">Тека камери (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">вимагається</string>
-  <string name="prefs_camera_upload_source_path_title_optional">необов\'язково</string>
   <string name="upload_copy_files">Копіювати файл</string>
   <string name="upload_move_files">Перемістити файл</string>
   <string name="pref_behaviour_entries_keep_file">залишено в оригінальній теці</string>
-  <string name="pref_behaviour_entries_move">перенесено до теки програми</string>
   <string name="share_dialog_title">Поділитися</string>
   <string name="share_file">Поділитися %1$s</string>
   <string name="share_with_user_section_title">Користувачі та групи</string>
@@ -435,13 +445,7 @@
   <string name="edit_share_done">зроблено</string>
   <string name="action_upload_retry">Повторити</string>
   <string name="action_upload_clear">Очистити</string>
-  <string name="manage_space_title">Керування вільним місцем</string>
-  <string name="manage_space_description">Налаштування, бази даних і сертифікати сервера з даних %1$s\'s будуть вилучені повністю. \n\nЗвантажені файли будуть збережені незайманими.\n\nЦей процес може тривати якийсь час.</string>
-  <string name="manage_space_clear_data">Очистити дані</string>
-  <string name="manage_space_error">Деякі файли неможливо вилучити.</string>
-  <string name="permission_storage_access">Вимагаються додаткові дозволи для надсилання &amp; звантаження файлів.</string>
   <string name="local_file_not_found_toast">Файл не знайдено в локальній файловій системі</string>
-  <string name="confirmation_remove_files_alert">Ви дійсно бажаєте вилучити вибране?</string>
   <string name="confirmation_remove_folders_alert">Ви дійсно бажаєте вилучити вибране і їхній вміст?</string>
   <string name="failed_upload_quota_exceeded_text">Недостатньо місця для цього облікового запису</string>
   <string name="auth_forbidden">Заборонена аутентифікація</string>
@@ -466,7 +470,6 @@
   <string name="share_via_link_expiration_date_explanation_label">Публічне посилання спливатиме не пізніше ніж за %1$d днів, після того, як буде створено</string>
   <string name="share_via_link_default_name_template">%1$s посилання</string>
   <string name="share_via_link_empty_password">Порожній пароль</string>
-  <string name="private_link_info">Це приватне посилання, його можуть використовувати лише люди, які мають доступ до файлу/папки. Використовуйте його як постійне посилання для себе або для того, щоб вказати іншим посилання на файли.</string>
   <string name="download_notification_channel_name">Завантаження</string>
   <string name="upload_notification_channel_name">Відвантаження</string>
   <string name="media_service_notification_channel_name">Музичний програвач</string>
@@ -487,4 +490,13 @@
   <string name="welcome_feature_4_title">Завантаження з камери</string>
   <string name="welcome_feature_5_title">Потокове відео</string>
   <string name="welcome_feature_5_text">Переглядайте відео не завантажуючи його</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Захистити паролем</string>
+  <string name="folder_upload_some_content_or_sync_devices">Вивантажте щось або синхронізуйте з пристроями!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Продовжити</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Продовжити</string>
+  <!--Open in web-->
 </resources>

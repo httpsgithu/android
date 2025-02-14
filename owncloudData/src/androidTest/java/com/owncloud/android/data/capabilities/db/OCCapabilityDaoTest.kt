@@ -24,13 +24,13 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
 import com.owncloud.android.data.OwncloudDatabase
-import com.owncloud.android.data.capabilities.datasources.mapper.OCCapabilityMapper
+import com.owncloud.android.data.capabilities.datasources.implementation.OCLocalCapabilitiesDataSource.Companion.toEntity
 import com.owncloud.android.domain.capabilities.model.CapabilityBooleanType
 import com.owncloud.android.testutil.OC_CAPABILITY
 import com.owncloud.android.testutil.livedata.getLastEmittedValue
-import org.junit.Assert.assertNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -38,7 +38,6 @@ import org.junit.Test
 @SmallTest
 class OCCapabilityDaoTest {
     private lateinit var ocCapabilityDao: OCCapabilityDao
-    private val ocCapabilityMapper = OCCapabilityMapper()
     private val user1 = "user1@server"
     private val user2 = "user2@server"
 
@@ -57,11 +56,11 @@ class OCCapabilityDaoTest {
     @Test
     fun insertCapabilitiesListAndRead() {
         val entityList: List<OCCapabilityEntity> = listOf(
-            ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user1))!!,
-            ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user2))!!
+            OC_CAPABILITY.copy(accountName = user1).toEntity(),
+            OC_CAPABILITY.copy(accountName = user2).toEntity()
         )
 
-        ocCapabilityDao.insert(entityList)
+        ocCapabilityDao.insertOrReplace(entityList)
 
         val capability = ocCapabilityDao.getCapabilitiesForAccount(user2)
         val capabilityAsLiveData = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(user2).getLastEmittedValue()
@@ -74,11 +73,11 @@ class OCCapabilityDaoTest {
 
     @Test
     fun insertCapabilitiesAndRead() {
-        val entity1 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user1))!!
-        val entity2 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user2))!!
+        val entity1 = OC_CAPABILITY.copy(accountName = user1).toEntity()
+        val entity2 = OC_CAPABILITY.copy(accountName = user2).toEntity()
 
-        ocCapabilityDao.insert(entity1)
-        ocCapabilityDao.insert(entity2)
+        ocCapabilityDao.insertOrReplace(entity1)
+        ocCapabilityDao.insertOrReplace(entity2)
 
         val capability = ocCapabilityDao.getCapabilitiesForAccount(user2)
         val capabilityAsLiveData = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(user2).getLastEmittedValue()
@@ -91,7 +90,7 @@ class OCCapabilityDaoTest {
 
     @Test
     fun getNonExistingCapabilities() {
-        ocCapabilityDao.insert(ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user1))!!)
+        ocCapabilityDao.insertOrReplace(OC_CAPABILITY.copy(accountName = user1).toEntity())
 
         val capability = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(user2).getLastEmittedValue()
 
@@ -100,10 +99,10 @@ class OCCapabilityDaoTest {
 
     @Test
     fun replaceCapabilityIfAlreadyExists_exists() {
-        val entity1 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(filesVersioning = CapabilityBooleanType.FALSE))!!
-        val entity2 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(filesVersioning = CapabilityBooleanType.TRUE))!!
+        val entity1 = OC_CAPABILITY.copy(filesVersioning = CapabilityBooleanType.FALSE).toEntity()
+        val entity2 = OC_CAPABILITY.copy(filesVersioning = CapabilityBooleanType.TRUE).toEntity()
 
-        ocCapabilityDao.insert(entity1)
+        ocCapabilityDao.insertOrReplace(entity1)
         ocCapabilityDao.replace(listOf(entity2))
 
         val capability = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(OC_CAPABILITY.accountName!!).getLastEmittedValue()
@@ -114,10 +113,10 @@ class OCCapabilityDaoTest {
 
     @Test
     fun replaceCapabilityIfAlreadyExists_doesNotExist() {
-        val entity1 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user1))!!
-        val entity2 = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user2))!!
+        val entity1 = OC_CAPABILITY.copy(accountName = user1).toEntity()
+        val entity2 = OC_CAPABILITY.copy(accountName = user2).toEntity()
 
-        ocCapabilityDao.insert(entity1)
+        ocCapabilityDao.insertOrReplace(entity1)
 
         ocCapabilityDao.replace(listOf(entity2))
 
@@ -135,15 +134,15 @@ class OCCapabilityDaoTest {
 
     @Test
     fun deleteCapability() {
-        val entity = ocCapabilityMapper.toEntity(OC_CAPABILITY.copy(accountName = user1))!!
+        val entity = OC_CAPABILITY.copy(accountName = user1).toEntity()
 
-        ocCapabilityDao.insert(entity)
+        ocCapabilityDao.insertOrReplace(entity)
 
         val capability1 = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(user1).getLastEmittedValue()
 
         assertNotNull(capability1)
 
-        ocCapabilityDao.delete(user1)
+        ocCapabilityDao.deleteByAccountName(user1)
 
         val capability2 = ocCapabilityDao.getCapabilitiesForAccountAsLiveData(user1).getLastEmittedValue()
 

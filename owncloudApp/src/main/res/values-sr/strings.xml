@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_android">%1$s Андроид апликација</string>
-  <string name="about_version">верзија %1$s</string>
   <string name="actionbar_sync">Освежи налог</string>
   <string name="actionbar_upload">Отпреми</string>
   <string name="actionbar_upload_from_apps">садржај из других апликација</string>
@@ -20,8 +18,8 @@
   <string name="drawer_feedback">Ваше мишљење</string>
   <string name="drawer_help">Помоћ</string>
   <string name="prefs_category_general">Опште</string>
-  <string name="prefs_category_more">Остало</string>
-  <string name="prefs_category_security">Безбедност</string>
+  <string name="prefs_subsection_more">Остало</string>
+  <string name="prefs_subsection_security">Безбедност</string>
   <string name="prefs_accounts">Налози</string>
   <string name="prefs_manage_accounts">Управљање налозима</string>
   <string name="prefs_passcode">Закључавање кодом</string>
@@ -51,7 +49,6 @@
   <string name="uploader_wrn_no_account_setup_btn_text">Подеси</string>
   <string name="uploader_wrn_no_account_quit_btn_text">Напусти</string>
   <string name="file_list_seconds_ago">пре пар секунди</string>
-  <string name="file_list_empty">Овде нема ничег. Отпремите нешто!</string>
   <string name="file_list_loading">Учитавам…</string>
   <string name="local_file_list_empty">Нема фајлова у овој фасцикли.</string>
   <string name="file_list_folder">фасцикла</string>
@@ -78,8 +75,7 @@
   <string name="common_unknown">непознато</string>
   <string name="common_error_unknown">Непозната грешка</string>
   <string name="common_pending">На чекању</string>
-  <string name="about_title">О програму</string>
-  <string name="change_password">Измени лозинку</string>
+    <string name="change_password">Измени лозинку</string>
   <string name="delete_account">Уклони налог</string>
   <string name="create_account">Отвори налог</string>
   <string name="upload_chooser_title">Отпреми из…</string>
@@ -127,25 +123,14 @@
   <string name="sync_conflicts_in_favourites_content">%1$d фајловa ниje синхронизованo</string>
   <string name="sync_fail_in_favourites_ticker">Синхронизација није успела</string>
   <string name="sync_fail_in_favourites_content">Садржај %1$d фајлова не може бити синхронизован (%2$d сукоба)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Неки локални фајлови нису обрађени</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d фајлова из фасцикле %2$s није се могло копирати у</string>
-  <string name="sync_foreign_files_forgotten_explanation">Од верзије 1.3.16, фајлови отпремљени са уређаја се копирају у локалну фасциклу %1$s да би се спречио губитак података када се исти фајл синхронизује са више налога.\n\nЗбог ове измене, сви фајлови отпремљени са претходним верзијама ове апликације се копирају у фасциклу %2$s. Међутим, грешка је онемогућила довршавање ове радње током синхронизације налога. Можете или оставити фајлове како јесу и уклонити линк до %3$s или преместити фајлове у фасциклу %1$s и задржати везу до %4$s.\n\nИспод су наведени локални фајлови и удаљени фајлови у %5$s са којима су повезани.</string>
-  <string name="sync_current_folder_was_removed">Фасцикла %1$s више не постоји</string>
-  <string name="foreign_files_move">Премести све</string>
-  <string name="foreign_files_success">Сви фајлови су премештени</string>
-  <string name="foreign_files_fail">Неки фајлови нису могли бити премештени</string>
-  <string name="foreign_files_local_text">Локално: %1$s</string>
-  <string name="foreign_files_remote_text">Удаљено: %1$s</string>
-  <string name="upload_query_move_foreign_files">Нема довољно простора да би се изабрани фајлови копирали у фасциклу %1$s. Желите ли да их преместите?</string>
-  <string name="pass_code_enter_pass_code">Унесите кôд за закључавање</string>
+    <string name="sync_current_folder_was_removed">Фасцикла %1$s више не постоји</string>
+    <string name="pass_code_enter_pass_code">Унесите кôд за закључавање</string>
   <string name="pass_code_configure_your_pass_code">Унесите код за закључавање</string>
   <string name="pass_code_configure_your_pass_code_explanation">Код ће бити затражен сваки пут кад се апликација покрене</string>
   <string name="pass_code_reenter_your_pass_code">Поново унесите кôд за закључавање</string>
   <string name="pass_code_remove_your_pass_code">Уклоните код за закључавање</string>
   <string name="pass_code_mismatch">Кодови се не поклапају</string>
   <string name="pass_code_wrong">Неисправан код</string>
-  <string name="pass_code_removed">Код за закључавање уклоњен</string>
-  <string name="pass_code_stored">Код за закључавање је сачуван</string>
   <string name="media_notif_ticker">%1$s музички плејер</string>
   <string name="media_state_playing">%1$s (пуштам)</string>
   <string name="media_state_loading">%1$s (учитавам)</string>
@@ -189,7 +174,6 @@
   <string name="auth_expired_basic_auth_toast">Унесите тренутну лозинку</string>
   <string name="auth_connecting_auth_server">Повезујем се са сервером аутентификације…</string>
   <string name="auth_unsupported_auth_method">Сервер не подржава овај начин аутентификације</string>
-  <string name="auth_unsupported_multiaccount">%1$s не подржава вишеструке налоге</string>
   <string name="auth_fail_get_user_name">Сервер не враћа исправан ИД корисника. Контактирајте администратора
 	</string>
   <string name="auth_can_not_auth_against_server">Не могу да аутентификујем са овим сервером</string>
@@ -209,7 +193,7 @@
   <string name="sync_file_nothing_to_do_msg">Садржај је већ синхронизован</string>
   <string name="create_dir_fail_msg">Фасцикла се не може направити</string>
   <string name="filename_forbidden_characters">Забрањени знакови: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Назив садржи бар један недозвољен карактер</string>
+  <string name="filename_forbidden_characters_from_server">Назив садржи бар један недозвољен карактер</string>
   <string name="filename_empty">Назив фајла не може бити празан</string>
   <string name="wait_a_moment">Сачекајте тренутак</string>
   <string name="filedisplay_unexpected_bad_get_content">Неочекивани проблем. Изаберите фајл другом апликацијом</string>
@@ -248,10 +232,9 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 ПоП</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Отпремај слике само на бежичној мрежи</string>
-  <string name="camera_video_upload_on_wifi">Отпремај видео само на бежичној мрежи</string>
-  <string name="conflict_title">Сукоб фајлова</string>
-  <string name="conflict_message">Које фајлове желите да задржите? Ако изаберете обе верзије, локалном фајлу ће бити додат број у назив.</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Отпремај слике само на бежичној мрежи</string>
+  <string name="prefs_camera_video_upload_on_wifi">Отпремај видео само на бежичној мрежи</string>
+    <string name="conflict_message">Које фајлове желите да задржите? Ако изаберете обе верзије, локалном фајлу ће бити додат број у назив.</string>
   <string name="conflict_keep_both">Задржи оба</string>
   <string name="conflict_use_local_version">локална верзија</string>
   <string name="conflict_use_server_version">верзија сервера</string>
@@ -319,14 +302,12 @@
   <string name="file_list__footer__files_and_folder">%1$d фајлова, 1 фасцикла</string>
   <string name="file_list__footer__files_and_folders">%1$d фајлова, %2$d фасцикли</string>
   <string name="prefs_camera_upload_source_path_title_required">неопходно</string>
-  <string name="prefs_camera_upload_source_path_title_optional">опционо</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Оригинални фајл ће бити…</string>
+    <string name="prefs_camera_upload_behaviour_dialog_title">Оригинални фајл ће бити…</string>
   <string name="prefs_camera_upload_behaviour_title">Оригинални фајл ће бити…</string>
   <string name="upload_copy_files">Копирај фајл</string>
   <string name="upload_move_files">Премести фајл</string>
   <string name="pref_behaviour_entries_keep_file">остављен у изворној фасцикли</string>
-  <string name="pref_behaviour_entries_move">премештен у фасциклу апликације</string>
-  <string name="share_dialog_title">Дељење</string>
+    <string name="share_dialog_title">Дељење</string>
   <string name="share_add_user_or_group">Додај корисника или групу</string>
   <string name="share_cancel_public_link_button">Откажи</string>
   <string name="share_confirm_public_link_button">Сачувај</string>
@@ -344,10 +325,6 @@
   <string name="share_privilege_can_edit_delete">обриши</string>
   <string name="edit_share_unshare">Заустави дељење</string>
   <string name="edit_share_done">завршено</string>
-    <string name="manage_space_title">Управљање простором</string>
-  <string name="manage_space_clear_data">Очисти податке</string>
-  <string name="manage_space_error">Неки фајлови нису могли бити обрисани.</string>
-  <string name="permission_storage_access">Додатне дозволе су потребне за отпремање и преузимање фајлова.</string>
   <plurals name="items_selected_count">
     <item quantity="one">%d изабран</item>
     <item quantity="few">%d изабрана</item>

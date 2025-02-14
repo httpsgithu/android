@@ -19,7 +19,6 @@
 
 package com.owncloud.android.sharing.shares.ui
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
@@ -37,13 +36,13 @@ import com.owncloud.android.domain.capabilities.model.OCCapability
 import com.owncloud.android.domain.sharing.shares.model.ShareType
 import com.owncloud.android.domain.utils.Event
 import com.owncloud.android.lib.resources.shares.RemoteShare
-import com.owncloud.android.presentation.UIResult
-import com.owncloud.android.presentation.ui.sharing.fragments.PublicShareDialogFragment
-import com.owncloud.android.presentation.viewmodels.capabilities.OCCapabilityViewModel
-import com.owncloud.android.presentation.viewmodels.sharing.OCShareViewModel
+import com.owncloud.android.presentation.common.UIResult
+import com.owncloud.android.presentation.sharing.shares.PublicShareDialogFragment
+import com.owncloud.android.presentation.capabilities.CapabilityViewModel
+import com.owncloud.android.presentation.sharing.ShareViewModel
 import com.owncloud.android.testutil.OC_ACCOUNT
+import com.owncloud.android.testutil.OC_FILE
 import com.owncloud.android.testutil.OC_SHARE
-import com.owncloud.android.utils.AppTestUtil.OC_FILE
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Before
@@ -59,15 +58,32 @@ import java.util.GregorianCalendar
 import java.util.TimeZone
 
 class PublicShareEditionDialogFragmentTest {
-    private val ocCapabilityViewModel = mockk<OCCapabilityViewModel>(relaxed = true)
+    private val capabilityViewModel = mockk<CapabilityViewModel>(relaxed = true)
     private val capabilitiesLiveData = MutableLiveData<Event<UIResult<OCCapability>>>()
-    private val ocShareViewModel = mockk<OCShareViewModel>(relaxed = true)
+    private val shareViewModel = mockk<ShareViewModel>(relaxed = true)
 
     private val expirationDate = 1556575200000 // GMT: Monday, April 29, 2019 10:00:00 PM
 
     @Before
     fun setUp() {
-        every { ocCapabilityViewModel.capabilities } returns capabilitiesLiveData
+        every { capabilityViewModel.capabilities } returns capabilitiesLiveData
+
+        stopKoin()
+
+        startKoin {
+            androidContext(ApplicationProvider.getApplicationContext())
+            allowOverride(override = true)
+            modules(
+                module {
+                    viewModel {
+                        capabilityViewModel
+                    }
+                    viewModel {
+                        shareViewModel
+                    }
+                }
+            )
+        }
 
         val publicShareDialogFragment = PublicShareDialogFragment.newInstanceToUpdate(
             OC_FILE,
@@ -81,22 +97,6 @@ class PublicShareEditionDialogFragmentTest {
                 isFolder = true
             )
         )
-
-        stopKoin()
-
-        startKoin {
-            androidContext(ApplicationProvider.getApplicationContext<Context>())
-            modules(
-                module(override = true) {
-                    viewModel {
-                        ocCapabilityViewModel
-                    }
-                    viewModel {
-                        ocShareViewModel
-                    }
-                }
-            )
-        }
 
         ActivityScenario.launch(TestShareFileActivity::class.java).onActivity {
             it.startFragment(publicShareDialogFragment)

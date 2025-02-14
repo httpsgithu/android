@@ -30,16 +30,22 @@
   <string name="drawer_feedback">Atsiliepimai</string>
   <string name="drawer_help">Pagalba</string>
   <string name="prefs_category_general">Bendras</string>
-  <string name="prefs_category_more">Daugiau</string>
-  <string name="prefs_category_security">Saugumas</string>
+  <string name="prefs_subsection_more">Daugiau</string>
+  <string name="prefs_subsection_security">Saugumas</string>
   <string name="prefs_accounts">Paskyros</string>
   <string name="prefs_manage_accounts">Tvarkyti paskyras</string>
   <string name="prefs_passcode">Užrakto kodas</string>
   <string name="prefs_biometric_summary">Įveskite slaptą frazę ar modelio užrakinimą kad įjungti šią opciją</string>
   <string name="prefs_camera_picture_upload">Nuotraukų įkėlimai</string>
   <string name="prefs_camera_picture_upload_summary">Automatiškai įkelti nuotraukas iš kameros</string>
+  <string name="prefs_camera_picture_upload_path_title">Nuotraukų įkėlimo kelias</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Įkelti nuotraukas tik veikiant WiFi</string>
   <string name="prefs_camera_video_upload">Video įkėlimai</string>
   <string name="prefs_camera_video_upload_summary">Automatiškai įkelti video iš kameros</string>
+  <string name="prefs_camera_video_upload_path_title">Video įkėlimo kelias</string>
+  <string name="prefs_camera_video_upload_on_wifi">Įkelti video tik veikiant WiFi</string>
+  <string name="prefs_subsection_advanced">Išplėstiniai</string>
+  <string name="prefs_show_hidden_files">Rodyti paslėptus failus</string>
   <string name="prefs_log_title">Įjungti žurnalą</string>
   <string name="prefs_log_summary">Tai naudojama problemų žurnalo vedimui</string>
   <string name="prefs_log_title_history">Žurnalo istorija</string>
@@ -52,14 +58,13 @@
   <string name="prefs_remember_last_share_location">Prisiminti bendrinimo vietą</string>
   <string name="prefs_remember_last_upload_location_summary">Prisiminti paskutinio bendrinimo įkėlimo vietą</string>
   <string name="prefs_pattern">Modelio užraktas</string>
+  <string name="prefs_enable_logging">Įjungti žurnalą</string>
   <string name="pattern_enter_pattern">Įveskite savo modelį</string>
   <string name="pattern_configure_pattern">Įveskite savo modelį</string>
   <string name="pattern_remove_pattern">Užrakto pašalinimas</string>
   <string name="pattern_incorrect_pattern">Neteisingas užraktas</string>
   <string name="pattern_reenter_pattern">Įveskite užraktą dar kartą</string>
   <string name="pattern_not_same_pattern">Nesutampa užraktas</string>
-  <string name="pattern_stored">Užraktas išsaugotas</string>
-  <string name="pattern_removed">Užraktas pašalintas</string>
   <string name="pattern_already_set">Modelio ir frazės užraktai negali būti įjungti vienu metu, prašome išjungti modelio užraktą</string>
   <string name="passcode_already_set">Modelio ir frazės užraktai negali būti įjungti vienu metu, prašome išjungti frazės užraktą</string>
   <string name="pattern_no_longer_required">Daugiau modelio užraktas nebus klausiamas</string>
@@ -95,7 +100,10 @@
   <string name="uploader_error_message_source_file_not_found">Įkeliamas failas nerastas nurodytoje vietoje. Prašome patikrinti, ar failas egzistuoja.</string>
   <string name="uploader_error_message_source_file_not_copied">Įvyko klaida kopijuojant failą į laikinąjį katalogą. Pabandykite siųsti iš naujo. </string>
   <string name="file_list_seconds_ago">prieš sekundę</string>
-  <string name="file_list_empty">Čia tuščia. Įkelkite ką nors!</string>
+  <string name="file_list_empty_title_all_files">Čia nėra failų</string>
+  <string name="file_list_empty_title_shared_by_links">Nėra pasidalinimų nuoroda</string>
+  <string name="file_list_empty_subtitle_all_files">Įkelkite kokį nors turinį, arba sinchronizuokite su savo įrenginiais!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Failai ir aplankai kuriais daliniesi su nuoroda bus rodomi čia</string>
   <string name="file_list_loading">Įkeliama...</string>
   <string name="file_list_no_app_for_file_type">Nerasta programėlė šiam failo tipui</string>
   <string name="local_file_list_empty">Šiame aplanke nėra failų.</string>
@@ -130,7 +138,6 @@
   <string name="common_unknown">nežinomas</string>
   <string name="common_pending">Laukiantis</string>
   <string name="common_important">Svarbūs</string>
-  <string name="about_title">Apie</string>
   <string name="change_password">Pakeisti slaptažodį</string>
   <string name="delete_account">Pašalinti paskyrą</string>
   <string name="create_account">Sukurti paskyrą</string>
@@ -185,16 +192,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d sinchronizuojami failai nebuvo susinchronizuoti</string>
   <string name="sync_fail_in_favourites_ticker">Sinchronizuojamų failų klaida</string>
   <string name="sync_fail_in_favourites_content">Nepavyko sinchronizuoti %1$d failų turinio (%2$d konfliktų)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Keli vietiniai failai buvo užmiršti</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d failai iš %2$s aplanko negali būti nukopijuoti</string>
-  <string name="sync_foreign_files_forgotten_explanation">Iki 1.3.16 versijos, iš šio įrenginio įkelti failai nukopijuoti į vietinį %1$s aplanką, siekiant išvengti duomenų praradimo kai vienas failas sinchronizuojamas su keletu įrenginių.\n\nTodėl visi failai įkelti su ankstesne versija nukopijuoti į %2$s aplanką. Dėja kopijavimas nepavuko dėl klaidos sinchronizuojant paskyrą. Galita palikti failus ir pašalinti ryšį su %3$s, arba perkelti failą(us) į %1$s aplanką ir palikti ryšį su %4$s.\n\nŽemiau pateikti vietiniai failai ir aplankas(ai), bei nutolę failai susieti per  %5$s.</string>
   <string name="sync_current_folder_was_removed">Aplankas %1$s nebeegzistuoja</string>
-  <string name="foreign_files_move">Perkelti visus</string>
-  <string name="foreign_files_success">Visi failai buvo perkelti</string>
-  <string name="foreign_files_fail">Kai kurių failų negalima perkelti</string>
-  <string name="foreign_files_local_text">Vietinis: %1$s</string>
-  <string name="foreign_files_remote_text">Nuotolinis: %1$s</string>
-  <string name="upload_query_move_foreign_files">Nepakanka vietos nukopijuoti šiuos failus į %1$s aplanką. Gal norite perkelti juos vietoje kopijavimo?</string>
   <string name="pass_code_enter_pass_code">Įveskite savo užrakto kodą</string>
   <string name="pass_code_configure_your_pass_code">Įveskite užraktą</string>
   <string name="pass_code_configure_your_pass_code_explanation">Kiekvieną kartą paleidus programėle bus reikalaujamas užraktas</string>
@@ -202,8 +200,7 @@
   <string name="pass_code_remove_your_pass_code">Užrakto pašalinimas</string>
   <string name="pass_code_mismatch">Nesutampa užraktas</string>
   <string name="pass_code_wrong">Neteisingas užraktas</string>
-  <string name="pass_code_removed">Užraktas pašalintas</string>
-  <string name="pass_code_stored">Užraktas išsaugotas</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="media_notif_ticker">%1$s muzikos grotuvas</string>
   <string name="media_state_playing">%1$s (grojama)</string>
   <string name="media_state_loading">%1$s (įkeliama)</string>
@@ -247,7 +244,6 @@
   <string name="auth_expired_basic_auth_toast">Įveskite dabartinį slaptažodį</string>
   <string name="auth_connecting_auth_server">Jungiasi į authorizacijos serverį ...</string>
   <string name="auth_unsupported_auth_method">Serveris nepalaiko šio autentikacijos metodo</string>
-  <string name="auth_unsupported_multiaccount">%1$s nepalaiko kelių paskyrų iš karto</string>
   <string name="auth_fail_get_user_name">Serveris negražina tinkamo vartotojo ID, susisiekite su administratoriumi</string>
   <string name="auth_can_not_auth_against_server">Nepavyko autorizuotis į serverį</string>
   <string name="auth_account_does_not_exist">Paskyra neegzistuoja įrenginyje</string>
@@ -270,7 +266,7 @@
   <string name="sync_file_nothing_to_do_msg">Failo turinys jau sunchronizuotas</string>
   <string name="create_dir_fail_msg">Aplanko sukurti nepavyko</string>
   <string name="filename_forbidden_characters">Neleistini simboliai: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Failo vardas sudarytas iš neleistinų simbolių</string>
+  <string name="filename_forbidden_characters_from_server">Failo vardas sudarytas iš neleistinų simbolių</string>
   <string name="filename_empty">Failo pavadinimas negali būti tuščias</string>
   <string name="wait_a_moment">Truputį palaukite</string>
   <string name="wait_checking_credentials">Tikrina išsaugotus prisijungimus</string>
@@ -312,20 +308,16 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Įkelti nuotraukas tik veikiant WiFi</string>
-  <string name="camera_video_upload_on_wifi">Įkelti video tik veikiant WiFi</string>
   <string name="confirmation_disable_camera_uploads_title">Patvirtinti</string>
   <string name="confirmation_disable_pictures_upload_message">Ar tikrai norite išjungti šią funkciją? Laukiančios nuotraukos nebus nusiųstos</string>
   <string name="confirmation_disable_videos_upload_message">Ar tikrai norite išjungti šią funkciją? Laukiantys video nebus nusiųsti</string>
-  <string name="conflict_title">Failų konfliktas</string>
-  <string name="conflict_message">Kuriuos failus palikti? Jei pažymėsite abi versijas, vietinis failas bus pervadintas, pridedant skaičių prie pavadinimo.</string>
+    <string name="conflict_message">Kuriuos failus palikti? Jei pažymėsite abi versijas, vietinis failas bus pervadintas, pridedant skaičių prie pavadinimo.</string>
   <string name="conflict_keep_both">Palikti abu</string>
   <string name="conflict_use_local_version">Vietinė versija</string>
   <string name="conflict_use_server_version">Versija serveryje</string>
   <string name="preview_image_description">Paveikslėlio peržiūra</string>
   <string name="preview_image_error_unknown_format">Neįmanoma parodyti šio paveikslėlio</string>
   <string name="error__upload__local_file_not_copied">%1$s negali būti nukopijuota į %2$s vietinį katalogą</string>
-  <string name="prefs_camera_picture_upload_path_title">Nuotraukų įkėlimo kelias</string>
   <string name="share_link_no_support_share_api">Atsiprašome, bet serveris nepalaiko dalijimosi. Susisiekite su administratoriumi.</string>
   <string name="share_link_password_title">Įveskite slaptažodį</string>
   <string name="share_link_empty_password">Slaptažodis privalomas</string>
@@ -375,7 +367,6 @@
   <string name="copy_file_error">Klaida kopijuojant failą ar aplanką</string>
   <string name="forbidden_permissions_copy">kopijuoti failo</string>
   <string name="prefs_category_camera_upload">Nuotraukų įkėlimai</string>
-  <string name="prefs_camera_video_upload_path_title">Video įkėlimo kelias</string>
   <string name="sync_folder_failed_content">%1$s sinchronizavimas negali būti užbaigtas.</string>
   <string name="shared_subject_header">Dalinamasi</string>
   <string name="with_you_subject_header">su jumis</string>
@@ -395,12 +386,10 @@
   <string name="file_list__footer__files_and_folders">%1$d failai, %2$d aplankai</string>
   <string name="prefs_camera_upload_source_path_title">Kameros katalogas (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">privalomas</string>
-  <string name="prefs_camera_upload_source_path_title_optional">neprivalomas</string>
   <string name="upload_copy_files">Kopijuoti failą</string>
   <string name="upload_move_files">Perkelti failą</string>
   <string name="pref_behaviour_entries_keep_file">paliktas pradiniame aplanke</string>
-  <string name="pref_behaviour_entries_move">perkelti į app aplanką</string>
-  <string name="share_dialog_title">Dalintis</string>
+    <string name="share_dialog_title">Dalintis</string>
   <string name="share_file">Dalintis %1$s</string>
   <string name="share_with_user_section_title">Naudotojai ir grupės</string>
   <string name="share_no_users">Su vartotojais niekuo nesidalinama</string>
@@ -437,13 +426,7 @@
   <string name="edit_share_done">atlikta</string>
   <string name="action_upload_retry">Pakartoti</string>
   <string name="action_upload_clear">Išvalyti</string>
-  <string name="manage_space_title">Valdyti vietą</string>
-  <string name="manage_space_description">Nustatymai, duombazės ir serverio sertifikatai  iš%1$sbus ištrinti. \n\nParsiūsti failai bus nepaliesti.\n\nŠis procesas gali užtrukti.</string>
-  <string name="manage_space_clear_data">Išvalyti duomenis</string>
-  <string name="manage_space_error">Kai kurių failų nepavyko ištrinti.</string>
-  <string name="permission_storage_access">Reikalingos papildomos teisės įkelti ir parsisiūsti failus.</string>
   <string name="local_file_not_found_toast">Byla nerasta lokalioje sistemoje</string>
-  <string name="confirmation_remove_files_alert">Ar tikrai norite pašalinti pasirinktą sąrašą?</string>
   <string name="confirmation_remove_folders_alert">Ar tikrai norite pašalinti pasirinktus obejktus ir jų turinį?</string>
   <string name="failed_upload_quota_exceeded_text">Nepakanka vietos paskyroje</string>
   <string name="auth_forbidden">Draudžiama autentifikacija</string>
@@ -467,7 +450,6 @@
   <string name="share_via_link_expiration_date_enforced_label">Galiojimas Ū</string>
   <string name="share_via_link_expiration_date_explanation_label">Vieša nuoroda galios %1$ddienų nuo sukūrimo</string>
   <string name="share_via_link_default_name_template">%1$s nuoroda</string>
-  <string name="private_link_info">Ši nuoroda privati, tik turintys priėjimą prie failų gali naudoti ją. Naudokite nuolatinę nuorodą sau arba nurodykite kitus bylos dalyboje.</string>
   <string name="file_private_link_error">Privati nuoroda neegzistuoja šiam failui</string>
   <string name="download_notification_channel_name">Parsiuntimai</string>
   <string name="download_notification_channel_description">Žiūrėti siunčiamo failo vardą ir progresą</string>
@@ -485,4 +467,13 @@
   <!--Welcome to oC intro features-->
   <string name="welcome_feature_skip_button">Praleisti</string>
   <string name="welcome_feature_4_title">Nuotraukų įkėlimai</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Užrakto kodas</string>
+  <string name="folder_upload_some_content_or_sync_devices">Įkelkite kokį nors turinį, arba sinchronizuokite su savo įrenginiais!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Vykdyti</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Vykdyti</string>
+  <!--Open in web-->
 </resources>

@@ -4,8 +4,6 @@
   <string name="global_name">Navn</string>
   <string name="global_date">Dato</string>
   <string name="global_size">Størrelse</string>
-  <string name="about_android">%1$s til Android</string>
-  <string name="about_version">Version %1$s</string>
   <string name="actionbar_search">Søg i mappen</string>
   <string name="actionbar_sync">Genindlæs konto</string>
   <string name="actionbar_upload">Upload</string>
@@ -32,8 +30,8 @@
   <string name="drawer_feedback">Feedback</string>
   <string name="drawer_help">Hjælp</string>
   <string name="prefs_category_general">Generel</string>
-  <string name="prefs_category_more">Mere</string>
-  <string name="prefs_category_security">Sikkerhed</string>
+  <string name="prefs_subsection_more">Mere</string>
+  <string name="prefs_subsection_security">Sikkerhed</string>
   <string name="prefs_accounts">Konti</string>
   <string name="prefs_manage_accounts">Administrer konti</string>
   <string name="prefs_passcode">Passcode-lås</string>
@@ -45,8 +43,12 @@
   <string name="confirmation_touches_with_other_windows_message">Anvend denne egenskab under eget ansvar, et ondsindet program vil kunne forsøge at narre dig til at udføre handlinger, uden din viden, der bruger andre visninger.</string>
   <string name="prefs_camera_picture_upload">Billede uploads</string>
   <string name="prefs_camera_picture_upload_summary">Upload automatisk billeder taget med kamera</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Upload billeder udelukkende via wifi</string>
   <string name="prefs_camera_video_upload">Videoupload</string>
   <string name="prefs_camera_video_upload_summary">Automatisk upload af videoer optaget med kamera</string>
+  <string name="prefs_camera_video_upload_on_wifi">Upload videoer udelukkende via wifi</string>
+  <string name="prefs_subsection_advanced">Avanceret</string>
+  <string name="prefs_show_hidden_files">Vis skjulte filer</string>
   <string name="prefs_log_title">Slå logning til</string>
   <string name="prefs_log_summary">Dette bruges til at logregistrere problemer</string>
   <string name="prefs_log_title_history">Logningshistorik</string>
@@ -61,14 +63,13 @@
   <string name="prefs_remember_last_share_location">Husk delt placering</string>
   <string name="prefs_remember_last_upload_location_summary">Husk seneste delte placering for overførsel</string>
   <string name="prefs_pattern">Mønsterlås</string>
+  <string name="prefs_enable_logging">Slå logning til</string>
   <string name="pattern_enter_pattern">Angiv venligst mønster</string>
   <string name="pattern_configure_pattern">Angiv dit mønster</string>
   <string name="pattern_remove_pattern">Slet dit mønster</string>
   <string name="pattern_incorrect_pattern">Forkert mønster</string>
   <string name="pattern_reenter_pattern">Angiv dit mønster igen</string>
   <string name="pattern_not_same_pattern">Mønsteret er ikke identisk</string>
-  <string name="pattern_stored">Mønster er gemt</string>
-  <string name="pattern_removed">Mønster er slettet</string>
   <string name="pattern_already_set">Låse til mønster og passcode kan ikke aktiveres på samme tid, slå venligst mønster fra først.</string>
   <string name="passcode_already_set">Låse til mønster og passcode kan ikke aktiveres på samme tid, slå venligst passcode fra først.</string>
   <!--Bottom navigation bar-->
@@ -104,9 +105,6 @@
   <string name="uploader_error_message_source_file_not_found">Fil til upload blev ikke fundet på sin placering. Tjek venligst om filen eksisterer.</string>
   <string name="uploader_error_message_source_file_not_copied">En fejl opstod ved kopiering af filen til en midlertidig folder. Prøv venligst igen.</string>
   <string name="file_list_seconds_ago">sekunder siden</string>
-  <string name="file_list_empty">Her er tomt. Upload noget!</string>
-  <string name="file_list_empty_available_offline">Der er ingen filer tilgængelig offline.</string>
-  <string name="file_list_empty_shared_by_links">Ingen filer er blevet delt med et link.</string>
   <string name="file_list_loading">Indlæser...</string>
   <string name="file_list_no_app_for_file_type">Ingen app fundet for filtype</string>
   <string name="local_file_list_empty">Der er ingen filer i denne mappe.</string>
@@ -141,7 +139,6 @@
   <string name="common_error_unknown">ukendt fejl</string>
   <string name="common_pending">Afventer</string>
   <string name="common_important">Vigtigt</string>
-  <string name="about_title">Om</string>
   <string name="change_password">Skift kodeord</string>
   <string name="delete_account">Fjern konto</string>
   <string name="create_account">Opret konto</string>
@@ -201,16 +198,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d hold-synkroniseret filer kunne ikke synkroniseres</string>
   <string name="sync_fail_in_favourites_ticker">Hold-synkroniseret filer mislykkedes</string>
   <string name="sync_fail_in_favourites_content">Indholdet af %1$d filer ikke kunne synkroniseres (%2$d konflikter)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Visse lokale filer blev glemt</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d filer ud af %2$s mappe kunne ikke kopieres ind i</string>
-  <string name="sync_foreign_files_forgotten_explanation">Fra version 1.3.16 bliver filer uploadet fra denne enhed kopieret til mappen %1$s for at forhindre datatab når en enkelt fil synkroniseres med flere konti.\n\nPå grund af denne ændring er alle filer som var uploadet i tidligere versioner af denne app kopieret til mappen %2$s. Imidlertid forhindrede en fejl færdiggørelsen af denne operation under konto-synkronisering. Du kan enten lade filen (el. filerne) være som de er og fjerne linket til %3$s eller flytte filen (el. filerne) til mappen %1$s og beholde linket til %4$s.\n\nHerunder er en liste med den lokale fil(er), og den fjerne mappe(r) i %5$s, som de var knyttet til.</string>
   <string name="sync_current_folder_was_removed">Mappen %1$s eksistere ikke længere</string>
-  <string name="foreign_files_move">Flyt alle</string>
-  <string name="foreign_files_success">Alle filer blev flyttet</string>
-  <string name="foreign_files_fail">Visse filer kunne ikke flyttes</string>
-  <string name="foreign_files_local_text">Lokal: %1$s</string>
-  <string name="foreign_files_remote_text">Fjernplacering: %1$s</string>
-  <string name="upload_query_move_foreign_files">Der er ikke nok plads til at kopiere de valgte filer til mappen %1$s. Vil du flytte dem i stedet?</string>
   <string name="pass_code_enter_pass_code">Indtast venligst din adgangskode</string>
   <string name="pass_code_configure_your_pass_code">Angiv din passcode</string>
   <string name="pass_code_configure_your_pass_code_explanation">Denne passcode vil blive forespurgt hver gang app\'en startes</string>
@@ -218,8 +206,9 @@
   <string name="pass_code_remove_your_pass_code">Fjern din passcode</string>
   <string name="pass_code_mismatch">Passcode\'erne er ikke ens</string>
   <string name="pass_code_wrong">Ukorrekt passcode</string>
-  <string name="pass_code_removed">Passcode blev fjernet</string>
-  <string name="pass_code_stored">Passcode blev gendannet</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="media_notif_ticker">%1$s musikafspiller</string>
   <string name="media_state_playing">%1$s (afspiller)</string>
   <string name="media_state_loading">%1$s (indlæser)</string>
@@ -262,7 +251,6 @@
   <string name="auth_expired_basic_auth_toast">Indtast venligst den nuværende adgangskode</string>
   <string name="auth_connecting_auth_server">Tilslutter til adgangsgivende server …</string>
   <string name="auth_unsupported_auth_method">Serveren understøtter ikke denne godkendelsesmetode</string>
-  <string name="auth_unsupported_multiaccount">%1$s understøtter ikke flere konti</string>
   <string name="auth_fail_get_user_name">Din server retunere ikke et korrekt bruger-id. Kontakt venligst din administrator</string>
   <string name="auth_can_not_auth_against_server">Kan ikke godkendes til denne server</string>
   <string name="auth_account_does_not_exist">Kontoen findes endnu ikke på enheden</string>
@@ -285,7 +273,7 @@
   <string name="sync_file_nothing_to_do_msg">Filindholdet allerede synkroniseret</string>
   <string name="create_dir_fail_msg">Kunne ikke oprette mappe</string>
   <string name="filename_forbidden_characters">Ugyldige tegn: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Filnavnet indeholder mindst ét ugyldigt tegn</string>
+  <string name="filename_forbidden_characters_from_server">Filnavnet indeholder mindst ét ugyldigt tegn</string>
   <string name="filename_empty">Filnavnet kan ikke stå tomt.</string>
   <string name="wait_a_moment">Vent et øjeblik</string>
   <string name="wait_checking_credentials">Kontrollerer gemte legitimationsoplysninger</string>
@@ -326,10 +314,7 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Upload billeder udelukkende via wifi</string>
-  <string name="camera_video_upload_on_wifi">Upload videoer udelukkende via wifi</string>
-  <string name="conflict_title">Filkonflikt</string>
-  <string name="conflict_message">Hvilke filer ønsker du at beholde? Hvis du vælger begge versioner, så vil den lokale fil få et tal tilføjet til sit navn.</string>
+    <string name="conflict_message">Hvilke filer ønsker du at beholde? Hvis du vælger begge versioner, så vil den lokale fil få et tal tilføjet til sit navn.</string>
   <string name="conflict_keep_both">Behold begge</string>
   <string name="conflict_use_local_version">lokal version</string>
   <string name="conflict_use_server_version">serverversion</string>
@@ -403,12 +388,10 @@
   <string name="file_list__footer__files_and_folders">%1$d filer, %2$d mapper</string>
   <string name="prefs_camera_upload_source_path_title">Kamera mappe (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">Krævet</string>
-  <string name="prefs_camera_upload_source_path_title_optional">Valgfri</string>
   <string name="upload_copy_files">Kopier fil</string>
   <string name="upload_move_files">Flyt fil</string>
   <string name="pref_behaviour_entries_keep_file">opbevares i den oprindelige mappe</string>
-  <string name="pref_behaviour_entries_move">flyttet til app-mappe</string>
-  <string name="share_dialog_title">Del</string>
+    <string name="share_dialog_title">Del</string>
   <string name="share_file">Del %1$s</string>
   <string name="share_with_user_section_title">Brugere og Grupper</string>
   <string name="share_no_users">Intet data delt med brugere endnu</string>
@@ -442,13 +425,7 @@
   <string name="edit_share_done">færdig</string>
   <string name="action_upload_retry">Forsøg igen</string>
   <string name="action_upload_clear">Ryd</string>
-  <string name="manage_space_title">Administrer plads</string>
-  <string name="manage_space_description">Indstillinger, database og server certifikater fra %1$s\'s data vil blive slettet permanent.\n\nHentede filer vil blive beholdt urørte.\n\nDenne proces kan tage nogen tid.</string>
-  <string name="manage_space_clear_data">Ryd data</string>
-  <string name="manage_space_error">Nogle filer kunne ikke slettes.</string>
-  <string name="permission_storage_access">Yderligere tilladelser, der kræves for at sende &amp; hente filer.</string>
   <string name="local_file_not_found_toast">Filen blev ikke fundet i det lokale filsystem</string>
-  <string name="confirmation_remove_files_alert">Ønsker du virkelig at fjerne de valgte enheder?</string>
   <string name="confirmation_remove_folders_alert">Ønsker du virkelig at fjerne de valgte emner og deres indhold?</string>
   <string name="failed_upload_quota_exceeded_text">Ikke nok plads for denne konto</string>
   <string name="auth_forbidden">Godkendelse forbudt</string>
@@ -472,11 +449,19 @@
   <string name="share_via_link_expiration_date_enforced_label">Udløb</string>
   <string name="share_via_link_expiration_date_explanation_label">Det offentlige link vil senest udløbe %1$d dage efter at det er oprettet</string>
   <string name="share_via_link_default_name_template">%1$s link</string>
-  <string name="private_link_info">Dette er et privat link, som kun folk med adgang til filen/mappen kan bruge. Brug det som et permanent link for dig selv eller til at dirigere folk til filder, der er delt</string>
+  <string name="private_link_info">Privat link: Kun personer, der har adgang til filen/mappen kan bruge det. Brug det som et permanent link for dig selv, eller til at dirigere andre til delte filer</string>
   <plurals name="items_selected_count">
     <item quantity="one">%d valgt</item>
     <item quantity="other">%d valgte</item>
   </plurals>
   <!--Welcome to oC intro features-->
   <string name="welcome_feature_skip_button">Spring over</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Passcode-lås</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Fortsæt</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Fortsæt</string>
+  <!--Open in web-->
 </resources>

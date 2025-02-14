@@ -9,18 +9,32 @@ android {
         targetSdkVersion sdkTargetVersion
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace "com.owncloud.android.testutil"
 }
 
 dependencies {
     implementation project(':owncloudDomain')
-    implementation project(':owncloud-android-library:owncloudComLibrary')
+    implementation project(':owncloudData')
+    implementation project(':owncloudComLibrary')
+    implementation libs.kotlin.stdlib
+    implementation libs.androidx.lifecycle.livedata.ktx
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleLiveData"
+    // Detekt
+    detektPlugins libs.detekt.formatting
+    detektPlugins libs.detekt.libraries
 }

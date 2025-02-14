@@ -29,19 +29,17 @@ import androidx.test.espresso.matcher.RootMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.owncloud.android.R
-import com.owncloud.android.presentation.ui.files.SortBottomSheetFragment
-import com.owncloud.android.presentation.ui.files.SortOrder
-import com.owncloud.android.presentation.ui.files.SortType
+import com.owncloud.android.presentation.files.SortBottomSheetFragment
+import com.owncloud.android.presentation.files.SortOrder
+import com.owncloud.android.presentation.files.SortType
 import com.owncloud.android.utils.matchers.bsfItemWithIcon
 import com.owncloud.android.utils.matchers.bsfItemWithTitle
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 
-@Ignore("Some collisions with Settings tests.")
 class SortBottomSheetFragmentTest {
 
     private lateinit var fragmentScenario: FragmentScenario<SortBottomSheetFragment>
@@ -53,7 +51,7 @@ class SortBottomSheetFragmentTest {
             putParcelable(SortBottomSheetFragment.ARG_SORT_TYPE, SortType.SORT_TYPE_BY_NAME)
             putParcelable(SortBottomSheetFragment.ARG_SORT_ORDER, SortOrder.SORT_ORDER_ASCENDING)
         }
-        fragmentScenario = launchFragment<SortBottomSheetFragment>(fragmentArgs)
+        fragmentScenario = launchFragment(fragmentArgs)
         every { fragmentListener.onSortSelected(any()) } returns Unit
         fragmentScenario.onFragment { it.sortDialogListener = fragmentListener }
     }

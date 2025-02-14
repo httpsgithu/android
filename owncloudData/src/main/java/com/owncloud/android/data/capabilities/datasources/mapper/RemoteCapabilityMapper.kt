@@ -2,7 +2,9 @@
  * ownCloud Android client application
  *
  * @author David González Verdugo
- * Copyright (C) 2020 ownCloud GmbH.
+ * @author Juan Carlos Garrote Gascón
+ *
+ * Copyright (C) 2024 ownCloud GmbH.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,
@@ -30,7 +32,7 @@ class RemoteCapabilityMapper : RemoteMapper<OCCapability, RemoteCapability> {
         remote?.let {
             OCCapability(
                 accountName = remote.accountName,
-                versionMayor = remote.versionMayor,
+                versionMajor = remote.versionMajor,
                 versionMinor = remote.versionMinor,
                 versionMicro = remote.versionMicro,
                 versionString = remote.versionString,
@@ -61,9 +63,14 @@ class RemoteCapabilityMapper : RemoteMapper<OCCapability, RemoteCapability> {
                 CapabilityBooleanType.fromValue(remote.filesSharingFederationOutgoing.value),
                 filesSharingFederationIncoming =
                 CapabilityBooleanType.fromValue(remote.filesSharingFederationIncoming.value),
+                filesSharingUserProfilePicture = CapabilityBooleanType.fromValue(remote.filesSharingUserProfilePicture.value),
                 filesBigFileChunking = CapabilityBooleanType.fromValue(remote.filesBigFileChunking.value),
                 filesUndelete = CapabilityBooleanType.fromValue(remote.filesUndelete.value),
-                filesVersioning = CapabilityBooleanType.fromValue(remote.filesVersioning.value)
+                filesVersioning = CapabilityBooleanType.fromValue(remote.filesVersioning.value),
+                filesPrivateLinks = CapabilityBooleanType.fromValue(remote.filesPrivateLinks.value),
+                filesAppProviders = remote.filesAppProviders?.firstOrNull()?.toAppProviders(),
+                spaces = remote.spaces?.toSpaces(),
+                passwordPolicy = remote.passwordPolicy?.toPasswordPolicy()
             )
         }
 
@@ -71,7 +78,7 @@ class RemoteCapabilityMapper : RemoteMapper<OCCapability, RemoteCapability> {
         model?.let {
             RemoteCapability(
                 accountName = model.accountName!!,
-                versionMayor = model.versionMayor,
+                versionMajor = model.versionMajor,
                 versionMinor = model.versionMinor,
                 versionMicro = model.versionMicro,
                 versionString = model.versionString!!,
@@ -102,9 +109,23 @@ class RemoteCapabilityMapper : RemoteMapper<OCCapability, RemoteCapability> {
                 RemoteCapabilityBooleanType.fromValue(model.filesSharingFederationOutgoing.value)!!,
                 filesSharingFederationIncoming =
                 RemoteCapabilityBooleanType.fromValue(model.filesSharingFederationIncoming.value)!!,
+                filesSharingUserProfilePicture = RemoteCapabilityBooleanType.fromValue(model.filesSharingUserProfilePicture.value)!!,
                 filesBigFileChunking = RemoteCapabilityBooleanType.fromValue(model.filesBigFileChunking.value)!!,
                 filesUndelete = RemoteCapabilityBooleanType.fromValue(model.filesUndelete.value)!!,
-                filesVersioning = RemoteCapabilityBooleanType.fromValue(model.filesVersioning.value)!!
+                filesVersioning = RemoteCapabilityBooleanType.fromValue(model.filesVersioning.value)!!,
+                filesPrivateLinks = RemoteCapabilityBooleanType.fromValue(model.filesPrivateLinks.value)!!,
+                filesAppProviders = null,
+                spaces = null,
+                passwordPolicy = null,
             )
         }
+
+    private fun RemoteCapability.RemoteAppProviders.toAppProviders() =
+        OCCapability.AppProviders(enabled, version, appsUrl, openUrl, openWebUrl, newUrl)
+
+    private fun RemoteCapability.RemoteSpaces.toSpaces() =
+        OCCapability.Spaces(enabled, projects, shareJail, hasMultiplePersonalSpaces)
+
+    private fun RemoteCapability.RemotePasswordPolicy.toPasswordPolicy() =
+        OCCapability.PasswordPolicy(maxCharacters, minCharacters, minDigits, minLowercaseCharacters, minSpecialCharacters, minUppercaseCharacters)
 }

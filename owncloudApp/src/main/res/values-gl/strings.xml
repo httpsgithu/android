@@ -4,8 +4,6 @@
   <string name="global_name">Nome</string>
   <string name="global_date">Data</string>
   <string name="global_size">Tamaño</string>
-  <string name="about_android">%1$s para Android</string>
-  <string name="about_version">Versión %1$s</string>
   <string name="actionbar_search">Buscar neste cartafol</string>
   <string name="actionbar_sync">Actualizar a conta</string>
   <string name="actionbar_upload">Enviar</string>
@@ -18,6 +16,7 @@
   <string name="actionbar_send_file">Enviar</string>
   <string name="actionbar_descending">Descendente</string>
   <string name="actionbar_sort_title">Ordenar por</string>
+  <string name="fab_new_file">Novo documento</string>
   <string name="drawer_item_all_files">Todos os ficheiros</string>
   <string name="drawer_item_only_available_offline">Dispoñíbel sen conexión</string>
   <string name="drawer_item_shared_by_link_files">Compartido por ligazón</string>
@@ -32,21 +31,33 @@
   <string name="drawer_feedback">Comentarios</string>
   <string name="drawer_help">Axuda</string>
   <string name="prefs_category_general">Xeral</string>
-  <string name="prefs_category_more">Máis</string>
-  <string name="prefs_category_security">Seguridade</string>
+  <string name="prefs_subsection_logging">Rexistrando</string>
+  <string name="prefs_subsection_more">Máis</string>
+  <string name="prefs_subsection_security">Seguridade</string>
   <string name="prefs_accounts">Contas</string>
   <string name="prefs_manage_accounts">Xestionar as contas</string>
   <string name="prefs_passcode">Código de bloqueo</string>
   <string name="prefs_biometric">Bloqueo da biometría</string>
   <string name="prefs_biometric_summary">Activar o código de seguridade ou patrón de bloqueo para activar esta opción</string>
+  <string name="prefs_lock_application">Bloquear a aplicación</string>
+  <string name="prefs_lock_application_entries_immediately">Inmediatamente</string>
+  <string name="prefs_lock_application_entries_1minute">Após 1 minuto</string>
+  <string name="prefs_lock_application_entries_5minutes">Após 5 minutos</string>
+  <string name="prefs_lock_application_entries_30minutes">Após 30 minutos</string>
   <string name="prefs_touches_with_other_visible_windows">Toques con outras xanelas visíbeis</string>
   <string name="prefs_touches_with_other_visible_windows_summary">Permitir toques cando a vista estea escurecida por outra xanela visíbel. Activar o emprego de aplis de filtrado de luz.</string>
   <string name="confirmation_touches_with_other_windows_title">Confirma que quere activar esta característica?</string>
   <string name="confirmation_touches_with_other_windows_message">Empregue esta característica baixo a súa responsabilidade, unha aplicación maliciosa podería tentar enganalo para que realice algunhas accións, sen decatarse, empregando outras vistas.</string>
   <string name="prefs_camera_picture_upload">Envío de imaxe</string>
   <string name="prefs_camera_picture_upload_summary">Enviar instantaneamente as fotos tiradas coa cámara</string>
+  <string name="prefs_camera_picture_upload_path_title">Ruta de envío de imaxes</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Enviar imaxes só a través de WiFi</string>
   <string name="prefs_camera_video_upload">Envío de vídeos</string>
   <string name="prefs_camera_video_upload_summary">Enviar instantaneamente os vídeos gravados coa cámara</string>
+  <string name="prefs_camera_video_upload_path_title">Ruta de envío de vídeos</string>
+  <string name="prefs_camera_video_upload_on_wifi">Enviar os vídeos só a través de WiFi</string>
+  <string name="prefs_subsection_advanced">Avanzado</string>
+  <string name="prefs_show_hidden_files">Amosar os ficheiros agochados</string>
   <string name="prefs_log_title">Activar o rexistro</string>
   <string name="prefs_log_summary">Isto empregase para rexistrar os problemas</string>
   <string name="prefs_log_title_history">Historial do rexistro</string>
@@ -61,26 +72,27 @@
   <string name="prefs_remember_last_share_location">Lembrar a localización da compartición</string>
   <string name="prefs_remember_last_upload_location_summary">Lembrar a localización do envío da última compartición</string>
   <string name="prefs_pattern">Bloqueo por patrón</string>
+  <string name="prefs_enable_logging">Activar o rexistro</string>
+  <string name="prefs_enable_logging_summary">Cando se activa, os rexistros poden impactar no rendemento e incluír información confidencial. Non obstante, os rexistros non están suxeitos a envío automático aos servidores ownCloud. Compartir rexistros con outros é responsabilidade exclusiva do usuario.</string>
+  <string name="prefs_send_feedback">Enviar comentarios</string>
   <string name="pattern_enter_pattern">Faga o seu patrón</string>
   <string name="pattern_configure_pattern">Faga o seu patrón</string>
   <string name="pattern_remove_pattern">Retirar o seu patrón</string>
   <string name="pattern_incorrect_pattern">Patrón incorrecto</string>
   <string name="pattern_reenter_pattern">Introduza de novo o seu patrón</string>
   <string name="pattern_not_same_pattern">Os patróns non coindicen</string>
-  <string name="pattern_stored">Patrón almacenado</string>
-  <string name="pattern_removed">Patrón retirado</string>
   <string name="pattern_already_set">Non é posíbel activar os bloqueos de patrón e de código de seguridade ao mesmo tempo, primeiro desactive o patrón</string>
   <string name="passcode_already_set">Non é posíbel activar os bloqueos de patrón e de código de seguridade ao mesmo tempo, primeiro desactive o código de seguridade</string>
   <string name="pattern_no_longer_required">Xa non se pedirá o patrón</string>
   <string name="pattern_configure_your_pattern_explanation">Solicitaráselle o patrón cada vez que inicie a aplicación</string>
-  <string name="pass_code_locked">Bloqueado con código de seguridade</string>
-  <string name="pattern_locked">Bloqueado con patrón</string>
   <string name="illegal_argument_exception_message">É necesaria unha ACCIÓN válida na intención pasada a</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Ficheiros</string>
+  <string name="bottom_nav_personal">Persoal</string>
   <string name="bottom_nav_uploads">Envios</string>
   <string name="bottom_nav_offline">Desconectado</string>
   <string name="bottom_nav_links">Ligazóns</string>
+  <string name="bottom_nav_shares">Comparticións</string>
   <string name="recommend_subject">Tente %1$s no seu teléfono intelixente!</string>
   <string name="recommend_text">Quero convidalo a empregar %1$s no seu teléfono intelixente!
 Descárgueo de aquí: %2$s</string>
@@ -111,9 +123,10 @@ Descárgueo de aquí: %2$s</string>
   <string name="uploader_error_message_source_file_not_found">Non se atopou o ficheiro para enviar na súa localización. Comprobe que existe o ficheiro.</string>
   <string name="uploader_error_message_source_file_not_copied">Produciuse un erro ao copiar o ficheiro a un cartafol temporal. Proba a envialo de novo.</string>
   <string name="file_list_seconds_ago">segundos atrás</string>
-  <string name="file_list_empty">Aquí non hai nada. Envíe algo!</string>
-  <string name="file_list_empty_available_offline">Non hai ficheiros dispoñíbeis sen conexión.</string>
-  <string name="file_list_empty_shared_by_links">Aínda non hai ficheiros compartidos por ligazón.</string>
+  <string name="file_list_empty_title_all_files">Aquí non hai ficheiros</string>
+  <string name="file_list_empty_title_shared_by_links">Non hai ligazóns compartidas</string>
+  <string name="file_list_empty_subtitle_all_files">Envíe algún contido ou sincronice cos seus dispositivos!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Os ficheiros e cartafoles que comparta por ligazón amosaranse aquí</string>
   <string name="file_list_loading">Cargando...</string>
   <string name="file_list_no_app_for_file_type">Non se atopou unha aplicación para este tipo de ficheiro</string>
   <string name="local_file_list_empty">Non hai ficheiros neste cartafol.</string>
@@ -130,6 +143,7 @@ Descárgueo de aquí: %2$s</string>
   <string name="filedetails_size">Tamaño:</string>
   <string name="filedetails_type">Tipo:</string>
   <string name="filedetails_created">Creado:</string>
+  <string name="filedetails_last_sync">Última sincronización:</string>
   <string name="filedetails_modified">Modificado:</string>
   <string name="filedetails_download">Descargar</string>
   <string name="filedetails_sync_file">Sincronizar</string>
@@ -149,7 +163,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="common_error_unknown">erro descoñecido</string>
   <string name="common_pending">Pendentes</string>
   <string name="common_important">Importante</string>
-  <string name="about_title">Sobre</string>
   <string name="change_password">Cambiar o contrasinal</string>
   <string name="delete_account">Retirar a conta</string>
   <string name="create_account">Crear unha conta</string>
@@ -165,7 +178,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="uploader_upload_failed_ssl_certificate_not_trusted">O certificado do servidor non é de confianza</string>
   <string name="uploader_upload_text_dialog_title">Introduza o nome do novo ficheiro</string>
   <string name="uploader_upload_text_dialog_filename_error_empty">O nome de ficheiro non debe estar baleiro</string>
-  <string name="uploader_upload_text_dialog_filename_error_length_max">O nome do ficheiro non debe ter máis de %d caracteres</string>
   <string name="uploader_upload_text_filename_hint">Nome de ficheiro</string>
   <string name="uploader_upload_camera_upload_files">Enviando ficheiros pendentes de envío da cámara</string>
   <string name="uploader_upload_available_offline_files">Enviando ficheiros dispoñíbeis sen conexión</string>
@@ -212,16 +224,7 @@ Descárgueo de aquí: %2$s</string>
   <string name="sync_conflicts_in_favourites_content">%1$d ficheiros «manter sincronizados» non foi posíbel sincronizalos</string>
   <string name="sync_fail_in_favourites_ticker">Produciuse unha falla no mantemento sincronizado de ficheiros</string>
   <string name="sync_fail_in_favourites_content">Non foi posíbel sincronizar o contido de %1$d ficheiros (%2$d conflitos)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Algúns ficheiros locais foron esquecidos</string>
-  <string name="sync_foreign_files_forgotten_content">Non é posíbel copiar %1$d ficheiros do cartafol %2$s en</string>
-  <string name="sync_foreign_files_forgotten_explanation">Dende a versión 1.3.16, os ficheiros enviados dende este dispositivo cópianse no cartafol local %1$s para evitar a perda de datos cando se sincroniza un ficheiro con varias contas.\n\nPor mor deste cambio, todos os ficheiros enviados coas versións anteriores desta aplicación cópianse no cartafol %2$s. Porén, un erro impediu a finalización desta operación durante a sincronización da conta. É posíbel deixar o(s) ficheiro(s) como está(n) e retirar a ligazón a %3$s, ou mover o(s) ficheiro(s) ao directorio %1$s e manter a ligazón a %4$s.\n\nA seguir enuméranse o(s) ficheiro(s) local(is), e o(s) ficheiro(s) remoto(s) en %5$s co(s) que estaba(n) ligado(s).</string>
   <string name="sync_current_folder_was_removed">O cartafol %1$s xa non existe</string>
-  <string name="foreign_files_move">Mover todo</string>
-  <string name="foreign_files_success">Foron movidos todos os ficheiros</string>
-  <string name="foreign_files_fail">Algúns ficheiros non puideron seren movidos</string>
-  <string name="foreign_files_local_text">Local: %1$s</string>
-  <string name="foreign_files_remote_text">Remoto: %1$s</string>
-  <string name="upload_query_move_foreign_files">Non hai espazo abondo para copiar os ficheiros seleccionados no cartafol %1$s. Quere movelos no canto de copialos?</string>
   <string name="pass_code_enter_pass_code">Introduza o seu código de seguridade</string>
   <string name="pass_code_configure_your_pass_code">Escriba o seu código de seguridade</string>
   <string name="pass_code_configure_your_pass_code_explanation">Solicitaráselle o código de seguridade cada vez que inicie a aplicación</string>
@@ -229,9 +232,13 @@ Descárgueo de aquí: %2$s</string>
   <string name="pass_code_remove_your_pass_code">Retirar o seu código de seguridade</string>
   <string name="pass_code_mismatch">Os códigos de seguridade non son iguais</string>
   <string name="pass_code_wrong">Código de seguridade incorrecto</string>
-  <string name="pass_code_removed">Retirouse o código de seguridade</string>
-  <string name="pass_code_stored">O código de seguridade foi almacenado</string>
-  <string name="biometric_not_hardware_detected">Este dispositivo non admite a autenticación biométrica</string>
+  <string name="numberkeyboard_zero">0</string>
+  <string name="numberkeyboard_one">1</string>
+  <string name="numberkeyboard_two">2</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
+  <string name="numberkeyboard_six">6</string>
   <string name="biometric_not_enrolled">Rexístrese polo menos unha biometría para usar esta característica</string>
   <string name="biometric_prompt_title">Acceso biométrico</string>
   <string name="biometric_prompt_subtitle">Acceda empregando a súa credencial biométrica</string>
@@ -279,7 +286,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="auth_expired_basic_auth_toast">Introduza o contrasinal actual</string>
   <string name="auth_connecting_auth_server">Conectando co servidor de autenticación…</string>
   <string name="auth_unsupported_auth_method">O servidor non admite este método de autenticación</string>
-  <string name="auth_unsupported_multiaccount">%1$s non admite contas múltipes</string>
   <string name="auth_fail_get_user_name">O seu servidor non devolveu un ID de usuario correcto, contacte cun administrador
 	</string>
   <string name="auth_can_not_auth_against_server">Non é posíbel autenticarse neste servidor</string>
@@ -304,8 +310,7 @@ Descárgueo de aquí: %2$s</string>
   <string name="sync_file_fail_msg">Non foi posíbel comprobar o ficheiro remoto</string>
   <string name="sync_file_nothing_to_do_msg">Os contidos do ficheiro xa están sincronizados</string>
   <string name="create_dir_fail_msg">Non foi posíbel crear o cartafol</string>
-  <string name="filename_forbidden_characters">Caracteres non permitidos: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">O nome de ficheiro contén algún carácter incorrecto</string>
+  <string name="filename_forbidden_characters_from_server">O nome de ficheiro contén algún carácter incorrecto</string>
   <string name="filename_empty">O nome de ficheiro non pode estar baleiro</string>
   <string name="wait_a_moment">Agarde un chisco</string>
   <string name="wait_checking_credentials">Comprobando as credenciais almacenadas</string>
@@ -348,14 +353,11 @@ Descárgueo de aquí: %2$s</string>
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Enviar imaxes só a través de WiFi</string>
-  <string name="camera_video_upload_on_wifi">Enviar os vídeos só a través de WiFi</string>
   <string name="confirmation_disable_camera_uploads_title">Confirmar</string>
   <string name="confirmation_disable_pictures_upload_message">Confirma que quere desactivar esta característica? As imaxes pendentes non van ser enviadas</string>
   <string name="confirmation_disable_videos_upload_message">Confirma que quere desactivar esta característica? Os vídeos pendentes non van ser enviados</string>
   <string name="proper_pics_folder_warning_camera_upload">Asegúrese de que o cartafol seleccionado é onde a cámara que está a usar garda as imaxes tomadas. Se non, a función non poderá detectar as súas imaxes. Teña en conta que as imaxes serán enviadas, polo menos, 15 minutos despois de tomalas.</string>
   <string name="proper_videos_folder_warning_camera_upload">Asegúrese de que o cartafol seleccionado é onde a cámara que está a usar garda os vídeos gravados. Se non, a función non poderá detectar os seus vídeos. Teña en conta que os vídeos serán enviados, polo menos, 15 minutos despois de gravalos.</string>
-  <string name="conflict_title">Conflito de ficheiro</string>
   <string name="conflict_description">Hai un conflito no ficheiro %1$s, toque para solucionalo</string>
   <string name="conflict_message">Que ficheiros quere conservar? Se selecciona ámbalas dúas versións, engadiráselle un número ao nome do ficheiro local.</string>
   <string name="conflict_keep_both">Conxervar ambos</string>
@@ -364,7 +366,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="preview_image_description">Vista previa da imaxe</string>
   <string name="preview_image_error_unknown_format">Esta imaxe non pode ser amosada</string>
   <string name="error__upload__local_file_not_copied">Non foi posíbel copiar %1$s no cartafol local %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">Ruta de envío de imaxes</string>
   <string name="get_shares_error">Non foi posíbel recuperar as comparticións do servidor</string>
   <string name="get_sharees_error">Non foi posíbel recuperar os usuarios e grupos do servidor</string>
   <string name="get_capabilities_error">Non foi posíbel recuperar as capacidades do servidor</string>
@@ -401,7 +402,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="drawer_manage_accounts">Xestionar as contas</string>
   <string name="auth_redirect_non_secure_connection_title">A conexión segura está a ser redirixida a través dunha ruta non segura.</string>
   <string name="actionbar_logger">Rexistros</string>
-  <string name="log_open_logs_view">Abrir o visor de rexistros</string>
   <string name="log_send_history_button">Enviar o historial</string>
   <string name="log_send_no_mail_app">Non se atopou unha aplicación para enviar os rexistros. Instale unha aplicación de correo!</string>
   <string name="log_send_mail_subject">Rexistros da aplicación %1$s Android</string>
@@ -422,7 +422,6 @@ Descárgueo de aquí: %2$s</string>
   <string name="copy_file_error">Oconteceu un erro mentras se intentaba copiar este ficheiro ou cartafol</string>
   <string name="forbidden_permissions_copy">copiar este ficheiro</string>
   <string name="prefs_category_camera_upload">Envíos da cámara</string>
-  <string name="prefs_camera_video_upload_path_title">Ruta de envío de vídeos</string>
   <string name="sync_folder_failed_content">A sincronización do cartafol %1$s non se completou</string>
   <string name="shared_subject_header">compartido</string>
   <string name="with_you_subject_header">con vostede</string>
@@ -442,13 +441,11 @@ Descárgueo de aquí: %2$s</string>
   <string name="file_list__footer__files_and_folders">%1$d ficheiros, %2$d cartafoles</string>
   <string name="prefs_camera_upload_source_path_title">Cartafol da cámara (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">requirido</string>
-  <string name="prefs_camera_upload_source_path_title_optional">opcional</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">O ficheiro orixinal vai ser</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">O ficheiro orixinal vai ser</string>
   <string name="prefs_camera_upload_behaviour_title">O ficheiro orixinal vai ser</string>
   <string name="upload_copy_files">Copiar ficheiro</string>
   <string name="upload_move_files">Mover ficheiro</string>
   <string name="pref_behaviour_entries_keep_file">mantense no cartafol orixinal</string>
-  <string name="pref_behaviour_entries_move">movido cara ao cartafol da aplicación</string>
   <string name="share_dialog_title">Compartir</string>
   <string name="share_file">Compartir %1$s</string>
   <string name="share_with_user_section_title">Usuarios e grupos</string>
@@ -486,13 +483,7 @@ Descárgueo de aquí: %2$s</string>
   <string name="edit_share_done">feito</string>
   <string name="action_upload_retry">Tentar de novo</string>
   <string name="action_upload_clear">Limpar</string>
-  <string name="manage_space_title">Administrar o espazo</string>
-  <string name="manage_space_description">Van ser eliminados de xeito permanente os axustes , base de datos e certificados do servidor de %1$s.\n\nOs ficheiros descargados manteranse sen cambios.\n\nEste proceso pode levar bastante tempo.</string>
-  <string name="manage_space_clear_data">Limpar os datos</string>
-  <string name="manage_space_error">Algúns ficheiros non puideron seren eliminados.</string>
-  <string name="permission_storage_access">Requirense permisos adicionais para enviar e descargar ficheiros.</string>
   <string name="local_file_not_found_toast">Non se atopou o ficheiro no sistema local de ficheiros</string>
-  <string name="confirmation_remove_files_alert">Confirma que quere retirar os elementos seleccionados?</string>
   <string name="confirmation_remove_folders_alert">Confirma que quere eliminar os elementos seleccionados e o seu contido?</string>
   <string name="failed_upload_quota_exceeded_text">Non hai espazo abondo na conta</string>
   <string name="auth_forbidden">Autenticación non permitida</string>
@@ -517,7 +508,7 @@ Descárgueo de aquí: %2$s</string>
   <string name="share_via_link_expiration_date_explanation_label">A ligazón pública non caducará antes de %1$d días após a súa creación</string>
   <string name="share_via_link_default_name_template">Ligazón %1$s</string>
   <string name="share_via_link_empty_password">O contrasinal está baleiro</string>
-  <string name="private_link_info">Isto é unha ligazón privada, só as persoas que teñen acceso ao ficheiro/cartafol poden empregalo. Úseo como ligazón permanente para vostede ou para dirixir a outros a ficheiros compartidos.</string>
+  <string name="private_link_info">Ligazón privada: Só as persoas que teñen acceso ao ficheiro/cartafol poden empregalo. Úseo como ligazón permanente para vostede ou para dirixir a outros a ficheiros compartidos</string>
   <string name="file_private_link_error">A ligazón privada non está dispoñíbel para este ficheiro</string>
   <string name="download_notification_channel_name">Descargas</string>
   <string name="download_notification_channel_description">Vexa o nome do ficheiro en descarga e o progreso</string>
@@ -549,11 +540,23 @@ Descárgueo de aquí: %2$s</string>
   <string name="welcome_feature_4_text">As súas imaxes ou vídeos enviaranse automaticamente</string>
   <string name="welcome_feature_5_title">Fluxo de vídeo</string>
   <string name="welcome_feature_5_text">Reproduza os seus vídeos sen descargalos</string>
-  <string name="no_borwser_installed_alert">Non hai un navegador instalado, Instale un para poder facer un acceso seguro.</string>
+  <string name="no_browser_installed_alert">Non hai un navegador instalado, Instale un para poder facer un acceso seguro.</string>
   <string name="common_not_found">non foi atopado</string>
   <string name="supports_oauth2_error">Non foi posible saber se OAuth2 é compatíbel</string>
   <string name="get_base_url_error">Non foi posíbel saber cal é o URL base do servidor</string>
   <string name="prefs_http_logs">Rexistro de solicitudes e respostas HTTP</string>
   <string name="prefs_logs_summary">Os rexistros poden conter información confidencial. Compartir rexistros con outras persoas é responsabilidade exclusiva do usuario</string>
   <string name="synchronizing_account">Sincronizando a conta</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Código de bloqueo</string>
+  <string name="folder_upload_some_content_or_sync_devices">Envíe algún contido ou sincronice cos seus dispositivos!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Proceder</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Proceder</string>
+  <!--Open in web-->
+  <!--oCIS accounts warning-->
+  <string name="ocis_accounts_warning_checkbox_message">Non volver amosar</string>
+  <string name="tab_label_ascii">Texto</string>
 </resources>

@@ -30,15 +30,18 @@ import android.webkit.MimeTypeMap;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
-import com.owncloud.android.authentication.AccountUtils;
+import com.owncloud.android.presentation.authentication.AccountUtils;
 import timber.log.Timber;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
+
+import static com.owncloud.android.domain.files.model.MimeTypeConstantsKt.MIME_PREFIX_IMAGE;
 
 /**
  * Utility class with methods for decoding Bitmaps.
@@ -174,7 +177,7 @@ public class BitmapUtils {
      *
      *  @param h Hue is specified as degrees in the range 0 - 360.
      *  @param s Saturation is specified as a percentage in the range 1 - 100.
-     *  @param l Lumanance is specified as a percentage in the range 1 - 100.
+     *  @param l Luminance is specified as a percentage in the range 1 - 100.
      *  @param alpha  the alpha value between 0 - 1
      *  adapted from https://svn.codehaus.org/griffon/builders/gfxbuilder/tags/GFXBUILDER_0.2/
      *  gfxbuilder-core/src/main/com/camick/awt/HSLColor.java
@@ -236,7 +239,7 @@ public class BitmapUtils {
         final String fileExtension = MimeTypeMap.getFileExtensionFromUrl(selectedUri.toString().toLowerCase());
         final String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension);
 
-        return (mimeType != null && mimeType.startsWith("image/"));
+        return (mimeType != null && mimeType.startsWith(MIME_PREFIX_IMAGE));
     }
 
     /**
@@ -251,7 +254,7 @@ public class BitmapUtils {
             throws UnsupportedEncodingException, NoSuchAlgorithmException {
         // using adapted algorithm from /core/js/placeholder.js:50
         final String username = AccountUtils.getUsernameOfAccount(accountName);
-        final byte[] seed = username.getBytes("UTF-8");
+        final byte[] seed = username.getBytes(StandardCharsets.UTF_8);
         final MessageDigest md = MessageDigest.getInstance("MD5");
         // Integer seedMd5Int = Math.abs(new String(Hex.encodeHex(seedMd5)).hashCode());
         final Integer seedMd5Int = String.format(Locale.ROOT, "%032x",

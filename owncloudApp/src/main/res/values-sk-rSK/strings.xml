@@ -4,8 +4,6 @@
   <string name="global_name">Názov</string>
   <string name="global_date">Dátum</string>
   <string name="global_size">Veľkosť</string>
-  <string name="about_android">%1$s pre Android</string>
-  <string name="about_version">Verzia %1$s</string>
   <string name="actionbar_search">Hľadať tento adresár</string>
   <string name="actionbar_sync">Obnoviť účet</string>
   <string name="actionbar_upload">Nahraj súbor</string>
@@ -32,8 +30,8 @@
   <string name="drawer_feedback">Spätná väzba</string>
   <string name="drawer_help">Pomoc</string>
   <string name="prefs_category_general">Všeobecné</string>
-  <string name="prefs_category_more">Viac</string>
-  <string name="prefs_category_security">Zabezpečenie</string>
+  <string name="prefs_subsection_more">Viac</string>
+  <string name="prefs_subsection_security">Zabezpečenie</string>
   <string name="prefs_accounts">Účty</string>
   <string name="prefs_manage_accounts">Správa účtov</string>
   <string name="prefs_passcode">Heslo</string>
@@ -43,8 +41,14 @@
   <string name="confirmation_touches_with_other_windows_title">Vážne si prajete zapnúť túto funkciu ?</string>
   <string name="prefs_camera_picture_upload">Nahrávanie obrázkov.</string>
   <string name="prefs_camera_picture_upload_summary">Automatické nahratie obrázkov z fotoaparátu/kamery</string>
+  <string name="prefs_camera_picture_upload_path_title">Cesta pre nahratie súboru</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Nahrávanie obrázkov je povolené len cez WIFI</string>
   <string name="prefs_camera_video_upload">Nahratie videa.</string>
   <string name="prefs_camera_video_upload_summary">Automatické nahratie videií z fotoaparátu/kamery</string>
+  <string name="prefs_camera_video_upload_path_title">Cesta pre nahratie videa</string>
+  <string name="prefs_camera_video_upload_on_wifi">Nahrávanie videí je povolené len cez WIFI</string>
+  <string name="prefs_subsection_advanced">Rozšírené</string>
+  <string name="prefs_show_hidden_files">Zobraziť skryté súbory</string>
   <string name="prefs_log_title">Povoliť logovanie</string>
   <string name="prefs_log_summary">Toto je použité pre logovanie problémov</string>
   <string name="prefs_log_title_history">História logov</string>
@@ -59,14 +63,13 @@
   <string name="prefs_remember_last_share_location">Zapamätať umiestnenie zdieľania</string>
   <string name="prefs_remember_last_upload_location_summary">Zapamätať posledné umiestnenie pre nahranie zdieľaných súborov</string>
   <string name="prefs_pattern">Zamknutie vzorom</string>
+  <string name="prefs_enable_logging">Povoliť logovanie</string>
   <string name="pattern_enter_pattern">Prosím vlož svoj vzor</string>
   <string name="pattern_configure_pattern">Vlož svoj vzor</string>
   <string name="pattern_remove_pattern">Odstráň svoj vzor</string>
   <string name="pattern_incorrect_pattern">Nesprávny vzor</string>
   <string name="pattern_reenter_pattern">Prosím zadaj znovu svoj vzor</string>
   <string name="pattern_not_same_pattern">Vzory nie sú rovnaké</string>
-  <string name="pattern_stored">Vzor bol uložený.</string>
-  <string name="pattern_removed">Vzor bol odstránený</string>
   <string name="pattern_already_set">Vzor a heslo nemôžu byť, zapnuté na raz, prosím vypni najskôr vzor.</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Súbory</string>
@@ -89,7 +92,6 @@
   <string name="uploader_error_title_no_file_to_upload">Žiadny súbor na nahrávanie</string>
   <string name="uploader_error_title_file_cannot_be_uploaded">Súbor nie je možné nahrať</string>
   <string name="file_list_seconds_ago">pred sekundami</string>
-  <string name="file_list_empty">Žiadny súbor. Nahrajte niečo!</string>
   <string name="file_list_loading">Načítavam...</string>
   <string name="local_file_list_empty">V tomto priečinku nie sú žiadne súbory.</string>
   <string name="file_list_folder">priečinok</string>
@@ -115,7 +117,6 @@
   <string name="common_unknown">neznámy</string>
   <string name="common_pending">Čaká</string>
   <string name="common_important">Dôležité</string>
-  <string name="about_title">O</string>
   <string name="change_password">Zmeniť heslo</string>
   <string name="delete_account">Odstrániť účet</string>
   <string name="create_account">Vytvoriť účet</string>
@@ -153,22 +154,15 @@
   <string name="sync_conflicts_in_favourites_content">%1$d súborov z automatickej synchronizácie nemožno synchronizovať</string>
   <string name="sync_fail_in_favourites_ticker">Automatická synchronizácia súborov zlyhala</string>
   <string name="sync_fail_in_favourites_content">Obsah %1$d súborov nemohol byť synchronizovaný (%2$d konfliktov)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Niektoré lokálne súbory boli zabudnuté</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d súborov z %2$s priečinkov sa nepodarilo skopírovať do</string>
-  <string name="sync_foreign_files_forgotten_explanation">Od verzie 1.3.16 sú súbory nahrané z tohoto zariadenia kopírované do lokálneho priečinka %1$s, aby sa zabránilo strate dát pri synchronizácii jedného súboru s viacerými účtami.\n\nVšetky súbory nahraté predchádzajúcimi verziami aplikácie boli z tohoto dôvodu prekopírované do priečinka %2$s. Bohužiaľ sa objavila chyba zabraňujúca dokončeniu tejto operácie v priebehu synchronizácie účtu. Buď môžete súbor(y) ponechať ako sú a odobrať odkaz z priečinka %3$s, alebo presunúť súbor(y) do priečinka %1$s a zachovať odkaz na %4$s.\n\nNižšie je uvedený lokálny súbor(y) a vzdialený súbor(y) v %5$s, s ktorým je prepojený.</string>
   <string name="sync_current_folder_was_removed">Priečinok %1$s už existuje</string>
-  <string name="foreign_files_move">Premiestniť všetko</string>
-  <string name="foreign_files_success">Všetky súbory boli premiestnené</string>
-  <string name="foreign_files_fail">Niektoré súbory nebolo možné premiestniť</string>
-  <string name="foreign_files_local_text">Lokálne: %1$s</string>
-  <string name="foreign_files_remote_text">Vzdialené: %1$s</string>
   <string name="pass_code_configure_your_pass_code">Vložte svoje heslo</string>
   <string name="pass_code_configure_your_pass_code_explanation">Heslo bude nutné zadať vždy po štarte aplikácie</string>
   <string name="pass_code_remove_your_pass_code">Zmazať svoje heslo</string>
   <string name="pass_code_mismatch">Heslá sa nezhodujú</string>
   <string name="pass_code_wrong">Nesprávne heslo</string>
-  <string name="pass_code_removed">Bezpečnostný kód odstránený</string>
-  <string name="pass_code_stored">Bezpečnostný kód uložený</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="media_notif_ticker">Prehrávač hudby %1$s</string>
   <string name="media_state_playing">%1$s (prehráva)</string>
   <string name="media_state_loading">%1$s (načítava)</string>
@@ -210,7 +204,6 @@
   <string name="auth_expired_basic_auth_toast">Zadajte svoje aktuálne heslo</string>
   <string name="auth_connecting_auth_server">Pripájam sa na autentifikačný server ...</string>
   <string name="auth_unsupported_auth_method">Server nepodporuje túto autentifikačnú metódu</string>
-  <string name="auth_unsupported_multiaccount">%1$s nepodporuje viacero účtov</string>
   <string name="auth_fail_get_user_name">Váš server nevracia správne používateľské id, kontaktujte prosím správcu systému
 	</string>
   <string name="auth_can_not_auth_against_server">Nemôžem verifikovať tento server</string>
@@ -236,7 +229,7 @@
   <string name="sync_file_nothing_to_do_msg">Obsah súboru je zosynchronizovaný</string>
   <string name="create_dir_fail_msg">Priečinok nie je možné vytvoriť</string>
   <string name="filename_forbidden_characters">Zakázané znaky: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Názov súboru obsahuje nevhodný znak</string>
+  <string name="filename_forbidden_characters_from_server">Názov súboru obsahuje nevhodný znak</string>
   <string name="filename_empty">Názov súboru nemôže byť prázdny</string>
   <string name="wait_a_moment">Počkať chvíľu</string>
   <string name="wait_checking_credentials">Kontrolujem uložené údaje</string>
@@ -279,15 +272,12 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Nahrávanie obrázkov je povolené len cez WIFI</string>
-  <string name="camera_video_upload_on_wifi">Nahrávanie videí je povolené len cez WIFI</string>
   <string name="confirmation_disable_camera_uploads_title">Potvrď</string>
   <string name="confirmation_disable_pictures_upload_message">Vážne chcete vypnúť túto funkcionalitu ?
 Čakajúce obrázky nebudú nahrané</string>
   <string name="confirmation_disable_videos_upload_message">Vážne chcete vypnúť túto funkcionalitu ?
 Čakajúce videá nebudú nahraté</string>
-  <string name="conflict_title">Konflikt súborov</string>
-  <string name="conflict_description">Konflok v súbore %1$s, klikni sem a odstráň to</string>
+    <string name="conflict_description">Konflok v súbore %1$s, klikni sem a odstráň to</string>
   <string name="conflict_message">Ktoré súbory si prajate ponachať? Pokiaľ to budú obe verzie, lokálnej pribudne k názvu číslo.</string>
   <string name="conflict_keep_both">Ponechať oba</string>
   <string name="conflict_use_local_version">lokálnu verziu</string>
@@ -295,7 +285,6 @@
   <string name="preview_image_description">Ukážka obrazu</string>
   <string name="preview_image_error_unknown_format">Obrázok nemožno zobraziť</string>
   <string name="error__upload__local_file_not_copied">%1$s nemožno skopírovať do lokálneho priečinka %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">Cesta pre nahratie súboru</string>
   <string name="get_shares_error">Nie je možné načítať zdieľanie so servera</string>
   <string name="get_sharees_error">Nie je možné načítať užívateľov a skupiny so servera</string>
   <string name="get_capabilities_error">Nie je možné načítať parametre so servera</string>
@@ -352,7 +341,6 @@
   <string name="copy_file_error">Počas kopírovania súboru alebo zložky sa vyskytla chyba</string>
   <string name="forbidden_permissions_copy">kopírovať súbor</string>
   <string name="prefs_category_camera_upload">Nahrávky z fotoaparátu</string>
-  <string name="prefs_camera_video_upload_path_title">Cesta pre nahratie videa</string>
   <string name="sync_folder_failed_content">Synchronizáciu priečinka %1$s nebolo možné dokončiť</string>
   <string name="shared_subject_header">zdieľané</string>
   <string name="with_you_subject_header">s vami</string>
@@ -372,14 +360,12 @@
   <string name="file_list__footer__files_and_folders">%1$d súb., %2$d prieč.</string>
   <string name="prefs_camera_upload_source_path_title">Adresár fotoaparátu (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">Požaduje sa</string>
-  <string name="prefs_camera_upload_source_path_title_optional">Volitelné</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Originálny súbor bude</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Originálny súbor bude</string>
   <string name="prefs_camera_upload_behaviour_title">Originálny súbor bude</string>
   <string name="upload_copy_files">Kopírovanie súboru</string>
   <string name="upload_move_files">Presunutie súboru</string>
   <string name="pref_behaviour_entries_keep_file">Ponechať v originálnom Adresári</string>
-  <string name="pref_behaviour_entries_move">Presunúť do App Adresára</string>
-  <string name="share_dialog_title">Zdieľať</string>
+    <string name="share_dialog_title">Zdieľať</string>
   <string name="share_file">Zdieľať %1$s</string>
   <string name="share_with_user_section_title">Užívatelia a Skupiny</string>
   <string name="share_no_users">Zatiaľ s používateľmi nezdieľate žiadne dáta.</string>
@@ -416,13 +402,7 @@
   <string name="edit_share_done">Hotovo</string>
   <string name="action_upload_retry">Skúsiť znova</string>
   <string name="action_upload_clear">Vyčistiť</string>
-  <string name="manage_space_title">Spravovať prestor</string>
-  <string name="manage_space_description">Nastavenia, certifikaty databazy a servera z %1$s budú trvalo odstránené. \n\nStiahnuté súbory budú ponechané.\n\nTento proces môžete spustiť iba raz.</string>
-  <string name="manage_space_clear_data">Vyčistenie dát.</string>
-  <string name="manage_space_error">Niektoré súbory nemohli byť zmazané.</string>
-  <string name="permission_storage_access">Dalšie práva su požadované pre nahratie &amp; Stiahnutie súborov.</string>
   <string name="local_file_not_found_toast">Tento súbor sa nenachádza v lokálnom zozname súborov</string>
-  <string name="confirmation_remove_files_alert">Vážne si želáš odstrániť tieto položky ?</string>
   <string name="confirmation_remove_folders_alert">Vážne si želáš odstrániť tieto položky a ich obsah ?</string>
   <string name="failed_upload_quota_exceeded_text">Nedostatok miesta na disku pre tento Užívateľský profil.</string>
   <string name="auth_forbidden">Zakázaná autentifikácia</string>
@@ -447,7 +427,6 @@
   <string name="share_via_link_expiration_date_explanation_label">Tento odkaz nevyprší skôr ako %1$d dní po vytvorení.</string>
   <string name="share_via_link_default_name_template">%1$s Odkaz</string>
   <string name="share_via_link_empty_password">Heslo je prázdne.</string>
-  <string name="private_link_info">Toto je súkromný odkaz, iba užívatelia ktorí majú prístup do súboru/Adresára ho môžu používať. Použi ho ako trvalý odkaz pre seba alebo ako bod  pre ostatných na súbory s ich zdieľaniami.</string>
   <string name="file_private_link_error">Súkromný odkaz nie je dostupný pre tento súbor.</string>
   <string name="download_notification_channel_name">Sťahovania</string>
   <string name="download_notification_channel_description">Pozri meno sťahovaného súboru a pokračuj</string>
@@ -472,4 +451,9 @@
   <string name="welcome_feature_3_title">Hromadný účet</string>
   <string name="welcome_feature_3_text">Pripoj sa k všetkým svojim ownCloud Serverom</string>
   <string name="welcome_feature_4_title">Náhrávky z kamery</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Heslo</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Vykonať</string>
 </resources>

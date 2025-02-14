@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_version">versiya %1$s</string>
-  <string name="actionbar_sync">Yenilənmə hesabı</string>
+    <string name="actionbar_sync">Yenilənmə hesabı</string>
   <string name="actionbar_upload">Serverə yüklə</string>
   <string name="actionbar_upload_from_apps">Digər porgramların kontenti</string>
   <string name="actionbar_upload_files">Fayllar</string>
@@ -15,8 +14,8 @@
   <string name="drawer_feedback">Geriyə cavab</string>
   <string name="drawer_help">Kömək</string>
   <string name="prefs_category_general">Ümumi</string>
-  <string name="prefs_category_more">Daha da</string>
-  <string name="prefs_category_security">Təhlükəsizlik</string>
+  <string name="prefs_subsection_more">Daha da</string>
+  <string name="prefs_subsection_security">Təhlükəsizlik</string>
   <string name="prefs_accounts">Hesablar</string>
   <string name="prefs_log_summary">Bu problemlərin jurnal edilməsi üçün istifadə edilir</string>
   <string name="prefs_log_summary_history">Bu, yazılmış jurnalları göstərir</string>
@@ -39,7 +38,6 @@
   <string name="uploader_wrn_no_account_setup_btn_text">Qurulum</string>
   <string name="uploader_wrn_no_account_quit_btn_text">Çıx</string>
   <string name="file_list_seconds_ago">saniyələr öncə</string>
-  <string name="file_list_empty">Burda heçnə yoxdur. Nese yükləyin!</string>
   <string name="local_file_list_empty">Bu qovluqda heç bir fayl movcud deyil.</string>
   <string name="file_list_folder">qovluq</string>
   <string name="file_list_folders">qovluqlar</string>
@@ -59,8 +57,7 @@
   <string name="common_loading">Yüklənir…</string>
   <string name="common_error_unknown">Bəlli olmayan səhv baş verdi</string>
   <string name="common_pending">Gözləmə</string>
-  <string name="about_title">Haqqında</string>
-  <string name="change_password">Şifrəni dəyiş</string>
+    <string name="change_password">Şifrəni dəyiş</string>
   <string name="create_account">Hesab yarat</string>
   <string name="upload_chooser_title">Burdan yüklə …</string>
   <string name="uploader_info_dirname">Qovluq adı</string>
@@ -84,20 +81,8 @@
   <string name="sync_conflicts_in_favourites_content">%1$d sinxronizasiyada olan fayllar sinxronizasiya edilə bilməz</string>
   <string name="sync_fail_in_favourites_ticker">Sinxronizasiyada saxlanılan fayllarda səhv baş verdi</string>
   <string name="sync_fail_in_favourites_content">%1$d fayllarin kontentləri sinxronizasiya edilə bilməz (%2$d konfliktdədir)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Bəzi lokal fayllar unudulmuşdur</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d faylları %2$s qovluğundan kənardadır və qovluğun daxilinə nüsxələnə bilməz </string>
-  <string name="sync_foreign_files_forgotten_explanation">1.3.16 versiyasından başlayaraq, bu alətdən nüsxələnən fayllar daxili %1$s qovluğuna nüsxələnmişdir ki, bir fayl bir neçə hesabla sinxronizasiya edildikdə, data itkisinin qarşısı alınsın.
-
-Bu dəyişikliklə bağlı, bu proqramın öncəki versiyasında yüklənmiş olan fayllar %2$s qovluğuna nüsxələnmişdir. Ancaq bu hesabın sinxronizasiyası zamanı səhv baş vermişdir.\n\nSiz ya fayl(ları) saxlaya və %3$s üçün linki silə bilər, yada fayl(ları)  %1$s qovluğuna köçürə və linki %4$s -ə saxlaya bilərsiniz.
-
-Aşağıda göstərilən %5$s-də olan daxili və xarici fayl(lar) link edilmişdir.</string>
-  <string name="sync_current_folder_was_removed">%1$s qovluğu heç bir yerdə mövcud deyil</string>
-  <string name="foreign_files_move">Hamısını köçür</string>
-  <string name="foreign_files_success">Bütün fayllar köçürüldü</string>
-  <string name="foreign_files_fail">Bəzi fayllar köçürülə bilməz</string>
-  <string name="foreign_files_local_text">Daxili: %1$s</string>
-  <string name="foreign_files_remote_text">Uzaq: %1$s</string>
-  <string name="media_notif_ticker">%1$s musiqi oxuducusu</string>
+    <string name="sync_current_folder_was_removed">%1$s qovluğu heç bir yerdə mövcud deyil</string>
+    <string name="media_notif_ticker">%1$s musiqi oxuducusu</string>
   <string name="media_state_playing">%1$s (oxuyur)</string>
   <string name="media_state_loading">%1$s (yüklənir)</string>
   <string name="media_event_done">%1$s geriyə oxunuş bitib</string>
@@ -134,7 +119,6 @@ Aşağıda göstərilən %5$s-də olan daxili və xarici fayl(lar) link edilmiş
   <string name="auth_oauth_error_access_denied">Yetkiləndirmə serveri tərəfindən giriş əngəlləndi</string>
   <string name="auth_expired_oauth_token_toast">Sizin yetinizin vaxtı bitmişdir. Xahiş olunur, yenidən yetkilənəsiniz</string>
   <string name="auth_unsupported_auth_method">Server bu qeydiyyat metodikasını dəstəkləmir</string>
-  <string name="auth_unsupported_multiaccount">%1$s çoxlu hesab dəstəkləmir</string>
   <string name="auth_fail_get_user_name">Sizin server düzgün istifadəçi id-si qaytarmır, xahiş olunur inzibatçı ilə əlaqə saxlayasınız</string>
   <string name="auth_account_does_not_exist">Hesab göstərilən avadanlıqda mövcud deyil</string>
   <string name="common_rename">Adı dəyiş</string>

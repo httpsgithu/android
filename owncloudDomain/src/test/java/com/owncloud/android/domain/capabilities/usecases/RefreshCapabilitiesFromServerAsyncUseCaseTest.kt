@@ -28,33 +28,32 @@ import org.junit.Assert
 import org.junit.Test
 
 class RefreshCapabilitiesFromServerAsyncUseCaseTest {
-    private val capabilityRepository: CapabilityRepository = spyk()
-    private val useCase = RefreshCapabilitiesFromServerAsyncUseCase((capabilityRepository))
+
+    private val repository: CapabilityRepository = spyk()
+    private val useCase = RefreshCapabilitiesFromServerAsyncUseCase((repository))
     private val useCaseParams = RefreshCapabilitiesFromServerAsyncUseCase.Params("")
 
     @Test
-    fun refreshCapabilitiesFromServerOk() {
-        val useCaseResult = useCase.execute(useCaseParams)
+    fun `refresh capabilities from server - ok`() {
+        every { repository.refreshCapabilitiesForAccount(any()) } returns Unit
+
+        val useCaseResult = useCase(useCaseParams)
 
         Assert.assertTrue(useCaseResult.isSuccess)
-        Assert.assertFalse(useCaseResult.isError)
         Assert.assertEquals(Unit, useCaseResult.getDataOrNull())
 
-        verify(exactly = 1) { capabilityRepository.refreshCapabilitiesForAccount("") }
+        verify(exactly = 1) { repository.refreshCapabilitiesForAccount("") }
     }
 
     @Test
-    fun refreshCapabilitiesFromServerWithUnauthorizedException() {
-        every { capabilityRepository.refreshCapabilitiesForAccount(any()) } throws UnauthorizedException()
+    fun `refresh capabilities from server - ko`() {
+        every { repository.refreshCapabilitiesForAccount(any()) } throws UnauthorizedException()
 
-        val useCaseResult = useCase.execute(useCaseParams)
+        val useCaseResult = useCase(useCaseParams)
 
-        Assert.assertFalse(useCaseResult.isSuccess)
         Assert.assertTrue(useCaseResult.isError)
-
-        Assert.assertNull(useCaseResult.getDataOrNull())
         Assert.assertTrue(useCaseResult.getThrowableOrNull() is UnauthorizedException)
 
-        verify(exactly = 1) { capabilityRepository.refreshCapabilitiesForAccount("") }
+        verify(exactly = 1) { repository.refreshCapabilitiesForAccount("") }
     }
 }

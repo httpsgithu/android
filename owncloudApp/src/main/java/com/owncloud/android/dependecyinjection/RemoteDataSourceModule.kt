@@ -19,9 +19,11 @@
 
 package com.owncloud.android.dependecyinjection
 
+import com.owncloud.android.MainApp
 import com.owncloud.android.R
-import com.owncloud.android.authentication.AccountUtils
 import com.owncloud.android.data.ClientManager
+import com.owncloud.android.data.appregistry.datasources.RemoteAppRegistryDataSource
+import com.owncloud.android.data.appregistry.datasources.implementation.OCRemoteAppRegistryDataSource
 import com.owncloud.android.data.authentication.datasources.RemoteAuthenticationDataSource
 import com.owncloud.android.data.authentication.datasources.implementation.OCRemoteAuthenticationDataSource
 import com.owncloud.android.data.capabilities.datasources.RemoteCapabilitiesDataSource
@@ -29,8 +31,8 @@ import com.owncloud.android.data.capabilities.datasources.implementation.OCRemot
 import com.owncloud.android.data.capabilities.datasources.mapper.RemoteCapabilityMapper
 import com.owncloud.android.data.files.datasources.RemoteFileDataSource
 import com.owncloud.android.data.files.datasources.implementation.OCRemoteFileDataSource
-import com.owncloud.android.data.oauth.datasource.RemoteOAuthDataSource
-import com.owncloud.android.data.oauth.datasource.impl.RemoteOAuthDataSourceImpl
+import com.owncloud.android.data.oauth.datasources.RemoteOAuthDataSource
+import com.owncloud.android.data.oauth.datasources.implementation.OCRemoteOAuthDataSource
 import com.owncloud.android.data.server.datasources.RemoteServerInfoDataSource
 import com.owncloud.android.data.server.datasources.implementation.OCRemoteServerInfoDataSource
 import com.owncloud.android.data.sharing.sharees.datasources.RemoteShareeDataSource
@@ -39,51 +41,46 @@ import com.owncloud.android.data.sharing.sharees.datasources.mapper.RemoteSharee
 import com.owncloud.android.data.sharing.shares.datasources.RemoteShareDataSource
 import com.owncloud.android.data.sharing.shares.datasources.implementation.OCRemoteShareDataSource
 import com.owncloud.android.data.sharing.shares.datasources.mapper.RemoteShareMapper
+import com.owncloud.android.data.spaces.datasources.RemoteSpacesDataSource
+import com.owncloud.android.data.spaces.datasources.implementation.OCRemoteSpacesDataSource
 import com.owncloud.android.data.user.datasources.RemoteUserDataSource
 import com.owncloud.android.data.user.datasources.implementation.OCRemoteUserDataSource
-import com.owncloud.android.lib.common.OwnCloudAccount
-import com.owncloud.android.lib.common.SingleSessionManager
-import com.owncloud.android.lib.resources.files.services.FileService
-import com.owncloud.android.lib.resources.files.services.implementation.OCFileService
+import com.owncloud.android.data.webfinger.datasources.RemoteWebFingerDataSource
+import com.owncloud.android.data.webfinger.datasources.implementation.OCRemoteWebFingerDataSource
+import com.owncloud.android.lib.common.ConnectionValidator
 import com.owncloud.android.lib.resources.oauth.services.OIDCService
 import com.owncloud.android.lib.resources.oauth.services.implementation.OCOIDCService
-import com.owncloud.android.lib.resources.shares.services.ShareService
-import com.owncloud.android.lib.resources.shares.services.ShareeService
-import com.owncloud.android.lib.resources.shares.services.implementation.OCShareService
-import com.owncloud.android.lib.resources.shares.services.implementation.OCShareeService
-import com.owncloud.android.lib.resources.status.services.CapabilityService
 import com.owncloud.android.lib.resources.status.services.ServerInfoService
-import com.owncloud.android.lib.resources.status.services.implementation.OCCapabilityService
 import com.owncloud.android.lib.resources.status.services.implementation.OCServerInfoService
+import com.owncloud.android.lib.resources.webfinger.services.WebFingerService
+import com.owncloud.android.lib.resources.webfinger.services.implementation.OCWebFingerService
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.singleOf
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val remoteDataSourceModule = module {
-    single { AccountUtils.getCurrentOwnCloudAccount(androidContext()) }
-    single { OwnCloudAccount(get(), androidContext()) }
-    single { SingleSessionManager.getDefaultSingleton().getClientFor(get(), androidContext()) }
+    single { ConnectionValidator(androidContext(), androidContext().resources.getBoolean(R.bool.clear_cookies_on_validation)) }
+    single { ClientManager(get(), get(), androidContext(), MainApp.accountType, get()) }
 
-    single { ClientManager(get(), get(), get()) }
+    singleOf(::OCServerInfoService) bind ServerInfoService::class
+    singleOf(::OCOIDCService) bind OIDCService::class
+    singleOf(::OCWebFingerService) bind WebFingerService::class
 
-    single<CapabilityService> { OCCapabilityService(get()) }
-    single<FileService> { OCFileService(get()) }
-    single<ServerInfoService> { OCServerInfoService() }
-    single<OIDCService> { OCOIDCService() }
-    single<ShareService> { OCShareService(get()) }
-    single<ShareeService> { OCShareeService(get()) }
+    singleOf(::OCRemoteAppRegistryDataSource) bind RemoteAppRegistryDataSource::class
+    singleOf(::OCRemoteAuthenticationDataSource) bind RemoteAuthenticationDataSource::class
+    singleOf(::OCRemoteCapabilitiesDataSource) bind RemoteCapabilitiesDataSource::class
+    singleOf(::OCRemoteFileDataSource) bind RemoteFileDataSource::class
+    singleOf(::OCRemoteOAuthDataSource) bind RemoteOAuthDataSource::class
+    singleOf(::OCRemoteServerInfoDataSource) bind RemoteServerInfoDataSource::class
+    singleOf(::OCRemoteShareDataSource) bind RemoteShareDataSource::class
+    singleOf(::OCRemoteShareeDataSource) bind RemoteShareeDataSource::class
+    singleOf(::OCRemoteSpacesDataSource) bind RemoteSpacesDataSource::class
+    singleOf(::OCRemoteWebFingerDataSource) bind RemoteWebFingerDataSource::class
+    single<RemoteUserDataSource> { OCRemoteUserDataSource(get(), androidContext().resources.getDimension(R.dimen.file_avatar_size).toInt()) }
 
-    factory<RemoteAuthenticationDataSource> { OCRemoteAuthenticationDataSource(get()) }
-    factory<RemoteCapabilitiesDataSource> { OCRemoteCapabilitiesDataSource(get(), get()) }
-    factory<RemoteFileDataSource> { OCRemoteFileDataSource(get()) }
-    factory<RemoteOAuthDataSource> { RemoteOAuthDataSourceImpl(get(), get()) }
-    factory<RemoteServerInfoDataSource> { OCRemoteServerInfoDataSource(get(), get()) }
-    factory<RemoteShareDataSource> { OCRemoteShareDataSource(get(), get()) }
-    factory<RemoteShareeDataSource> { OCRemoteShareeDataSource(get(), get()) }
-    factory<RemoteUserDataSource> { OCRemoteUserDataSource(get(), androidContext().resources.getDimension(
-                R.dimen.file_avatar_size
-            ).toInt()) }
-
-    factory { RemoteCapabilityMapper() }
-    factory { RemoteShareMapper() }
-    factory { RemoteShareeMapper() }
+    factoryOf(::RemoteCapabilityMapper)
+    factoryOf(::RemoteShareMapper)
+    factoryOf(::RemoteShareeMapper)
 }

@@ -4,8 +4,6 @@
   <string name="global_name">Όνομα</string>
   <string name="global_date">Ημερομηνία</string>
   <string name="global_size">Μέγεθος</string>
-  <string name="about_android">%1$s για Android</string>
-  <string name="about_version">Έκδοση %1$s</string>
   <string name="actionbar_search">Αναζήτηση σε αυτό το φάκελο</string>
   <string name="actionbar_sync">Ανανέωση λογαριασμού</string>
   <string name="actionbar_upload">Μεταφόρτωση</string>
@@ -18,6 +16,7 @@
   <string name="actionbar_send_file">Αποστολή</string>
   <string name="actionbar_descending">Φθίνουσα</string>
   <string name="actionbar_sort_title">Ταξινόμηση κατά</string>
+  <string name="fab_new_file">Νέο έγγραφο</string>
   <string name="drawer_item_all_files">Όλα τα αρχεία</string>
   <string name="drawer_item_only_available_offline">Διαθέσιμο εκτός σύνδεσης</string>
   <string name="drawer_item_shared_by_link_files">Διαμοιρασμένα μέσω συνδέσμου</string>
@@ -32,21 +31,33 @@
   <string name="drawer_feedback">Σχόλια </string>
   <string name="drawer_help">Βοήθεια</string>
   <string name="prefs_category_general">Γενικά</string>
-  <string name="prefs_category_more">Περισσότερα</string>
-  <string name="prefs_category_security">Ασφάλεια</string>
+  <string name="prefs_subsection_logging">Καταγραφή</string>
+  <string name="prefs_subsection_more">Περισσότερα</string>
+  <string name="prefs_subsection_security">Ασφάλεια</string>
   <string name="prefs_accounts">Λογαριασμοί</string>
   <string name="prefs_manage_accounts">Διαχείριση λογαριασμών</string>
   <string name="prefs_passcode">Κλείδωμα με κωδικό</string>
   <string name="prefs_biometric">Βιομετρικό κλείδωμα</string>
   <string name="prefs_biometric_summary">Ενεργοποιήστε τον κωδικό ή το μοτίβο κλειδώματος για να ενεργοποιήσετε αυτήν την επιλογή</string>
+  <string name="prefs_lock_application">Κλείδωμα εφαρμογής</string>
+  <string name="prefs_lock_application_entries_immediately">Αμέσως</string>
+  <string name="prefs_lock_application_entries_1minute">Μετά από 1 λεπτό</string>
+  <string name="prefs_lock_application_entries_5minutes">Μετά από 5 λεπτά</string>
+  <string name="prefs_lock_application_entries_30minutes">Μετά από 30 λεπτά</string>
   <string name="prefs_touches_with_other_visible_windows">Άγγιγμα με άλλα ορατά παράθυρα</string>
   <string name="prefs_touches_with_other_visible_windows_summary">Επιτρέψτε το άγγιγμα όταν η προβολή καλύπτεται από άλλο ορατό παράθυρο. Ενεργοποιήστε τη χρήση εφαρμογών φιλτραρίσματος φωτός.</string>
   <string name="confirmation_touches_with_other_windows_title">Είστε βέβαιοι ότι θέλετε να ενεργοποιήσετε αυτήν τη λειτουργία;</string>
   <string name="confirmation_touches_with_other_windows_message">Χρησιμοποιήστε αυτήν τη λειτουργία με δική σας ευθύνη, μια κακόβουλη εφαρμογή θα μπορούσε να προσπαθήσει ώστε να εκτελέσετε κάποιες ενέργειες, χωρίς να γνωρίζετε, χρησιμοποιώντας άλλες προβολές.</string>
   <string name="prefs_camera_picture_upload">Μεταφορτώσεις φωτογραφιών</string>
   <string name="prefs_camera_picture_upload_summary">Αυτόματη μεταφόρτωση φωτογραφιών που ελήφθησαν από την κάμερα</string>
+  <string name="prefs_camera_picture_upload_path_title">Διαδρομή μεταφόρτωσης εικόνων</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Μεταφόρτωση φωτογραφιών μόνο μέσω wifi</string>
   <string name="prefs_camera_video_upload">Μεταφόρτωση βίντεο</string>
   <string name="prefs_camera_video_upload_summary">Αυτόματη μεταφόρτωση βίντεο που ελήφθησαν από την κάμερα</string>
+  <string name="prefs_camera_video_upload_path_title">Διαδρομή μεταφορτώσεων βίντεο</string>
+  <string name="prefs_camera_video_upload_on_wifi">Μεταφόρτωση βίντεο μόνο μέσω wifi</string>
+  <string name="prefs_subsection_advanced">Για προχωρημένους</string>
+  <string name="prefs_show_hidden_files">Προβολή κρυφών αρχείων</string>
   <string name="prefs_log_title">Σύνδεση εφικτή</string>
   <string name="prefs_log_summary">Χρησιμοποιείται για την καταγραφή προβλημάτων</string>
   <string name="prefs_log_title_history">Αρχείο καταγραφής</string>
@@ -61,26 +72,28 @@
   <string name="prefs_remember_last_share_location">Απομνημόνευση σημείου διαμοιρασμού</string>
   <string name="prefs_remember_last_upload_location_summary">Απομνημόνευση τελευταίου σημείου διαμοιρασμού μεταφόρτωσης</string>
   <string name="prefs_pattern">Κλείδωμα με μοτίβο</string>
+  <string name="prefs_enable_logging">Ενεργοποίηση καταγραφής</string>
+  <string name="prefs_send_feedback">Αποστολή ανάδρασης</string>
+  <string name="prefs_app_version">Έκδοση εφαρμογής</string>
+  <string name="prefs_app_version_summary">%1$s %2$s έκδοση %3$s (%4$s)</string>
   <string name="pattern_enter_pattern">Παρακαλούμε εισάγετε το μοτίβο σας</string>
   <string name="pattern_configure_pattern">Εισαγωγή μοτίβου</string>
   <string name="pattern_remove_pattern">Αφαίρεση μοτίβου</string>
   <string name="pattern_incorrect_pattern">Εσφαλμένο μοτίβο</string>
   <string name="pattern_reenter_pattern">Παρακαλούμε εισάγετε ξανά το μοτίβο σας</string>
   <string name="pattern_not_same_pattern">Τα μοτίβα δεν είναι ίδια</string>
-  <string name="pattern_stored">Αποθηκεύτηκε το μοτίβο</string>
-  <string name="pattern_removed">Αφαιρέθηκε το μοτίβο</string>
   <string name="pattern_already_set">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση των κλειδώματος με μοτίβο και κωδικό, απενεργοποιήστε πρώτα το μοτίβο</string>
   <string name="passcode_already_set">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση των κλειδώματος με μοτίβο και κωδικό, απενεργοποιήστε πρώτα τον κωδικό</string>
   <string name="pattern_no_longer_required">Το μοτίβο δεν θα ζητείται πια</string>
   <string name="pattern_configure_your_pattern_explanation">Το πρότυπο θα ζητηθεί κάθε φορά που ξεκινάει η εφαρμογή</string>
-  <string name="pass_code_locked">Κλείδωμα με κωδικό</string>
-  <string name="pattern_locked">Κλείδωμα με μοτίβο</string>
   <string name="illegal_argument_exception_message">Μια έγκυρη ΕΝΕΡΓΕΙΑ είναι απαραίτητη για την πρόθεση να περάσει σε</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Αρχεία</string>
+  <string name="bottom_nav_personal">Προσωπικό</string>
   <string name="bottom_nav_uploads">Μεταφορτώσεις</string>
   <string name="bottom_nav_offline">Εκτός σύνδεσης</string>
   <string name="bottom_nav_links">Σύνδεσμοι</string>
+  <string name="bottom_nav_shares">Κοινόχρηστοι φάκελοι</string>
   <string name="recommend_subject">Δοκιμάστε %1$s στο κινητό σας!</string>
   <string name="recommend_text">Θα ήθελα να σε προσκαλέσω να χρησιμοποιήσεις το %1$s στο κινητό σου!\nΛήψη εδώ: %2$s</string>
   <string name="error_reason">επειδή</string>
@@ -108,9 +121,10 @@
   <string name="uploader_error_message_source_file_not_found">Το αρχείο που επρόκειτο να μεταφορτώσετε δεν βρέθηκε στην τοποθεσία του. Παρακαλούμε ελέγξτε κατά πόσο το αρχείο υπάρχει.</string>
   <string name="uploader_error_message_source_file_not_copied">Προέκυψε σφάλμα κατά τη διάρκεια αντιγραφής του αρχείου στον προσωρινό φάκελο. Παρακαλούμε προσπαθήστε να το στείλετε ξανά.</string>
   <string name="file_list_seconds_ago">δευτερόλεπτα πριν</string>
-  <string name="file_list_empty">Δεν υπάρχει τίποτα εδώ. Μεταφορτώστε κάτι!</string>
-  <string name="file_list_empty_available_offline">Δεν υπάρχουν διαθέσιμα αρχεία εκτός σύνδεση.</string>
-  <string name="file_list_empty_shared_by_links">Δεν έχουν κοινοποιηθεί αρχεία μέσω συνδέσμου.</string>
+  <string name="file_list_empty_title_all_files">Δεν υπάρχουν αρχεία εδώ</string>
+  <string name="file_list_empty_title_shared_by_links">Κανένας διαμοιρασμένος σύνδεσμος</string>
+  <string name="file_list_empty_subtitle_all_files">Μεταφόρτωση περιεχομένου ή συγχρονισμός με τις συσκευές σας!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Τα αρχεία και οι φάκελοι που διαμοιράζεστε μέσω συνδέσμου θα εμφανιστούνε εδώ</string>
   <string name="file_list_loading">Γίνεται φόρτωση...</string>
   <string name="file_list_no_app_for_file_type">Δεν βρέθηκε καμία εφαρμογή για τύπο αρχείου</string>
   <string name="local_file_list_empty">Δεν υπάρχουν αρχεία σε αυτό τον φάκελο.</string>
@@ -127,6 +141,7 @@
   <string name="filedetails_size">Μέγεθος:</string>
   <string name="filedetails_type">Τύπος:</string>
   <string name="filedetails_created">Δημιουργήθηκε:</string>
+  <string name="filedetails_last_sync">Τελευταίος συγχρονισμός:</string>
   <string name="filedetails_modified">Τροποποιήθηκε:</string>
   <string name="filedetails_download">Λήψη</string>
   <string name="filedetails_sync_file">Συγχρονισμός</string>
@@ -146,7 +161,6 @@
   <string name="common_error_unknown">άγνωστο σφάλμα</string>
   <string name="common_pending">Εκκρεμεί</string>
   <string name="common_important">Σημαντικό </string>
-  <string name="about_title">Περί</string>
   <string name="change_password">Αλλαγή συνθηματικού</string>
   <string name="delete_account">Αφαίρεση λογαριασμού</string>
   <string name="create_account">Δημιουργία λογαριασμού</string>
@@ -162,9 +176,10 @@
   <string name="uploader_upload_failed_ssl_certificate_not_trusted">Το πιστοποιητικό του διακομιστή είναι αναξιόπιστο</string>
   <string name="uploader_upload_text_dialog_title">Εισάγετε ένα όνομα για το καινούριο αρχείο</string>
   <string name="uploader_upload_text_dialog_filename_error_empty">Το όνομα αρχείου δεν πρέπει να είναι κενό</string>
-  <string name="uploader_upload_text_dialog_filename_error_length_max">Το όνομα αρχείου δεν θα πρέπει να έχει περισσότερους από %d χαρακτήρες</string>
   <string name="uploader_upload_text_filename_hint">Όνομα αρχείου</string>
   <string name="uploader_upload_camera_upload_files">Γίνεται μεταφόρτωση αρχείων από την κάμερα</string>
+  <string name="uploader_upload_camera_upload_source_path_error">Αποτυχία μεταφορτώσεων κάμερας</string>
+  <string name="uploader_upload_picture_upload_error">Η διαδρομή πηγής μεταφόρτωσης εικόνας δεν είναι πλέον έγκυρη</string>
   <string name="uploader_upload_available_offline_files">Γίνεται μεταφόρτωση αρχείων για να είναι διαθέσιμα εκτός σύνδεσης</string>
   <string name="uploader_upload_requested_from_wifi_files">Γίνεται μεταφόρτωση των αιτούμενων αρχείων από το wifi</string>
   <string name="ssl_certificate_not_trusted">Το πιστοποιητικό του διακομιστή δεν είναι έμπιστο</string>
@@ -209,16 +224,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d αρχεία σε αναμονή συγχρονισμού δεν μπόρεσαν να συγχρονιστούν</string>
   <string name="sync_fail_in_favourites_ticker">Τα αρχεία σε αναμονή συγχρονισμού απέτυχαν</string>
   <string name="sync_fail_in_favourites_content">Τα περιεχόμενα των %1$d αρχείων δεν μπόρεσαν να συγχρονιστούν (%2$d διενέξεις)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Ορισμένα τοπικά αρχεία ξεχάστηκαν</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d αρχεία από τον %2$s φάκελο δεν ήταν δυνατό να αντιγραφούν σε</string>
-  <string name="sync_foreign_files_forgotten_explanation">Από την έκδοση 1.3.16, τα αρχεία που μεταφορτώθηκαν από αυτήν τη συσκευή αντιγράφηκαν στον τοπικό φάκελο %1$s για να αποτραπεί η απώλεια δεδομένων όταν ένα αρχείο είναι συγχρονισμένο με πολλαπλούς λογαριασμούς.\n\nΛόγω αυτής της αλλαγής, όλα τα αρχεία που μεταφορτώθηκαν με προηγούμενες εκδόσεις αυτής της εφαρμογής αντιγράφηκαν στον φάκελο %2$s. Ωστόσο, ένα σφάλμα εμπόδισε την ολοκλήρωση αυτής της λειτουργίας κατά το συγχρονισμό του λογαριασμού. Μπορείτε είτε να αφήσετε το(α) αρχείο(α) όπως είναι και να καταργήσετε τη σύνδεση με το %3$s ή να μετακινήσετε τα αρχεία στο φάκελο %1$s και να διατηρήσετε τη σύνδεση με το %4$s. \n\nΑπαριθμημένα πιο κάτω είναι τα τοπικά αρχεία(ο) και τα απομακρυσμένα αρχεία(ο) στο %5$s με τα οποία συνδέονταν.</string>
   <string name="sync_current_folder_was_removed">Ο φάκελος %1$s δεν υπάρχει πια</string>
-  <string name="foreign_files_move">Μετακίνηση όλων</string>
-  <string name="foreign_files_success">Όλα τα αρχεία μετακινήθηκαν</string>
-  <string name="foreign_files_fail">Μερικά αρχεία δεν μπόρεσαν να μετακινηθούν</string>
-  <string name="foreign_files_local_text">Τοπικά: %1$s</string>
-  <string name="foreign_files_remote_text">Απομακρυσμένα: %1$s</string>
-  <string name="upload_query_move_foreign_files">Δεν υπάρχει αρκετός χώρος για να αντιγράψετε τα επιλεγμένα αρχεία στο  %1$s του φακέλου. Θα θέλατε να τα μετακινήσετε ούτως ή άλλως;</string>
   <string name="pass_code_enter_pass_code">Παρακαλούμε εισάγετε τον κωδικό σας</string>
   <string name="pass_code_configure_your_pass_code">Εισαγωγή του κωδικού σας</string>
   <string name="pass_code_configure_your_pass_code_explanation">Ο κωδικός θα ζητείται κάθε φορά που ξεκινά η εφαρμογή</string>
@@ -226,8 +232,9 @@
   <string name="pass_code_remove_your_pass_code">Αφαίρεση του κωδικού σας</string>
   <string name="pass_code_mismatch">Οι κωδικοί δεν ταιριάζουν</string>
   <string name="pass_code_wrong">Εσφαλμένος κωδικός</string>
-  <string name="pass_code_removed">Ο κωδικός αφαιρέθηκε</string>
-  <string name="pass_code_stored">Ο κωδικός αποθηκεύτηκε</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="biometric_prompt_title">Βιομετρική είσοδος</string>
   <string name="media_notif_ticker">%1$s αναπαραγωγή μουσικής</string>
   <string name="media_state_playing">%1$s (αναπαραγωγή)</string>
@@ -273,7 +280,6 @@
   <string name="auth_expired_basic_auth_toast">Παρακαλούμε εισάγετε το τρέχον συνθηματικό</string>
   <string name="auth_connecting_auth_server">Συνδεθείτε στον εξουσιοδοτημένο διακομιστή …</string>
   <string name="auth_unsupported_auth_method">Ο διακομιστής δεν υποστηρίζει αυτή τη μέθοδο πιστοποίησης</string>
-  <string name="auth_unsupported_multiaccount">Ο %1$s  δεν υποστηρίζει πολλαπλούς λογαριασμούς</string>
   <string name="auth_fail_get_user_name">Ο διακομιστής σας δεν επιστρέφει το σωστό αναγνωριστικό χρήστη, παρακαλούμε επικοινωνήστε με τον διαχειριστή
 </string>
   <string name="auth_can_not_auth_against_server">Αδυναμία πιστοποίησης σε αυτόν τον διακομιστή</string>
@@ -296,8 +302,7 @@
   <string name="sync_file_fail_msg">Αδυναμία ελέγχου του απομακρυσμένου αρχείου</string>
   <string name="sync_file_nothing_to_do_msg">Τα περιεχόμενα του αρχείου έχουν ήδη συγχρονιστεί</string>
   <string name="create_dir_fail_msg">Ο φάκελος δεν ήταν δυνατό να δημιουργηθεί</string>
-  <string name="filename_forbidden_characters">Μη-επιτρεπόμενοι χαρακτήρες: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Το όνομα αρχείου περιέχει τουλάχιστο ένα μη έγκυρο χαρακτήρα</string>
+  <string name="filename_forbidden_characters_from_server">Το όνομα αρχείου περιέχει τουλάχιστο ένα μη έγκυρο χαρακτήρα</string>
   <string name="filename_empty">Το όνομα αρχείου δεν μπορεί να είναι κενό</string>
   <string name="wait_a_moment">Παρακαλούμε περιμένετε</string>
   <string name="wait_checking_credentials">Γίνεται έλεγχος αποθηκευμένων διαπιστευτηρίων</string>
@@ -340,23 +345,20 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Μεταφόρτωση φωτογραφιών μόνο μέσω wifi</string>
-  <string name="camera_video_upload_on_wifi">Μεταφόρτωση βίντεο μόνο μέσω wifi</string>
   <string name="confirmation_disable_camera_uploads_title">Επιβεβαίωση</string>
   <string name="confirmation_disable_pictures_upload_message">Είστε βέβαιοι ότι θέλετε να απενεργοποιήσετε αυτήν τη λειτουργία; Οι φωτογραφίες που εκκρεμούν δεν θα μεταφορτωθούν</string>
   <string name="confirmation_disable_videos_upload_message">Είστε βέβαιοι ότι θέλετε να απενεργοποιήσετε αυτήν τη λειτουργία; Τα βίντεο που εκκρεμούν δεν θα μεταφορτωθούν</string>
   <string name="proper_pics_folder_warning_camera_upload">Βεβαιωθείτε ότι ο επιλεγμένος φάκελος είναι εκεί όπου η κάμερα που χρησιμοποιείτε αποθηκεύει τις φωτογραφίες που έχετε τραβήξει. Διαφορετικά, η λειτουργία δεν θα είναι σε θέση να ανιχνεύσει τις φωτογραφίες σας. Λάβετε υπόψη ότι οι φωτογραφίες θα μεταφορτωθούν τουλάχιστον 15 λεπτά μετά τη λήψη τους.</string>
   <string name="proper_videos_folder_warning_camera_upload">Βεβαιωθείτε ότι ο επιλεγμένος φάκελος είναι εκεί όπου η κάμερα που χρησιμοποιείτε αποθηκεύει τα εγγεγραμμένα βίντεο. Διαφορετικά, η λειτουργία δεν θα είναι σε θέση να ανιχνεύσει τα βίντεό σας. Λάβετε υπόψη ότι τα βίντεο θα μεταφορτωθούν τουλάχιστον 15 λεπτά μετά την εγγραφή τους.</string>
-  <string name="conflict_title">Διένεξη αρχείου</string>
   <string name="conflict_description">Υπάρχει μια σύγκρουση στο αρχείο %1$s, πατήστε για να το λύσετε</string>
   <string name="conflict_message">Ποια αρχεία θέλετε να διατηρήσετε; Αν επιλέξετε και τις δύο εκδόσεις, το τοπικό αρχείο θα έχει έναν αριθμό που έχει προστεθεί στο όνομά του.</string>
   <string name="conflict_keep_both">Διατήρηση και των δύο</string>
   <string name="conflict_use_local_version">τοπική έκδοση</string>
   <string name="conflict_use_server_version">έκδοση διακομιστή</string>
+  <string name="conflict_replace">Αντικατάσταση</string>
   <string name="preview_image_description">Προεπισκόπηση εικόνας</string>
   <string name="preview_image_error_unknown_format">Αυτή η εικόνα δεν μπορεί να προβληθεί</string>
   <string name="error__upload__local_file_not_copied">Το %1$s δεν μπόρεσε να αντιγραφεί στον τοπικό φάκελο %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">Διαδρομή μεταφόρτωσης εικόνων</string>
   <string name="get_shares_error">Δεν ήταν δυνατή η ανάκτηση των κοινόχρηστων στοιχείων από τον διακομιστή</string>
   <string name="get_sharees_error">Δεν ήταν δυνατή η ανάκτηση χρηστών και ομάδων από διακομιστή</string>
   <string name="get_capabilities_error">Δεν ήταν δυνατή η ανάκτηση των δυνατοτήτων από το διακομιστή</string>
@@ -412,7 +414,6 @@
   <string name="copy_file_error">Ένα σφάλμα προέκυψε κατά την προσπάθεια αντιγραφής αυτού του αρχείου ή φακέλου</string>
   <string name="forbidden_permissions_copy">για αντιγραφή αυτού του αρχείου</string>
   <string name="prefs_category_camera_upload">Μεταφορτώσεις κάμερας</string>
-  <string name="prefs_camera_video_upload_path_title">Διαδρομή μεταφορτώσεων βίντεο</string>
   <string name="sync_folder_failed_content">Ο συγχρονισμός του φακέλου %1$s δεν μπορεί να ολοκληρωθεί</string>
   <string name="shared_subject_header">διαμοιρασμένα</string>
   <string name="with_you_subject_header">με εσάς</string>
@@ -430,15 +431,16 @@
   <string name="file_list__footer__files">%1$d αρχεία</string>
   <string name="file_list__footer__files_and_folder">%1$d αρχεία, 1 φάκελος</string>
   <string name="file_list__footer__files_and_folders">%1$d αρχεία, %2$d φάκελοι</string>
+  <string name="prefs_picture_upload_account">Λογαριασμός για μεταφόρτωση φωτογραφιών</string>
+  <string name="prefs_video_upload_account">Λογαριασμός για μεταφόρτωση βίντεο</string>
   <string name="prefs_camera_upload_source_path_title">Φάκελος κάμερας (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">απαιτείται</string>
-  <string name="prefs_camera_upload_source_path_title_optional">προαιρετικό</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Το αρχικό αρχείο θα είναι</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Το αρχικό αρχείο θα είναι</string>
   <string name="prefs_camera_upload_behaviour_title">Το αρχικό αρχείο θα είναι</string>
+  <string name="prefs_camera_upload_last_sync_title">Τελευταίος συγχρονισμός</string>
   <string name="upload_copy_files">Αντιγραφή αρχείου</string>
   <string name="upload_move_files">Μετακίνηση αρχείου</string>
   <string name="pref_behaviour_entries_keep_file">διατηρήθηκε στον αρχικό φάκελο</string>
-  <string name="pref_behaviour_entries_move">μετακινήθηκε στον φάκελο εφαρμογών</string>
   <string name="share_dialog_title">Διαμοιρασμός</string>
   <string name="share_file">Διαμοιρασμός %1$s</string>
   <string name="share_with_user_section_title">Χρήστες και Ομάδες</string>
@@ -476,13 +478,7 @@
   <string name="edit_share_done">ολοκληρώθηκε</string>
   <string name="action_upload_retry">Επανάληψη</string>
   <string name="action_upload_clear">Εκκαθάριση</string>
-  <string name="manage_space_title">Διαχείριση χώρου</string>
-  <string name="manage_space_description">Οι ρυθμίσεις, οι βάσεις δεδομένων και οι τα πιστοποιητικά των διακομιστών από τα δεδομένα του %1$s θα διαγραφούν μόνιμα. \n\nΤα ληφθέντα αρχεία θα παραμείνουν άθικτα. \n\nΗ διαδικασία αυτή μπορεί να διαρκέσει αρκετό χρόνο.</string>
-  <string name="manage_space_clear_data">Εκκαθάριση δεδομένων</string>
-  <string name="manage_space_error">Μερικά αρχεία δεν μπορούν να διαγραφούν</string>
-  <string name="permission_storage_access">Επιπλέον δικαιώματα απαιτούνται για να γίνει μεταφόρτωση &amp; λήψη αρχείων.</string>
   <string name="local_file_not_found_toast">Το αρχείο δεν βρέθηκε στο τοπικό σύστημα αρχείων</string>
-  <string name="confirmation_remove_files_alert">Θέλετε να διαγράψετε τα επιλεγμένα αντικείμενα;</string>
   <string name="confirmation_remove_folders_alert">Θέλετε να διαγράψετε τα επιλεγμένα αντικείμενα και τα περιεχόμενά τους;</string>
   <string name="failed_upload_quota_exceeded_text">Δεν υπάρχει αρκετός διαθέσιμος χώρος στον λογαριασμό</string>
   <string name="auth_forbidden">Απαγορευμένη πιστοποίηση</string>
@@ -507,7 +503,7 @@
   <string name="share_via_link_expiration_date_explanation_label">Ο δημόσιος σύνδεσμος λήγει το αργότερο %1$d ημέρες μετά την δημιουργία του</string>
   <string name="share_via_link_default_name_template">%1$s σύνδεσμος</string>
   <string name="share_via_link_empty_password">Το συνθηματικό είναι κενό</string>
-  <string name="private_link_info">Αυτός είναι ένας ιδιωτικός σύνδεσμος, μόνο τα άτομα που έχουν πρόσβαση στο αρχείο / φάκελο μπορούν να το χρησιμοποιήσουν. Χρησιμοποιήστε το ως μόνιμο σύνδεσμο για τον εαυτό σας ή να προβάλλετε στους άλλους τα αρχεία μέσα σε κοινόχρηστα.</string>
+  <string name="private_link_info">Ιδιωτικός σύνδεσμος: Μόνο τα άτομα που έχουν πρόσβαση στο αρχείο / φάκελο μπορούν να τα χρησιμοποιήσουν. Χρησιμοποιήστε το ως μόνιμο σύνδεσμο για τον εαυτό σας ή για να τοποθετήσετε άλλους σε αρχεία μέσα σε κοινόχρηστα στοιχεία</string>
   <string name="file_private_link_error">Ο ιδιωτικός σύνδεσμος δεν είναι διαθέσιμος γι\' αυτό το αρχείο</string>
   <string name="download_notification_channel_name">Λήψεις</string>
   <string name="download_notification_channel_description">Προβολή ονόματος αρχείου λήψης και προόδου</string>
@@ -539,6 +535,19 @@
   <string name="welcome_feature_4_text">Οι φωτογραφίες  / τα βίντεο σας μεταφορτώθηκαν αυτόματα</string>
   <string name="welcome_feature_5_title">Ροή βίντεο</string>
   <string name="welcome_feature_5_text">Αναπαράγετε τα βίντεό σας χωρίς να κάνετε λήψη</string>
-  <string name="no_borwser_installed_alert">Δεν είναι εγκατεστημένος περιηγητής. Παρακαλούμε εγκαταστήστε ένα περιηγητή έτσι ώστε να επιτρέπεται η ασφαλής σύνδεση.</string>
+  <string name="no_browser_installed_alert">Δεν είναι εγκατεστημένος περιηγητής. Παρακαλούμε εγκαταστήστε ένα περιηγητή έτσι ώστε να επιτρέπεται η ασφαλής σύνδεση.</string>
   <string name="common_not_found">δεν βρέθηκε</string>
+  <string name="synchronizing_account">Λογαριασμός συγχρονισμού</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Κλείδωμα με κωδικό</string>
+  <string name="folder_upload_some_content_or_sync_devices">Μεταφόρτωση περιεχομένου ή συγχρονισμός με τις συσκευές σας!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Συνέχιση</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Συνέχιση</string>
+  <!--Open in web-->
+  <!--oCIS accounts warning-->
+  <string name="ocis_accounts_warning_checkbox_message">Μην εμφανιστεί ξανά</string>
+  <string name="tab_label_ascii">Κείμενο</string>
 </resources>

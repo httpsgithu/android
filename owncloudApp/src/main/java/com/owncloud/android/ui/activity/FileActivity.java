@@ -5,8 +5,10 @@
  * @author David González Verdugo
  * @author Christian Schabesberger
  * @author Abel García de Prada
+ * @author Aitor Ballesteros Pavón
+ * <p>
  * Copyright (C) 2011  Bartek Przybylski
- * Copyright (C) 2020 ownCloud GmbH.
+ * Copyright (C) 2024 ownCloud GmbH.
  * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,
@@ -39,22 +41,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.snackbar.Snackbar;
 import com.owncloud.android.R;
-import com.owncloud.android.authentication.AccountUtils;
-import com.owncloud.android.datamodel.OCFile;
-import com.owncloud.android.files.services.FileDownloader;
-import com.owncloud.android.files.services.FileDownloader.FileDownloaderBinder;
-import com.owncloud.android.files.services.FileUploader;
-import com.owncloud.android.files.services.FileUploader.FileUploaderBinder;
+import com.owncloud.android.domain.files.model.FileListOption;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.lib.common.network.CertificateCombinedException;
 import com.owncloud.android.lib.common.operations.OnRemoteOperationListener;
 import com.owncloud.android.lib.common.operations.RemoteOperation;
 import com.owncloud.android.lib.common.operations.RemoteOperationResult;
 import com.owncloud.android.lib.common.operations.RemoteOperationResult.ResultCode;
-import com.owncloud.android.operations.RenameFileOperation;
-import com.owncloud.android.operations.SynchronizeFileOperation;
-import com.owncloud.android.operations.SynchronizeFolderOperation;
-import com.owncloud.android.presentation.ui.authentication.AuthenticatorConstants;
-import com.owncloud.android.presentation.ui.authentication.LoginActivity;
+import com.owncloud.android.presentation.authentication.AccountUtils;
+import com.owncloud.android.presentation.authentication.AuthenticatorConstants;
+import com.owncloud.android.presentation.authentication.LoginActivity;
 import com.owncloud.android.services.OperationsService;
 import com.owncloud.android.services.OperationsService.OperationsServiceBinder;
 import com.owncloud.android.ui.dialog.ConfirmationDialogFragment;
@@ -78,7 +74,7 @@ public class FileActivity extends DrawerActivity
     private static final String KEY_WAITING_FOR_OP_ID = "WAITING_FOR_OP_ID";
     private static final String KEY_ACTION_BAR_TITLE = "ACTION_BAR_TITLE";
 
-    // go to a high number, since the low numbers are usded by android
+    // go to a high number, since the low numbers are used by android
     public static final int REQUEST_CODE__UPDATE_CREDENTIALS = 0;
     public static final int REQUEST_CODE__LAST_SHARED = REQUEST_CODE__UPDATE_CREDENTIALS;
 
@@ -111,14 +107,10 @@ public class FileActivity extends DrawerActivity
 
     private boolean mResumed = false;
 
-    protected FileDownloaderBinder mDownloaderBinder = null;
-    protected FileUploaderBinder mUploaderBinder = null;
-    private ServiceConnection mDownloadServiceConnection, mUploadServiceConnection = null;
-
     /**
      * Loads the ownCloud {@link Account} and main {@link OCFile} to be handled by the instance of
      * the {@link FileActivity}.
-     *
+     * <p>
      * Grants that a valid ownCloud {@link Account} is associated to the instance, or that the user
      * is requested to create a new one.
      */
@@ -152,17 +144,6 @@ public class FileActivity extends DrawerActivity
         mOperationsServiceConnection = new OperationsServiceConnection();
         bindService(new Intent(this, OperationsService.class), mOperationsServiceConnection,
                 Context.BIND_AUTO_CREATE);
-
-        mDownloadServiceConnection = newTransferenceServiceConnection();
-        if (mDownloadServiceConnection != null) {
-            bindService(new Intent(this, FileDownloader.class), mDownloadServiceConnection,
-                    Context.BIND_AUTO_CREATE);
-        }
-        mUploadServiceConnection = newTransferenceServiceConnection();
-        if (mUploadServiceConnection != null) {
-            bindService(new Intent(this, FileUploader.class), mUploadServiceConnection,
-                    Context.BIND_AUTO_CREATE);
-        }
     }
 
     @Override
@@ -194,15 +175,6 @@ public class FileActivity extends DrawerActivity
             unbindService(mOperationsServiceConnection);
             mOperationsServiceBinder = null;
         }
-        if (mDownloadServiceConnection != null) {
-            unbindService(mDownloadServiceConnection);
-            mDownloadServiceConnection = null;
-        }
-        if (mUploadServiceConnection != null) {
-            unbindService(mUploadServiceConnection);
-            mUploadServiceConnection = null;
-        }
-
         super.onDestroy();
     }
 
@@ -251,10 +223,6 @@ public class FileActivity extends DrawerActivity
         return mOperationsServiceBinder;
     }
 
-    protected ServiceConnection newTransferenceServiceConnection() {
-        return null;
-    }
-
     public OnRemoteOperationListener getRemoteOperationListener() {
         return this;
     }
@@ -288,7 +256,7 @@ public class FileActivity extends DrawerActivity
 
             if (result.getCode() == ResultCode.UNAUTHORIZED) {
                 showSnackMessage(
-                        ErrorMessageAdapter.Companion.getResultMessage(result, operation, getResources())
+                        ErrorMessageAdapter.Companion.getResultMessage(result, getResources())
                 );
             }
 
@@ -296,23 +264,6 @@ public class FileActivity extends DrawerActivity
 
             showUntrustedCertDialog(result);
 
-        } else if (operation == null ||
-                operation instanceof SynchronizeFolderOperation
-        ) {
-            if (result.isSuccess()) {
-                updateFileFromDB();
-
-            } else if (result.getCode() != ResultCode.CANCELLED) {
-                showSnackMessage(
-                        ErrorMessageAdapter.Companion.getResultMessage(result, operation, getResources())
-                );
-            }
-
-        } else if (operation instanceof SynchronizeFileOperation) {
-            onSynchronizeFileOperationFinish((SynchronizeFileOperation) operation, result);
-
-        } else if (operation instanceof RenameFileOperation && result.isSuccess()) {
-            result.getData();
         }
     }
 
@@ -321,15 +272,14 @@ public class FileActivity extends DrawerActivity
             new AlertDialog.Builder(this)
                     .setTitle(R.string.auth_failure_snackbar_action)
                     .setMessage(errorMessage)
-                    .setPositiveButton(android.R.string.yes, (dialog, which) -> startActivity(
-                            new Intent(FileActivity.this, ManageAccountsActivity.class)))
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> requestCredentialsUpdate())
                     .setIcon(R.drawable.common_error_grey)
                     .setCancelable(false)
                     .show();
         } else {
             Snackbar.make(findViewById(android.R.id.content), errorMessage, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.auth_failure_snackbar_action, v ->
-                            startActivity(new Intent(FileActivity.this, ManageAccountsActivity.class)))
+                    .setAction(R.string.auth_oauth_failure_snackbar_action, v ->
+                            requestCredentialsUpdate())
                     .show();
         }
     }
@@ -344,7 +294,7 @@ public class FileActivity extends DrawerActivity
     /**
      * Invalidates the credentials stored for the current OC account and requests new credentials to the user,
      * navigating to {@link LoginActivity}
-     *
+     * <p>
      * Equivalent to call requestCredentialsUpdate(null);
      */
     protected void requestCredentialsUpdate() {
@@ -389,24 +339,25 @@ public class FileActivity extends DrawerActivity
         }
     }
 
-    private void onSynchronizeFileOperationFinish(SynchronizeFileOperation operation,
-                                                  RemoteOperationResult result) {
-        invalidateOptionsMenu();
-        OCFile syncedFile = operation.getLocalFile();
-        if (!result.isSuccess()) {
-            if (result.getCode() == ResultCode.SYNC_CONFLICT) {
-                Intent i = new Intent(this, ConflictsResolveActivity.class);
-                i.putExtra(ConflictsResolveActivity.EXTRA_FILE, syncedFile);
-                i.putExtra(ConflictsResolveActivity.EXTRA_ACCOUNT, getAccount());
-                startActivity(i);
-            }
+    /**
+     * Show untrusted cert dialog
+     */
+    public void showUntrustedCertDialogForThrowable(Throwable throwable) {
+        // Show a dialog with the certificate info
+        FragmentManager fm = getSupportFragmentManager();
+        SslUntrustedCertDialog dialog = (SslUntrustedCertDialog) fm.findFragmentByTag(DIALOG_UNTRUSTED_CERT);
+        if (dialog == null) {
+            dialog = SslUntrustedCertDialog.newInstanceForFullSslError(
+                    (CertificateCombinedException) throwable);
+            FragmentTransaction ft = fm.beginTransaction();
+            dialog.show(ft, DIALOG_UNTRUSTED_CERT);
         }
     }
 
     protected void updateFileFromDB() {
         OCFile file = getFile();
         if (file != null) {
-            file = getStorageManager().getFileByPath(file.getRemotePath());
+            file = getStorageManager().getFileByPath(file.getRemotePath(), file.getSpaceId());
             setFile(file);
         }
     }
@@ -450,19 +401,10 @@ public class FileActivity extends DrawerActivity
     }
 
     @Override
-    public FileDownloaderBinder getFileDownloaderBinder() {
-        return mDownloaderBinder;
-    }
-
-    @Override
-    public FileUploaderBinder getFileUploaderBinder() {
-        return mUploaderBinder;
-    }
-
-    @Override
     public void restart() {
         Intent i = new Intent(this, FileDisplayActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.putExtra(EXTRA_FILE_LIST_OPTION, (Parcelable) FileListOption.ALL_FILES);
         startActivity(i);
     }
 
@@ -472,6 +414,12 @@ public class FileActivity extends DrawerActivity
         switch (fileListOption) {
             case ALL_FILES:
                 restart();
+                break;
+            case SPACES_LIST:
+                intent = new Intent(this, FileDisplayActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(EXTRA_FILE_LIST_OPTION, (Parcelable) FileListOption.SPACES_LIST);
+                startActivity(intent);
                 break;
             case SHARED_BY_LINK:
                 intent = new Intent(this, FileDisplayActivity.class);
@@ -495,7 +443,7 @@ public class FileActivity extends DrawerActivity
                 return file;
             } else if (getStorageManager() != null) {
                 String parentPath = file.getParentRemotePath();
-                return getStorageManager().getFileByPath(parentPath);
+                return getStorageManager().getFileByPath(parentPath, file.getSpaceId());
             }
         }
         return null;

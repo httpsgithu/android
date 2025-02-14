@@ -19,38 +19,46 @@
 
 package com.owncloud.android.domain.sharees.usecases
 
+import com.owncloud.android.domain.exceptions.NoConnectionWithServerException
 import com.owncloud.android.domain.sharing.sharees.GetShareesAsyncUseCase
 import com.owncloud.android.domain.sharing.sharees.ShareeRepository
+import com.owncloud.android.testutil.OC_ACCOUNT_NAME
+import io.mockk.every
 import io.mockk.spyk
 import io.mockk.verify
-import org.junit.Assert
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class GetShareesAsyncUseCaseTest {
-    private val shareeRepository: ShareeRepository = spyk()
-    private val getShareesAsyncUseCase = GetShareesAsyncUseCase(shareeRepository)
+
+    private val repository: ShareeRepository = spyk()
+    private val useCase = GetShareesAsyncUseCase(repository)
+    private val useCaseParams = GetShareesAsyncUseCase.Params("user", 1, 5, OC_ACCOUNT_NAME)
 
     @Test
-    fun getShareesFromServerOk() {
-        val useCaseResult = getShareesAsyncUseCase.execute(GetShareesAsyncUseCase.Params("user", 1, 5))
+    fun `get sharees from server - ok`() {
+        every { repository.getSharees(any(), any(), any(), any()) } returns arrayListOf()
 
-        Assert.assertTrue(useCaseResult.isSuccess)
-        Assert.assertFalse(useCaseResult.isError)
+        val useCaseResult = useCase(useCaseParams)
+
+        assertTrue(useCaseResult.isSuccess)
 
         verify(exactly = 1) {
-            shareeRepository.getSharees("user", 1, 5)
+            repository.getSharees("user", 1, 5, OC_ACCOUNT_NAME)
         }
     }
 
     @Test
-    fun getShareesFromServerWithServerResponseTimeoutException() {
-        val useCaseResult = getShareesAsyncUseCase.execute(GetShareesAsyncUseCase.Params("user", 1, 5))
+    fun `get sharees from server - ko`() {
+        every { repository.getSharees(any(), any(), any(), any()) } throws NoConnectionWithServerException()
 
-        Assert.assertTrue(useCaseResult.isSuccess)
-        Assert.assertFalse(useCaseResult.isError)
+        val useCaseResult = useCase(useCaseParams)
+
+        assertTrue(useCaseResult.isError)
+        assertTrue(useCaseResult.getThrowableOrNull() is NoConnectionWithServerException)
 
         verify(exactly = 1) {
-            shareeRepository.getSharees("user", 1, 5)
+            repository.getSharees("user", 1, 5, OC_ACCOUNT_NAME)
         }
     }
 }

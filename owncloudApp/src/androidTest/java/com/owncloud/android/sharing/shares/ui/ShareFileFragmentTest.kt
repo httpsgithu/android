@@ -19,7 +19,6 @@
 
 package com.owncloud.android.sharing.shares.ui
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
@@ -28,7 +27,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasSibling
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -38,14 +36,17 @@ import com.owncloud.android.domain.capabilities.model.OCCapability
 import com.owncloud.android.domain.sharing.shares.model.OCShare
 import com.owncloud.android.domain.sharing.shares.model.ShareType
 import com.owncloud.android.domain.utils.Event
-import com.owncloud.android.presentation.UIResult
-import com.owncloud.android.presentation.ui.sharing.fragments.ShareFileFragment
-import com.owncloud.android.presentation.viewmodels.capabilities.OCCapabilityViewModel
-import com.owncloud.android.presentation.viewmodels.sharing.OCShareViewModel
+import com.owncloud.android.presentation.common.UIResult
+import com.owncloud.android.presentation.sharing.ShareFileFragment
+import com.owncloud.android.presentation.capabilities.CapabilityViewModel
+import com.owncloud.android.presentation.sharing.ShareViewModel
 import com.owncloud.android.testutil.OC_ACCOUNT
 import com.owncloud.android.testutil.OC_CAPABILITY
+import com.owncloud.android.testutil.OC_FILE
 import com.owncloud.android.testutil.OC_SHARE
-import com.owncloud.android.utils.AppTestUtil.OC_FILE
+import com.owncloud.android.utils.matchers.assertVisibility
+import com.owncloud.android.utils.matchers.isDisplayed
+import com.owncloud.android.utils.matchers.withText
 import io.mockk.every
 import io.mockk.mockk
 import org.hamcrest.CoreMatchers
@@ -58,27 +59,28 @@ import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 
 class ShareFileFragmentTest {
-    private val ocCapabilityViewModel = mockk<OCCapabilityViewModel>(relaxed = true)
+    private val capabilityViewModel = mockk<CapabilityViewModel>(relaxed = true)
     private val capabilitiesLiveData = MutableLiveData<Event<UIResult<OCCapability>>>()
-    private val ocShareViewModel = mockk<OCShareViewModel>(relaxed = true)
+    private val shareViewModel = mockk<ShareViewModel>(relaxed = true)
     private val sharesLiveData = MutableLiveData<Event<UIResult<List<OCShare>>>>()
 
     @Before
     fun setUp() {
-        every { ocCapabilityViewModel.capabilities } returns capabilitiesLiveData
-        every { ocShareViewModel.shares } returns sharesLiveData
+        every { capabilityViewModel.capabilities } returns capabilitiesLiveData
+        every { shareViewModel.shares } returns sharesLiveData
 
         stopKoin()
 
         startKoin {
-            androidContext(ApplicationProvider.getApplicationContext<Context>())
+            androidContext(ApplicationProvider.getApplicationContext())
+            allowOverride(override = true)
             modules(
-                module(override = true) {
+                module {
                     viewModel {
-                        ocCapabilityViewModel
+                        capabilityViewModel
                     }
                     viewModel {
-                        ocShareViewModel
+                        shareViewModel
                     }
                 }
             )
@@ -88,19 +90,25 @@ class ShareFileFragmentTest {
     @Test
     fun showHeader() {
         loadShareFileFragment()
-        onView(withId(R.id.shareFileName)).check(matches(withText("img.png")))
+        onView(withId(R.id.shareFileName)).check(matches(withText(OC_FILE.fileName)))
     }
 
     @Test
     fun fileSizeVisible() {
         loadShareFileFragment()
-        onView(withId(R.id.shareFileSize)).check(matches(isDisplayed()))
+        R.id.shareFileSize.isDisplayed(displayed = true)
     }
 
     @Test
     fun showPrivateLink() {
         loadShareFileFragment()
-        onView(withId(R.id.getPrivateLinkButton)).check(matches(isDisplayed()))
+        R.id.getPrivateLinkButton.isDisplayed(displayed = true)
+    }
+
+    @Test
+    fun hidePrivateLink() {
+        loadShareFileFragment(capabilities = OC_CAPABILITY.copy(filesPrivateLinks = CapabilityBooleanType.FALSE))
+        R.id.getPrivateLinkButton.isDisplayed(displayed = false)
     }
 
     /******************************************************************************************************
@@ -222,8 +230,7 @@ class ShareFileFragmentTest {
             shares = publicShareList
         )
 
-        onView(withId(R.id.shareViaLinkSection))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
+        R.id.shareViaLinkSection.assertVisibility(ViewMatchers.Visibility.GONE)
     }
 
     @Test
@@ -236,8 +243,7 @@ class ShareFileFragmentTest {
             shares = listOf(publicShareList[0])
         )
 
-        onView(withId(R.id.addPublicLinkButton))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        R.id.addPublicLinkButton.assertVisibility(ViewMatchers.Visibility.VISIBLE)
     }
 
     @Test
@@ -250,8 +256,7 @@ class ShareFileFragmentTest {
             shares = listOf(publicShareList[0])
         )
 
-        onView(withId(R.id.addPublicLinkButton))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.INVISIBLE)))
+        R.id.addPublicLinkButton.assertVisibility(ViewMatchers.Visibility.INVISIBLE)
     }
 
     @Test
@@ -263,8 +268,7 @@ class ShareFileFragmentTest {
             shares = listOf(publicShareList[0])
         )
 
-        onView(withId(R.id.addPublicLinkButton))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.INVISIBLE)))
+        R.id.addPublicLinkButton.assertVisibility(ViewMatchers.Visibility.INVISIBLE)
     }
 
     /******************************************************************************************************
@@ -278,21 +282,19 @@ class ShareFileFragmentTest {
                 filesSharingApiEnabled = CapabilityBooleanType.FALSE
             )
         )
-        onView(withId(R.id.shareWithUsersSection))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
+        R.id.shareWithUsersSection.assertVisibility(ViewMatchers.Visibility.GONE)
 
-        onView(withId(R.id.shareViaLinkSection))
-            .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
+        R.id.shareViaLinkSection.assertVisibility(ViewMatchers.Visibility.GONE)
     }
 
     @Test
     fun showError() {
         loadShareFileFragment(
             sharesUIResult = UIResult.Error(
-                error = Throwable("It was not possible to retrieve the shares from server")
+                error = Throwable("It was not possible to retrieve the shares from the server")
             )
         )
-        onView(withId(com.google.android.material.R.id.snackbar_text)).check(matches(withText(R.string.get_shares_error)))
+        com.google.android.material.R.id.snackbar_text.withText(R.string.get_shares_error)
     }
 
     private fun loadShareFileFragment(

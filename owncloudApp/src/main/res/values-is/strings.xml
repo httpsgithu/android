@@ -4,8 +4,6 @@
   <string name="global_name">Heiti</string>
   <string name="global_date">Dagsetning</string>
   <string name="global_size">Stærð</string>
-  <string name="about_android">%1$s fyrir Android</string>
-  <string name="about_version">Útgáfa %1$s</string>
   <string name="actionbar_search">Leita í þessari möppu</string>
   <string name="actionbar_sync">Endurlesa aðgang</string>
   <string name="actionbar_upload">Senda inn</string>
@@ -31,15 +29,26 @@
   <string name="drawer_feedback">Umsögn</string>
   <string name="drawer_help">Hjálp</string>
   <string name="prefs_category_general">Almennt</string>
-  <string name="prefs_category_more">Meira</string>
-  <string name="prefs_category_security">Öryggi</string>
+  <string name="prefs_subsection_logging">Logging</string>
+  <string name="prefs_subsection_more">Meira</string>
+  <string name="prefs_subsection_security">Öryggi</string>
   <string name="prefs_accounts">Notandaaðgangar</string>
   <string name="prefs_manage_accounts">Sýsla með notandaaðganga</string>
   <string name="prefs_passcode">Læsing með lykilkóða</string>
+  <string name="prefs_lock_application">Lock application</string>
+  <string name="prefs_lock_application_entries_1minute">After 1 minute</string>
+  <string name="prefs_lock_application_entries_5minutes">After 5 minutes</string>
+  <string name="prefs_lock_application_entries_30minutes">After 30 minutes</string>
   <string name="prefs_camera_picture_upload">Innsendar myndir</string>
   <string name="prefs_camera_picture_upload_summary">Hlaða sjálfvirkt inn myndum teknum á myndavél</string>
+  <string name="prefs_camera_picture_upload_path_title">Innsendingarslóð fyrir myndir</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Senda inn myndir einungis um þráðlaus net</string>
   <string name="prefs_camera_video_upload">Innsend myndskeið</string>
   <string name="prefs_camera_video_upload_summary">Hlaða sjálfvirkt inn myndskeiðum teknum á myndavél</string>
+  <string name="prefs_camera_video_upload_path_title">Innsendingarslóð fyrir myndskeið</string>
+  <string name="prefs_camera_video_upload_on_wifi">Senda inn myndskeið einungis um þráðlaus net</string>
+  <string name="prefs_subsection_advanced">Ítarlegt</string>
+  <string name="prefs_show_hidden_files">Sýna faldar skrár</string>
   <string name="prefs_log_title">Virkja skráningu í annál</string>
   <string name="prefs_log_summary">Þetta er notað til að skrá vandamál</string>
   <string name="prefs_log_title_history">Ferill annálsskráningar</string>
@@ -53,19 +62,21 @@
   <string name="prefs_remember_last_share_location">Muna staðsetningu sameignar</string>
   <string name="prefs_remember_last_upload_location_summary">Muna staðsetningu á síðustu innhleðslu sameignar</string>
   <string name="prefs_pattern">Læsing með mynstri</string>
+  <string name="prefs_enable_logging">Virkja skráningu í annál</string>
+  <string name="prefs_send_feedback">Send feedback</string>
   <string name="pattern_enter_pattern">Settu inn mynstrið þitt</string>
   <string name="pattern_configure_pattern">Settu inn mynstrið þitt</string>
   <string name="pattern_remove_pattern">Fjarlægðu mynstrið þitt</string>
   <string name="pattern_incorrect_pattern">Rangt mynstur</string>
   <string name="pattern_reenter_pattern">Settu aftur inn mynstrið þitt</string>
   <string name="pattern_not_same_pattern">Mynstrin eru ekki eins</string>
-  <string name="pattern_stored">Mynstur geymt</string>
-  <string name="pattern_removed">Mynstur fjarlægt</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">Skrár</string>
+  <string name="bottom_nav_personal">Einka</string>
   <string name="bottom_nav_uploads">Innsendingar</string>
   <string name="bottom_nav_offline">Ónettengt</string>
   <string name="bottom_nav_links">Tenglar</string>
+  <string name="bottom_nav_shares">Sameignir</string>
   <string name="recommend_subject">Prófaðu %1$s á snjallsímanum þínum!</string>
   <string name="recommend_text">Ég vil gjarnan bjóða þér að nota %1$s á snjallsímanum þínum!\nSæktu það hér: %2$s</string>
   <string name="auth_failure_snackbar">Auðkenning mistókst</string>
@@ -92,7 +103,10 @@
   <string name="uploader_error_message_source_file_not_found">Fann ekki skrána sem átti að senda inn á sínum stað. Athugaðu hvort skráin sé til.</string>
   <string name="uploader_error_message_source_file_not_copied">Villa kom upp við að afrita þessa skrá í bráðabirgðamöppu. Prófaðu að senda aftur.</string>
   <string name="file_list_seconds_ago">sekúndum síðan</string>
-  <string name="file_list_empty">Ekkert hér. Settu eitthvað inn!</string>
+  <string name="file_list_empty_title_all_files">Engar skrár hér</string>
+  <string name="file_list_empty_title_shared_by_links">Engir sameignartenglar</string>
+  <string name="file_list_empty_subtitle_all_files">Sendu inn eitthvað efni eða samstilltu við tækin þín!</string>
+  <string name="file_list_empty_subtitle_shared_by_links">Skrár og möppur sem þú deilir með tenglum birtast hér</string>
   <string name="file_list_loading">Hleð inn…</string>
   <string name="file_list_no_app_for_file_type">Engin forrit fundust fyrir skráategundina</string>
   <string name="local_file_list_empty">Það eru engar skrár í þessari möppu.</string>
@@ -127,7 +141,6 @@
   <string name="common_unknown">óþekkt</string>
   <string name="common_pending">Í bið</string>
   <string name="common_important">Mikilvægt</string>
-  <string name="about_title">Um hugbúnaðinn</string>
   <string name="change_password">Breyta lykilorði</string>
   <string name="delete_account">Fjarlægja notandaaðgang</string>
   <string name="create_account">Stofna aðgang</string>
@@ -187,16 +200,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d skrár merktar fyrir samstillingu var ekki hægt að samstilla</string>
   <string name="sync_fail_in_favourites_ticker">Skrár merktar fyrir samstillingu mistókust</string>
   <string name="sync_fail_in_favourites_content">Efni %1$d skráa var ekki hægt að samstilla (%2$d árekstrar)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Sumar staðværar skrár gleymdust</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d skrár úr %2$s möppunni var ekki hægt að afrita í</string>
-  <string name="sync_foreign_files_forgotten_explanation">Frá og með útgáfu 1.3.16, munu skrár sem sendar eru frá þessu tæki verða afritaðar inn í staðværu %1$s möppuna, í þeim tilgangi að koma í veg fyrir gagnatap þegar stök skrá er samstillt við marga notendaaðganga.\n\nVegna þessarar breytingar hafa allar skrár sem sendar hafa verið inn í eldri útgáfum kerfisins verið afritaðar í %2$s möppuna. Hins vegar, núna kom villa í veg fyrir að þessari aðgerð lyki um leið og aðgangar voru samstilltir. Þú getur annað hvort látið skrárnar vera eins og þær eru og fjarlægt tengilinn í %3$s, eða fært skrárnar inn í %1$s möppuna og halda tenglinum í %4$s.\n\nStaðværar skrár eru taldar upp hér fyrir neðan, ásamt þeim fjartengdu skrám í %5$s sem þær voru tengdar við.</string>
   <string name="sync_current_folder_was_removed">Mappan %1$s er ekki lengur til staðar</string>
-  <string name="foreign_files_move">Færa allt</string>
-  <string name="foreign_files_success">Allar skrár voru færðar</string>
-  <string name="foreign_files_fail">Ekki tókst að færa allar skrár</string>
-  <string name="foreign_files_local_text">Staðvært: %1$s</string>
-  <string name="foreign_files_remote_text">Fjartengt: %1$s</string>
-  <string name="upload_query_move_foreign_files">Það er ekki nægilegt pláss til að afrita völdu skrárnar í %1$s möppuna. Vilt þú kannski færa þær í staðinn? </string>
   <string name="pass_code_enter_pass_code">Settu inn lykilkóðann þinn</string>
   <string name="pass_code_configure_your_pass_code">Settu inn lykilkóða</string>
   <string name="pass_code_configure_your_pass_code_explanation">Lykilkóðans verður krafist í hvert skipti sem forritið er ræst</string>
@@ -204,8 +208,7 @@
   <string name="pass_code_remove_your_pass_code">Fjarlægja lykilkóðann þinn</string>
   <string name="pass_code_mismatch">Lykilkóðarnir eru ekki eins</string>
   <string name="pass_code_wrong">Rangur lykilkóði</string>
-  <string name="pass_code_removed">Fjarlægði lykilkóða</string>
-  <string name="pass_code_stored">Geymdi lykilkóða</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="media_notif_ticker">%1$s tónlistarspilari</string>
   <string name="media_state_playing">%1$s (afspilun)</string>
   <string name="media_state_loading">%1$s (hleð)</string>
@@ -250,7 +253,6 @@
   <string name="auth_expired_basic_auth_toast">Settu inn núgildandi lykilorð</string>
   <string name="auth_connecting_auth_server">Tengist við auðkenningarþjón …</string>
   <string name="auth_unsupported_auth_method">Þjónninn styður ekki þessa auðkenningaraðferð</string>
-  <string name="auth_unsupported_multiaccount">%1$s styður ekki fjölaðganga</string>
   <string name="auth_fail_get_user_name">Þjónninn skilar ekki réttu notandaauðkenni, hafðu samband við kerfisstjóra
 	</string>
   <string name="auth_can_not_auth_against_server">Get ekki auðkennt á þessum þjóni</string>
@@ -274,7 +276,7 @@
   <string name="sync_file_nothing_to_do_msg">Efni skrár er þegar samstillt</string>
   <string name="create_dir_fail_msg">Tókst ekki að búa til möppu</string>
   <string name="filename_forbidden_characters">Óleyfilegir stafir: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">Skráarheitið inniheldur að minnsta kosti einn ógildan staf</string>
+  <string name="filename_forbidden_characters_from_server">Skráarheitið inniheldur að minnsta kosti einn ógildan staf</string>
   <string name="filename_empty">Skráarheiti má ekki vera tómt</string>
   <string name="wait_a_moment">Bíddu aðeins</string>
   <string name="wait_checking_credentials">Athuga vistuð auðkenni</string>
@@ -317,10 +319,7 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 EH</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Senda inn myndir einungis um þráðlaus net</string>
-  <string name="camera_video_upload_on_wifi">Senda inn myndskeið einungis um þráðlaus net</string>
   <string name="confirmation_disable_camera_uploads_title">Staðfesta</string>
-  <string name="conflict_title">Árekstur skráa</string>
   <string name="conflict_message">Ef þú velur báðar útgáfur, þá mun verða bætt tölustaf aftan við heiti skrárinnar á tölvunni.</string>
   <string name="conflict_keep_both">Halda báðum</string>
   <string name="conflict_use_local_version">útgáfu á tölvu</string>
@@ -328,7 +327,6 @@
   <string name="preview_image_description">Forskoðun myndar</string>
   <string name="preview_image_error_unknown_format">Ekki er hægt að birta myndina</string>
   <string name="error__upload__local_file_not_copied">%1$s var ekki hægt að afrita í staðværu %2$s möppuna</string>
-  <string name="prefs_camera_picture_upload_path_title">Innsendingarslóð fyrir myndir</string>
   <string name="share_link_no_support_share_api">Því miður, deiling gagna er ekki virk á þjóninum. Hafðu samband við
 		kerfisstjóra.</string>
   <string name="share_link_password_title">Settu inn lykilorð</string>
@@ -379,7 +377,6 @@
   <string name="copy_file_error">Villa kom upp við að reyna að afrita þessa skrá eða möppu</string>
   <string name="forbidden_permissions_copy">til að afrita þessa skrá</string>
   <string name="prefs_category_camera_upload">Innsendingar úr myndavél</string>
-  <string name="prefs_camera_video_upload_path_title">Innsendingarslóð fyrir myndskeið</string>
   <string name="sync_folder_failed_content">Ekki var hægt að ljúka samstillingu á %1$s möppunni</string>
   <string name="shared_subject_header">deildi</string>
   <string name="with_you_subject_header">með þér</string>
@@ -399,13 +396,11 @@
   <string name="file_list__footer__files_and_folders">%1$d skrár, %2$d möppur</string>
   <string name="prefs_camera_upload_source_path_title">Myndavélarmappa (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">krafist</string>
-  <string name="prefs_camera_upload_source_path_title_optional">valkvætt</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Upprunaleg skrá verður</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Upprunaleg skrá verður</string>
   <string name="prefs_camera_upload_behaviour_title">Upprunaleg skrá verður</string>
   <string name="upload_copy_files">Afrita skrá</string>
   <string name="upload_move_files">Færa skrá</string>
   <string name="pref_behaviour_entries_keep_file">áfram í upprunalegri möppu</string>
-  <string name="pref_behaviour_entries_move">færð í forritsmöppu</string>
   <string name="share_dialog_title">Deila</string>
   <string name="share_file">Deila %1$s</string>
   <string name="share_with_user_section_title">Notendur og hópar</string>
@@ -442,13 +437,7 @@
   <string name="edit_share_done">lokið</string>
   <string name="action_upload_retry">Reyna aftur</string>
   <string name="action_upload_clear">Hreinsa</string>
-  <string name="manage_space_title">Sýsla með geymslurými</string>
-  <string name="manage_space_description">Stillingar, gagnagrunnur og skilríki þjóna úr gögnum %1$s verður eytt endanlega. \n\nSóttar skrár verða skildar eftir ósnertar.\n\nÞetta ferli getur tekið drjúgan tíma.</string>
-  <string name="manage_space_clear_data">Hreinsa gögn</string>
-  <string name="manage_space_error">Ekki tókst að eyða öllum skrám.</string>
-  <string name="permission_storage_access">Aukinna heimilda er krafist til að geta sent inn og sótt skrár.</string>
   <string name="local_file_not_found_toast">Skráin fannst ekki á tölvunni þinni</string>
-  <string name="confirmation_remove_files_alert">Ertu viss um að þú viljir fjarlægja valin atriði?</string>
   <string name="confirmation_remove_folders_alert">Ertu viss um að þú viljir fjarlægja valin atriði og innihald þeirra?</string>
   <string name="failed_upload_quota_exceeded_text">Ekki nægt pláss tiltækt á aðgangnum</string>
   <string name="auth_forbidden">Auðkenning bönnuð</string>
@@ -472,7 +461,7 @@
   <string name="share_via_link_expiration_date_enforced_label">Rennur út *</string>
   <string name="share_via_link_expiration_date_explanation_label">Opinberi tengillinn rennur út eigi síðar en %1$d dögum eftir að hann er útbúinn</string>
   <string name="share_via_link_default_name_template">%1$s tengill</string>
-  <string name="private_link_info">Þetta er einkatengilll, aðeins fólk sem hefur aðgang að skránni/möppunni getur notað hann. Notaðu hann sem varanlegan tengil fyrir sjálfan þig eða til að beina öðrum á skrár innan sameigna.</string>
+  <string name="private_link_info">Einkatengilll: Aðeins fólk sem hefur aðgang að skránni/möppunni getur notað hann. Notaðu hann sem varanlegan tengil fyrir sjálfan þig eða til að beina öðrum á skrár innan sameigna</string>
   <string name="download_notification_channel_name">Niðurhöl</string>
   <string name="upload_notification_channel_name">Innsendingar</string>
   <string name="media_service_notification_channel_name">Tónlistarspilari</string>
@@ -496,4 +485,13 @@
   <string name="welcome_feature_3_text">Tengst við öll ownCloud tölvuskýin þín</string>
   <string name="welcome_feature_4_title">Innsendingar úr myndavél</string>
   <string name="welcome_feature_5_title">Streyming myndskeiða</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">Læsing með lykilkóða</string>
+  <string name="folder_upload_some_content_or_sync_devices">Sendu inn eitthvað efni eða samstilltu við tækin þín!</string>
+  <!--Webfinger-->
+  <string name="global_proceed">Halda áfram</string>
+  <!--Release Notes-->
+  <string name="release_notes_proceed">Halda áfram</string>
+  <!--Open in web-->
 </resources>

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion sdkCompileVersion
@@ -18,31 +17,36 @@ android {
         }
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     sourceSets {
         test.java.srcDirs += "src/test-common/java"
     }
+    namespace "com.owncloud.android.domain"
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation "androidx.appcompat:appcompat:$appCompat"
+    implementation libs.androidx.appcompat
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation libs.kotlin.stdlib
+    implementation libs.kotlinx.coroutines.core
 
     // Dependencies for unit tests
-    testImplementation project(':owncloudTestUtil')
-    testImplementation "junit:junit:$junitVersion"
-    testImplementation "androidx.arch.core:core-testing:$archLifecycleVersion"
-    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation project(":owncloudTestUtil")
+    testImplementation libs.androidx.arch.core.testing
+    testImplementation libs.junit4
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.mockk
+
+    // Detekt
+    detektPlugins libs.detekt.formatting
+    detektPlugins libs.detekt.libraries
 }

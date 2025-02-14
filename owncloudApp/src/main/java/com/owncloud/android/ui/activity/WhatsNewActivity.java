@@ -3,8 +3,9 @@
  *
  * @author Brtosz Przybylski
  * @author Christian Schabesberger
+ * @author David Crespo Ríos
  * Copyright (C) 2020 Bartosz Przybylski
- * Copyright (C) 2020 ownCloud GmbH.
+ * Copyright (C) 2022 ownCloud GmbH.
  * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,
@@ -43,41 +44,58 @@ import androidx.viewpager.widget.ViewPager;
 import com.owncloud.android.BuildConfig;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
-import com.owncloud.android.authentication.AccountUtils;
-import com.owncloud.android.features.FeatureList;
-import com.owncloud.android.features.FeatureList.FeatureItem;
-import com.owncloud.android.presentation.ui.authentication.LoginActivity;
-import com.owncloud.android.ui.whatsnew.ProgressIndicator;
+import com.owncloud.android.databinding.WhatsNewActivityBinding;
+import com.owncloud.android.databinding.WhatsNewElementBinding;
+import com.owncloud.android.presentation.authentication.LoginActivity;
+import com.owncloud.android.wizard.FeatureList;
+import com.owncloud.android.wizard.FeatureList.FeatureItem;
+import com.owncloud.android.wizard.ProgressIndicator;
 
 /**
  * @author Bartosz Przybylski
  */
 public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
 
-    private static final String KEY_LAST_SEEN_VERSION_CODE = "lastSeenVersionCode";
-
     private ImageButton mForwardFinishButton;
     private ProgressIndicator mProgress;
     private ViewPager mPager;
 
+    private WhatsNewActivityBinding bindingActivity;
+
+    static public void runIfNeeded(Context context) {
+        if (context instanceof WhatsNewActivity) {
+            return;
+        }
+
+        if (shouldShow(context)) {
+            context.startActivity(new Intent(context, WhatsNewActivity.class));
+        }
+    }
+
+    static private boolean shouldShow(Context context) {
+        return context.getResources().getBoolean(R.bool.wizard_enabled) && !BuildConfig.DEBUG
+                && context instanceof LoginActivity; // When it is LoginActivity to start it only once
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.whats_new_activity);
 
-        mProgress = findViewById(R.id.progressIndicator);
-        mPager = findViewById(R.id.contentPanel);
+        bindingActivity = WhatsNewActivityBinding.inflate(getLayoutInflater());
 
-        boolean isBeta = MainApp.Companion.isBeta();
+        setContentView(bindingActivity.getRoot());
+
+        mProgress = bindingActivity.progressIndicator;
+        mPager = bindingActivity.contentPanel;
 
         FeaturesViewAdapter adapter = new FeaturesViewAdapter(getSupportFragmentManager(),
-                FeatureList.getFiltered(getLastSeenVersionCode(), isFirstRun(), isBeta));
+                FeatureList.get());
 
         mProgress.setNumberOfSteps(adapter.getCount());
         mPager.setAdapter(adapter);
         mPager.addOnPageChangeListener(this);
 
-        mForwardFinishButton = findViewById(R.id.forward);
+        mForwardFinishButton = bindingActivity.forward;
         mForwardFinishButton.setOnClickListener(view -> {
             if (mProgress.hasNextStep()) {
                 mPager.setCurrentItem(mPager.getCurrentItem() + 1, true);
@@ -87,7 +105,8 @@ public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPa
             }
             updateNextButtonIfNeeded();
         });
-        Button skipButton = findViewById(R.id.skip);
+        Button skipButton = bindingActivity.skip;
+
         skipButton.setOnClickListener(view -> finish());
 
         updateNextButtonIfNeeded();
@@ -95,7 +114,7 @@ public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPa
         // Wizard already shown
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt(KEY_LAST_SEEN_VERSION_CODE, MainApp.Companion.getVersionCode());
+        editor.putInt(MainApp.PREFERENCE_KEY_LAST_SEEN_VERSION_CODE, MainApp.Companion.getVersionCode());
         editor.apply();
     }
 
@@ -114,42 +133,6 @@ public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPa
         }
     }
 
-    static private int getLastSeenVersionCode() {
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainApp.Companion.getAppContext());
-        return pref.getInt(KEY_LAST_SEEN_VERSION_CODE, 0);
-    }
-
-    static private boolean isFirstRun() {
-        if (getLastSeenVersionCode() != 0) {
-            return false;
-        }
-        return AccountUtils.getCurrentOwnCloudAccount(MainApp.Companion.getAppContext()) == null;
-    }
-
-    static public void runIfNeeded(Context context) {
-        if (context instanceof WhatsNewActivity) {
-            return;
-        }
-
-        if (shouldShow(context)) {
-            context.startActivity(new Intent(context, WhatsNewActivity.class));
-        }
-    }
-
-    static private boolean shouldShow(Context context) {
-        boolean isBeta = MainApp.Companion.isBeta();
-        boolean showWizard = context.getResources().getBoolean(R.bool.wizard_enabled) && !BuildConfig.DEBUG;
-        return showWizard &&
-                ((isFirstRun() && context instanceof LoginActivity) ||
-                        (
-                                !(isFirstRun() && (context instanceof FileDisplayActivity)) &&
-                                        !(context instanceof PassCodeActivity) &&
-                                        (FeatureList.getFiltered(getLastSeenVersionCode(), isFirstRun(),
-                                                isBeta).length > 0)
-
-                        ));
-    }
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
@@ -165,28 +148,10 @@ public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPa
 
     }
 
-    private final class FeaturesViewAdapter extends FragmentPagerAdapter {
-
-        FeatureItem[] mFeatures;
-
-        public FeaturesViewAdapter(FragmentManager fm, FeatureItem[] features) {
-            super(fm);
-            mFeatures = features;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return FeatureFragment.newInstance(mFeatures[position]);
-        }
-
-        @Override
-        public int getCount() {
-            return mFeatures.length;
-        }
-    }
-
     public static class FeatureFragment extends Fragment {
         private FeatureItem mItem;
+
+        private WhatsNewElementBinding bindingElement;
 
         static public FeatureFragment newInstance(FeatureItem item) {
             FeatureFragment f = new FeatureFragment();
@@ -206,24 +171,45 @@ public class WhatsNewActivity extends FragmentActivity implements ViewPager.OnPa
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                                  @Nullable Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.whats_new_element, container, false);
 
-            ImageView iv = v.findViewById(R.id.whatsNewImage);
+            bindingElement = WhatsNewElementBinding.inflate(getLayoutInflater());
+
+            ImageView iv = bindingElement.whatsNewImage;
             if (mItem.shouldShowImage()) {
                 iv.setImageResource(mItem.getImage());
             }
 
-            TextView tv2 = v.findViewById(R.id.whatsNewTitle);
+            TextView tv2 = bindingElement.whatsNewTitle;
             if (mItem.shouldShowTitleText()) {
                 tv2.setText(mItem.getTitleText());
             }
 
-            tv2 = v.findViewById(R.id.whatsNewText);
+            tv2 = bindingElement.whatsNewText;
             if (mItem.shouldShowContentText()) {
                 tv2.setText(mItem.getContentText());
             }
 
-            return v;
+            return bindingElement.getRoot();
+        }
+    }
+
+    private final class FeaturesViewAdapter extends FragmentPagerAdapter {
+
+        FeatureItem[] mFeatures;
+
+        public FeaturesViewAdapter(FragmentManager fm, FeatureItem[] features) {
+            super(fm);
+            mFeatures = features;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return FeatureFragment.newInstance(mFeatures[position]);
+        }
+
+        @Override
+        public int getCount() {
+            return mFeatures.length;
         }
     }
 }

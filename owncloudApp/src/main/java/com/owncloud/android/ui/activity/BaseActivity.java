@@ -1,3 +1,21 @@
+/**
+ * ownCloud Android client application
+ * <p>
+ * Copyright (C) 2022 ownCloud GmbH.
+ * <p>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ * <p>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.owncloud.android.ui.activity;
 
 import android.accounts.Account;
@@ -9,7 +27,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +35,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.snackbar.Snackbar;
 import com.owncloud.android.MainApp;
-import com.owncloud.android.authentication.AccountUtils;
+import com.owncloud.android.presentation.authentication.AccountUtils;
 import com.owncloud.android.datamodel.FileDataStorageManager;
-import com.owncloud.android.datamodel.OCFile;
-import com.owncloud.android.domain.capabilities.model.OCCapability;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.ui.dialog.LoadingDialog;
 import timber.log.Timber;
 
@@ -34,11 +50,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * ownCloud {@link Account} where the main {@link OCFile} handled by the activity is located.
      */
     private Account mCurrentAccount;
-
-    /**
-     * Capabilites of the server where {@link #mCurrentAccount} lives.
-     */
-    private OCCapability mCapabilities;
 
     /**
      * Flag to signal that the activity is finishing to enforce the creation of an ownCloud {@link Account}.
@@ -144,7 +155,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param mandatoryCreation When 'true', if an account is not created by the user, the app will be closed.
      *                          To use when no ownCloud account is available.
      */
-    protected void createAccount(boolean mandatoryCreation) {
+    private void createAccount(boolean mandatoryCreation) {
         AccountManager am = AccountManager.get(getApplicationContext());
         am.addAccount(MainApp.Companion.getAccountType(),
                 null,
@@ -162,8 +173,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void onAccountSet(boolean stateWasRecovered) {
         if (getAccount() != null) {
-            mStorageManager = new FileDataStorageManager(this, getAccount(), getContentResolver());
-            mCapabilities = mStorageManager.getCapability(mCurrentAccount.name);
+            mStorageManager = new FileDataStorageManager(getAccount());
+            Timber.d("Account set: %s", getAccount().name);
         } else {
             Timber.e("onAccountChanged was called with NULL account associated!");
         }
@@ -171,16 +182,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setAccount(Account account) {
         mCurrentAccount = account;
-    }
-
-    /**
-     * Getter for the capabilities of the server where the current OC account lives.
-     *
-     * @return Capabilities of the server where the current OC account lives. Null if the account is not
-     * set yet.
-     */
-    public OCCapability getCapabilities() {
-        return mCapabilities;
     }
 
     /**
@@ -211,7 +212,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public FileDataStorageManager getStorageManager() {
-        return mStorageManager;
+        if (mStorageManager == null) {
+            if (getAccount() == null) {
+                swapToDefaultAccount();
+            }
+            return mStorageManager = new FileDataStorageManager(getAccount());
+        } else {
+            return mStorageManager;
+        }
     }
 
     /**
@@ -269,17 +277,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (mMandatoryCreation && !accountWasSet) {
                 finish();
             }
-        }
-    }
-
-    public void hideSoftKeyboard() {
-        View focusedView = getCurrentFocus();
-        if (focusedView != null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(
-                    focusedView.getWindowToken(),
-                    0
-            );
         }
     }
 

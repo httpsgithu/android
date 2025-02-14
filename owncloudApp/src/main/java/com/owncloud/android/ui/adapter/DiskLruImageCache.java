@@ -31,15 +31,14 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 
 import com.jakewharton.disklrucache.DiskLruCache;
-import com.owncloud.android.MainApp;
 import timber.log.Timber;
 
 public class DiskLruImageCache {
 
-    private DiskLruCache mDiskCache;
-    private CompressFormat mCompressFormat;
-    private int mCompressQuality;
-    private static final int CACHE_VERSION = 1;
+    private final DiskLruCache mDiskCache;
+    private final CompressFormat mCompressFormat;
+    private final int mCompressQuality;
+    private static final int CACHE_VERSION = 2;
     private static final int VALUE_COUNT = 1;
     private static final int IO_BUFFER_SIZE = 8 * 1024;
 
@@ -81,19 +80,13 @@ public class DiskLruImageCache {
             if (writeBitmapToFile(data, editor)) {
                 mDiskCache.flush();
                 editor.commit();
-                if (MainApp.Companion.isDeveloper()) {
-                   Timber.d( "cache_test_DISK_ image put on disk cache %s", validKey );
-                }
+                Timber.d("cache_test_DISK_ image put on disk cache %s", validKey);
             } else {
                 editor.abort();
-                if (MainApp.Companion.isDeveloper()) {
-                    Timber.d( "cache_test_DISK_ ERROR on: image put on disk cache %s", validKey );
-                }
+                Timber.d("cache_test_DISK_ ERROR on: image put on disk cache %s", validKey);
             }
         } catch (IOException e) {
-            if (MainApp.Companion.isDeveloper()) {
-                Timber.d( "cache_test_DISK_ ERROR on: image put on disk cache %s", validKey );
-            }
+            Timber.w("cache_test_DISK_ ERROR on: image put on disk cache %s", validKey);
             try {
                 if (editor != null) {
                     editor.abort();
@@ -101,7 +94,6 @@ public class DiskLruImageCache {
             } catch (IOException ignored) {
             }
         }
-
     }
 
     public Bitmap getBitmap(String key) {
@@ -117,8 +109,7 @@ public class DiskLruImageCache {
             }
             final InputStream in = snapshot.getInputStream(0);
             if (in != null) {
-                final BufferedInputStream buffIn =
-                        new BufferedInputStream(in, IO_BUFFER_SIZE);
+                final BufferedInputStream buffIn = new BufferedInputStream(in, IO_BUFFER_SIZE);
                 bitmap = BitmapFactory.decodeStream(buffIn);
             }
         } catch (IOException e) {
@@ -129,9 +120,7 @@ public class DiskLruImageCache {
             }
         }
 
-        if (MainApp.Companion.isDeveloper()) {
-            Timber.d(bitmap == null ? "not found" : "image read from disk %s", validKey);
-        }
+        Timber.d(bitmap == null ? "not found" : "image read from disk %s", validKey);
 
         return bitmap;
 
@@ -143,6 +132,7 @@ public class DiskLruImageCache {
 
     /**
      * Remove passed key from cache
+     *
      * @param key
      */
     public void removeKey(String key) {
@@ -151,7 +141,7 @@ public class DiskLruImageCache {
             mDiskCache.remove(validKey);
             Timber.d("removeKey from cache: %s", validKey);
         } catch (IOException e) {
-Timber.e(e);
+            Timber.e(e);
         }
     }
 }

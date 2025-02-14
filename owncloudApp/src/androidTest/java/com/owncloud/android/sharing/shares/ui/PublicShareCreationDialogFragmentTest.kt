@@ -19,7 +19,6 @@
 
 package com.owncloud.android.sharing.shares.ui
 
-import android.content.Context
 import android.text.InputType.TYPE_CLASS_TEXT
 import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 import androidx.lifecycle.MutableLiveData
@@ -41,14 +40,14 @@ import com.owncloud.android.R
 import com.owncloud.android.domain.capabilities.model.CapabilityBooleanType
 import com.owncloud.android.domain.capabilities.model.OCCapability
 import com.owncloud.android.domain.utils.Event
-import com.owncloud.android.presentation.UIResult
-import com.owncloud.android.presentation.ui.sharing.fragments.PublicShareDialogFragment
-import com.owncloud.android.presentation.viewmodels.capabilities.OCCapabilityViewModel
-import com.owncloud.android.presentation.viewmodels.sharing.OCShareViewModel
+import com.owncloud.android.presentation.common.UIResult
+import com.owncloud.android.presentation.sharing.shares.PublicShareDialogFragment
+import com.owncloud.android.presentation.capabilities.CapabilityViewModel
+import com.owncloud.android.presentation.sharing.ShareViewModel
 import com.owncloud.android.testutil.OC_ACCOUNT
 import com.owncloud.android.testutil.OC_CAPABILITY
-import com.owncloud.android.utils.AppTestUtil.OC_FILE
-import com.owncloud.android.utils.AppTestUtil.OC_FOLDER
+import com.owncloud.android.testutil.OC_FILE
+import com.owncloud.android.testutil.OC_FOLDER
 import com.owncloud.android.utils.DateUtils
 import io.mockk.every
 import io.mockk.mockk
@@ -64,27 +63,28 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 class PublicShareCreationDialogFragmentTest {
-    private val ocCapabilityViewModel = mockk<OCCapabilityViewModel>(relaxed = true)
+    private val capabilityViewModel = mockk<CapabilityViewModel>(relaxed = true)
     private val capabilitiesLiveData = MutableLiveData<Event<UIResult<OCCapability>>>()
-    private val ocShareViewModel = mockk<OCShareViewModel>(relaxed = true)
+    private val shareViewModel = mockk<ShareViewModel>(relaxed = true)
     private val publicShareCreationStatus = MutableLiveData<Event<UIResult<Unit>>>()
 
     @Before
     fun setUp() {
-        every { ocCapabilityViewModel.capabilities } returns capabilitiesLiveData
-        every { ocShareViewModel.publicShareCreationStatus } returns publicShareCreationStatus
+        every { capabilityViewModel.capabilities } returns capabilitiesLiveData
+        every { shareViewModel.publicShareCreationStatus } returns publicShareCreationStatus
 
         stopKoin()
 
         startKoin {
-            androidContext(ApplicationProvider.getApplicationContext<Context>())
+            androidContext(ApplicationProvider.getApplicationContext())
+            allowOverride(override = true)
             modules(
-                module(override = true) {
+                module {
                     viewModel {
-                        ocCapabilityViewModel
+                        capabilityViewModel
                     }
                     viewModel {
-                        ocShareViewModel
+                        shareViewModel
                     }
                 }
             )
@@ -136,6 +136,7 @@ class PublicShareCreationDialogFragmentTest {
         loadPublicShareDialogFragment()
         onView(withId(R.id.shareViaLinkPasswordSwitch)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordValue)).check(matches(isDisplayed()))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -166,6 +167,7 @@ class PublicShareCreationDialogFragmentTest {
             .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
         onView(withId(R.id.shareViaLinkPasswordValue))
             .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -298,6 +300,7 @@ class PublicShareCreationDialogFragmentTest {
         )
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_label)))
+        onView(withId(R.id.saveButton)).check(matches(isEnabled()))
     }
 
     @Test
@@ -310,6 +313,7 @@ class PublicShareCreationDialogFragmentTest {
         )
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_enforced_label)))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -330,6 +334,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionReadOnly)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_enforced_label)))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -348,6 +353,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionReadOnly)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_label)))
+        onView(withId(R.id.saveButton)).check(matches(isEnabled()))
     }
 
     @Test
@@ -366,6 +372,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionReadAndWrite)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_enforced_label)))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -384,6 +391,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionReadAndWrite)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_label)))
+        onView(withId(R.id.saveButton)).check(matches(isEnabled()))
     }
 
     @Test
@@ -402,6 +410,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionUploadFiles)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_enforced_label)))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     @Test
@@ -420,10 +429,11 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionUploadFiles)).perform(click())
         onView(withId(R.id.shareViaLinkPasswordLabel))
             .check(matches(withText(R.string.share_via_link_password_label)))
+        onView(withId(R.id.saveButton)).check(matches(isEnabled()))
     }
 
     @Test
-    fun passwordEnforcedClearErrorMessageIfSwitchsToNotEnforced() {
+    fun passwordEnforcedClearErrorMessageIfSwitchesToNotEnforced() {
         val commonError = "Common error"
 
         //One permission with password enforced. Error is cleaned after switching permission
@@ -457,6 +467,7 @@ class PublicShareCreationDialogFragmentTest {
         onView(withId(R.id.shareViaLinkEditPermissionUploadFiles)).perform(scrollTo(), click())
 
         onView(withText(commonError)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.saveButton)).check(matches(not(isEnabled())))
     }
 
     private fun loadPublicShareDialogFragment(
@@ -475,10 +486,8 @@ class PublicShareCreationDialogFragmentTest {
             it.startFragment(publicShareDialogFragment)
         }
 
-        capabilitiesLiveData.postValue(Event(
-            UIResult.Success(
-                capabilities
-            ))
+        capabilitiesLiveData.postValue(
+            Event(UIResult.Success(capabilities))
         )
     }
 }

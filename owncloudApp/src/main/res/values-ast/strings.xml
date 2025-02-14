@@ -1,7 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="about_android">%1$s aplicación d\'Android</string>
-  <string name="about_version">versión %1$s</string>
   <string name="actionbar_sync">Anovar cuenta</string>
   <string name="actionbar_upload">Xubir</string>
   <string name="actionbar_upload_from_apps">Conteníu dende otres aplicaciones</string>
@@ -20,8 +18,8 @@
   <string name="drawer_feedback">Mensaxes de retroalimentación</string>
   <string name="drawer_help">Ayuda</string>
   <string name="prefs_category_general">Xeneral</string>
-  <string name="prefs_category_more">Más</string>
-  <string name="prefs_category_security">Seguridá</string>
+  <string name="prefs_subsection_more">Más</string>
+  <string name="prefs_subsection_security">Seguridá</string>
   <string name="prefs_accounts">Cuentes</string>
   <string name="prefs_manage_accounts">Alministrar cuentes</string>
   <string name="prefs_passcode">Contraseña</string>
@@ -59,7 +57,6 @@
   <string name="uploader_error_message_source_file_not_found">Ficheru pa xubir nun s\'atopó nel so allugamientu . Por favor, compruebe si esiste\'l ficheru.</string>
   <string name="uploader_error_message_source_file_not_copied">Hebo un fallu mientres s\'intentaba copiar un ficheru a una carpeta temporal. Por favor, intente unviala de nuevu.</string>
   <string name="file_list_seconds_ago">hai segundos</string>
-  <string name="file_list_empty">Nun hai nada equí. ¡Xubi daqué!</string>
   <string name="file_list_loading">Cargando…</string>
   <string name="local_file_list_empty">Nun hai ficheros nesta carpeta.</string>
   <string name="upload_list_empty">Nenguna xuba disponible.</string>
@@ -89,8 +86,7 @@
   <string name="common_unknown">desconocí­u</string>
   <string name="common_error_unknown">Fallu desconocíu</string>
   <string name="common_pending">Pendiente</string>
-  <string name="about_title">Tocante</string>
-  <string name="change_password">Camudar contraseña</string>
+    <string name="change_password">Camudar contraseña</string>
   <string name="delete_account">Desaniciar cuenta</string>
   <string name="create_account">Crear cuenta</string>
   <string name="upload_chooser_title">Xubir dende …</string>
@@ -140,25 +136,14 @@
   <string name="sync_conflicts_in_favourites_content">Los ficheros %1$d kept-in-sync pueden nun tar sincronizaos</string>
   <string name="sync_fail_in_favourites_ticker">Fallu al caltener ficheros sincronizaos.</string>
   <string name="sync_fail_in_favourites_content">Los conteníos de los ficheros %1$d pueden nun tar sincronizaos (%2$d conflictos)</string>
-  <string name="sync_foreign_files_forgotten_ticker">Dexáronse dalgunos ficheros llocales.</string>
-  <string name="sync_foreign_files_forgotten_content">Los ficheros %1$d fuera de la carpeta %2$s nun puen copiase dientro</string>
-  <string name="sync_foreign_files_forgotten_explanation">Lo mesmo que na versión 1.3.16, los archivos xubíos dende esti preséu copiáronse dientro la carpeta llocal %1$s pa prevenir la perda de datos cuando un ficheru se sincroniza con múltiples cuentes Por mor d\'esti cambéu, tolos ficheros xubíos en versiones previes d\'esta aplicación tán copiaos na carpeta %2$s . Por embargu, un error torgó\'l pieslle de la operación demientres la sincronización de la cuenta. Pues dexar el/los ficheru/os como tán, desaniciar l\'enllaz a %3$s , o mover el/los ficheru/os a la carpeta %1$s y guardar l\'enllaz a %4$s . El llistáu d\'abaxo contién los ficheros llocales y remotos enllazaos en %5$s</string>
-  <string name="sync_current_folder_was_removed">La carpeta %1$s yá nun esiste</string>
-  <string name="foreign_files_move">Mover too</string>
-  <string name="foreign_files_success">Moviéronse tolos ficheros</string>
-  <string name="foreign_files_fail">Nun pudieron movese dalgunos ficheros</string>
-  <string name="foreign_files_local_text">Llocal: %1$s</string>
-  <string name="foreign_files_remote_text">Remotu: %1$s</string>
-  <string name="upload_query_move_foreign_files">Nun hai espaciu abondo pa copiar los ficheros esbillaos a la carpeta %1$s. ¿En cuenta d\'ello, prestaríate movelos?</string>
-  <string name="pass_code_enter_pass_code">Por favor, inxerta la to contraseña</string>
+    <string name="sync_current_folder_was_removed">La carpeta %1$s yá nun esiste</string>
+    <string name="pass_code_enter_pass_code">Por favor, inxerta la to contraseña</string>
   <string name="pass_code_configure_your_pass_code">Introduz la contraseña</string>
   <string name="pass_code_configure_your_pass_code_explanation">La contraseña va ser solicitada cada vegada que s\'anicie l\'aplicación</string>
   <string name="pass_code_reenter_your_pass_code">Por favor, vuelvi inxertar la contraseña</string>
   <string name="pass_code_remove_your_pass_code">Desanicia la to contraseña</string>
   <string name="pass_code_mismatch">Les contraseñes nun son les mesmes</string>
   <string name="pass_code_wrong">Contraseña incorrecta</string>
-  <string name="pass_code_removed">Contraseña desaniciada</string>
-  <string name="pass_code_stored">Contraseña almacenada</string>
   <string name="media_notif_ticker">%1$s reproductor de música</string>
   <string name="media_state_playing">%1$s (reproduciendo)</string>
   <string name="media_state_loading">%1$s (cargando)</string>
@@ -202,7 +187,6 @@
   <string name="auth_expired_basic_auth_toast">Por favor, introduzca la contraseña actual</string>
   <string name="auth_connecting_auth_server">Coneutando al sirvidor d\'autentificación…</string>
   <string name="auth_unsupported_auth_method">El sirvidor nun sofita esti métodu/triba d\'autentificación</string>
-  <string name="auth_unsupported_multiaccount">%1$s nun permite cuentes múltiples</string>
   <string name="auth_fail_get_user_name">El to sirvidor nun ta tornando un usuariu correutu, por favor contauta col alministrador
 	</string>
   <string name="auth_can_not_auth_against_server">Nun pues autentificate nesti sirvidor</string>
@@ -224,7 +208,7 @@
   <string name="sync_file_nothing_to_do_msg">El conteníu del ficheru yá ta sincronizáu</string>
   <string name="create_dir_fail_msg">Nun se puede crear la carpeta</string>
   <string name="filename_forbidden_characters">Caráuteres prohibíos: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">El nome del ficheru contién polo menos un carácter non válidu</string>
+  <string name="filename_forbidden_characters_from_server">El nome del ficheru contién polo menos un carácter non válidu</string>
   <string name="filename_empty">El nome de ficheru nun pue tar baleru</string>
   <string name="wait_a_moment">Espera un momentu</string>
   <string name="wait_checking_credentials">Comprobación de credenciales almacenaes</string>
@@ -265,10 +249,9 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">Xubir semeyes namái per WiFi</string>
-  <string name="camera_video_upload_on_wifi">Xubir vídeos namái per WIFI</string>
-  <string name="conflict_title">Conflictu nel ficheru</string>
-  <string name="conflict_message">¿Qué ficheros quies caltener? Si seleiciones dambes versiones, el ficheru llocal va tener un númberu amestáu al so nome</string>
+  <string name="prefs_camera_picture_upload_on_wifi">Xubir semeyes namái per WiFi</string>
+  <string name="prefs_camera_video_upload_on_wifi">Xubir vídeos namái per WIFI</string>
+    <string name="conflict_message">¿Qué ficheros quies caltener? Si seleiciones dambes versiones, el ficheru llocal va tener un númberu amestáu al so nome</string>
   <string name="conflict_keep_both">Caltener dambos</string>
   <string name="conflict_use_local_version">Versión llocal</string>
   <string name="conflict_use_server_version">Versión de sirvidor</string>
@@ -339,13 +322,12 @@
   <string name="file_list__footer__files">%1$d ficheros</string>
   <string name="file_list__footer__files_and_folder">%1$d ficheros, 1 carpeta</string>
   <string name="file_list__footer__files_and_folders">%1$d ficheros, %2$d carpetes</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">Ficheru orixinal será…</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">Ficheru orixinal será…</string>
   <string name="prefs_camera_upload_behaviour_title">Ficheru orixinal será…</string>
   <string name="upload_copy_files">Copiar ficheru</string>
   <string name="upload_move_files">Mover ficheru</string>
   <string name="pref_behaviour_entries_keep_file">guardáu en carpeta orixinal</string>
-  <string name="pref_behaviour_entries_move">movíu a la carpeta d\'aplicaciones</string>
-  <string name="share_dialog_title">Compartir</string>
+    <string name="share_dialog_title">Compartir</string>
   <string name="share_file">Compartir %1$s</string>
   <string name="share_no_users">Entá nun se compartieron datos con usuarios</string>
   <string name="share_add_user_or_group">Amestar usuariu o grupu</string>
@@ -371,13 +353,7 @@
   <string name="share_privilege_can_edit_delete">desaniciar</string>
   <string name="edit_share_unshare">Dexar de compartir</string>
   <string name="edit_share_done">fechu</string>
-    <string name="manage_space_title">Alministrar espaciu</string>
-  <string name="manage_space_description">Axustes, bases de datos y sirvidor de certificaos de los datos %1$s esborraránse dafechu. \n\nLos archivos descargados caltendrase intactos.\n\nEsti procesu puede tardar dalgún tiempu.</string>
-  <string name="manage_space_clear_data">Llimpiar datos</string>
-  <string name="manage_space_error">Dalgunos ficheros nun pudieron esborrase.</string>
-  <string name="permission_storage_access">Ríquense permisos adicionales para xubir &amp; los ficheros descargaos.</string>
   <string name="local_file_not_found_toast">El ficheru nun s\'atopó nel sistema de ficheros llocal</string>
-  <string name="confirmation_remove_files_alert">¿De que quies desaniciar los elementos seleicionaos?</string>
   <string name="confirmation_remove_folders_alert">¿De xuru que quies desaniciar los elementos seleicionaos y los sos conteníos?</string>
   <plurals name="items_selected_count">
     <item quantity="one">%d escoyíu</item>

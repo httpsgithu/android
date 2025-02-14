@@ -20,7 +20,6 @@
   <string name="uploader_wrn_no_account_setup_btn_text">Gosod</string>
   <string name="uploader_wrn_no_account_quit_btn_text">Gadael</string>
   <string name="file_list_seconds_ago">eiliad yn ôl</string>
-  <string name="file_list_empty">Does dim byd fan hyn. Llwythwch rhywbeth i fyny!</string>
   <string name="filedetails_select_file">Tapiwch ffeil i ddangos gwybodaeth ychwanegol</string>
   <string name="filedetails_size">Maint:</string>
   <string name="filedetails_type">Math:</string>
@@ -33,8 +32,7 @@
   <string name="common_no">Na</string>
     <string name="common_error">Gwall</string>
   <string name="common_pending">I ddod</string>
-  <string name="about_title">Ynglyn â</string>
-  <string name="create_account">Creu cyfrif</string>
+    <string name="create_account">Creu cyfrif</string>
   <string name="upload_chooser_title">Llwytho i fyny o …</string>
   <string name="uploader_upload_in_progress_ticker">Yn llwytho i fyny …</string>
   <string name="uploader_upload_in_progress_content">%1$d%% Llwytho i fyny %2$s</string>
@@ -51,13 +49,7 @@
   <string name="sync_conflicts_in_favourites_content">Methwyd cydamseru\'r ffeil cadw-yn-gydamserol %1$d</string>
   <string name="sync_fail_in_favourites_ticker">Methodd ffeiliau cadw-yn-gydamserol</string>
   <string name="sync_fail_in_favourites_content">Methwyd cydamseru cynnwys ffeiliau %1$d (gwrthdaro %2$d )</string>
-  <string name="sync_foreign_files_forgotten_ticker">Anghofiwyd am rai ffeiliau lleol</string>
-  <string name="foreign_files_move">Symud y cyfan</string>
-  <string name="foreign_files_success">Symudwyd pob ffeil</string>
-  <string name="foreign_files_fail">Methwyd symud rhai ffeiliau</string>
-  <string name="foreign_files_local_text">Lleol: %1$s</string>
-  <string name="foreign_files_remote_text">Pell: %1$s</string>
-  <string name="auth_no_net_conn_title">Dim cysylltiad rhwydwaith</string>
+    <string name="auth_no_net_conn_title">Dim cysylltiad rhwydwaith</string>
   <string name="auth_nossl_plain_ok_title">Nid oes cysylltiad diogel ar gael.</string>
   <string name="auth_connection_established">Sefydlwyd y cysylltiad</string>
   <string name="auth_not_configured_title">Cyfluniad gweinydd wedi\'i gamffurfio</string>

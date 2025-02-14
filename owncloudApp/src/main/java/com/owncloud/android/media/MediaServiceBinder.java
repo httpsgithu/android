@@ -25,7 +25,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.widget.MediaController;
 
-import com.owncloud.android.datamodel.OCFile;
+import com.owncloud.android.domain.files.model.OCFile;
 import com.owncloud.android.media.MediaService.State;
 import timber.log.Timber;
 
@@ -151,12 +151,12 @@ public class MediaServiceBinder extends Binder implements MediaController.MediaP
     }
 
     public void registerMediaController(MediaControlView mediaController) {
-        mService.setMediaContoller(mediaController);
+        mService.setMediaController(mediaController);
     }
 
     public void unregisterMediaController(MediaControlView mediaController) {
         if (mediaController != null && mediaController == mService.getMediaController()) {
-            mService.setMediaContoller(null);
+            mService.setMediaController(null);
         }
 
     }

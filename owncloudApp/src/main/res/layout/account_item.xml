@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ownCloud Android client application
 
-  Copyright (C) 2016 ownCloud GmbH.
+  Copyright (C) 2022 ownCloud GmbH.
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 2,
@@ -16,111 +15,146 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    android:background="?android:attr/selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="@dimen/standard_margin"
-        android:src="@drawable/ic_account_plus"
-        />
-
-    <ImageView
-        android:id="@+id/ticker"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_alignEnd="@id/icon"
-        android:layout_alignTop="@id/icon"
-        android:layout_marginEnd="-8dp"
-        android:layout_marginTop="-8dp"
-        android:src="@drawable/ic_current"
-        />
-    <!-- drawable will be replaced by ic_current_white + tint in runtime;
-    ic_current here as a placeholder -->
-
-    <TextView
-        android:id="@+id/name"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:layout_marginStart="@dimen/standard_margin"
-        android:layout_marginEnd="@dimen/standard_half_margin"
-        android:layout_marginTop="4dp"
-        android:layout_toEndOf="@id/icon"
-        android:layout_toStartOf="@+id/refreshAccountButton"
-        android:layout_alignParentTop="true"
-        android:gravity="bottom"
-        android:text="@string/placeholder_filename"
-        android:textColor="@color/textColor"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/account"
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_account_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/ticker"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_current"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="13dp"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="-8dp"
+            app:layout_constraintEnd_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"/>
+        <!-- drawable will be replaced by ic_current_white + tint in runtime;
+        ic_current here as a placeholder -->
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="middle"
+            android:gravity="bottom"
+            android:maxLines="1"
+            android:text="@string/placeholder_filename"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/account"
+            app:layout_constraintEnd_toStartOf="@+id/clean_account_local_storage_button"
+            app:layout_constraintStart_toEndOf="@+id/ticker"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:ellipsize="middle"
+            android:text="@string/placeholder_sentence"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:lines="1"
+            app:layout_constraintEnd_toStartOf="@+id/clean_account_local_storage_button"
+            app:layout_constraintStart_toEndOf="@id/ticker"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <ImageView
+            android:id="@+id/clean_account_local_storage_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:paddingStart="@dimen/standard_half_padding"
+            android:paddingTop="@dimen/standard_padding"
+            android:paddingEnd="@dimen/standard_half_padding"
+            android:paddingBottom="@dimen/standard_padding"
+            android:src="@drawable/ic_clean_account"
+            android:contentDescription="@string/content_description_clean_account_storage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/removeButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/removeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:paddingStart="@dimen/standard_half_padding"
+            android:paddingTop="@dimen/standard_padding"
+            android:paddingEnd="@dimen/standard_padding"
+            android:paddingBottom="@dimen/standard_padding"
+            android:src="@drawable/ic_action_delete_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/content_description_remove_account"
+            app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standard_margin"
-        android:layout_marginEnd="@dimen/standard_half_margin"
-        android:layout_marginBottom="4dp"
-        android:layout_toEndOf="@id/icon"
-        android:layout_toStartOf="@id/refreshAccountButton"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/name"
-        android:gravity="top"
-        android:text="@string/placeholder_sentence"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:maxLines="2"
-        android:ellipsize="end" />
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/standard_half_margin">
 
-    <ImageView
-        android:id="@+id/refreshAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_toStartOf="@id/passwordButton"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/actionbar_sync"
-        android:paddingLeft="@dimen/standard_half_padding"
-        android:paddingTop="@dimen/standard_padding"
-        android:paddingBottom="@dimen/standard_padding"
-        android:paddingRight="@dimen/standard_half_padding"
-        app:tint="@color/black"
-        android:src="@drawable/ic_action_refresh" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/used_quota_title_manage_accounts"
+            android:layout_marginEnd="@dimen/item_file_grid_margin"
+            android:textSize="@dimen/two_line_secondary_text_size"
+            android:textColor="@color/textColor"/>
 
-    <ImageView
-        android:id="@+id/passwordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_toStartOf="@id/removeButton"
-        android:layout_centerInParent="true"
-        android:paddingLeft="@dimen/standard_half_padding"
-        android:paddingTop="@dimen/standard_padding"
-        android:paddingBottom="@dimen/standard_padding"
-        android:paddingRight="@dimen/standard_half_padding"
-        android:src="@drawable/ic_key"
-        app:tint="@color/black" />
+        <ProgressBar
+            android:id="@+id/manage_accounts_quota_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/item_file_grid_margin"
+            android:layout_marginTop="@dimen/standard_quarter_margin" />
 
-    <ImageView
-        android:id="@+id/removeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:paddingStart="@dimen/standard_half_padding"
-        android:paddingTop="@dimen/standard_padding"
-        android:paddingBottom="@dimen/standard_padding"
-        android:paddingEnd="@dimen/standard_padding"
-        app:tint="@color/black"
-        android:src="@drawable/ic_action_delete_grey" />
+        <TextView
+            android:id="@+id/manage_accounts_quota_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_loading_quota"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/two_line_secondary_text_size" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -3,9 +3,7 @@
   <!--GLOBAL-->
   <string name="global_name">名稱</string>
   <string name="global_date">日期</string>
-  <string name="global_size">大小</string>
-  <string name="about_android">%1$s用於安卓系統</string>
-  <string name="about_version">版本%1$s</string>
+  <string name="global_size">容量</string>
   <string name="actionbar_search">搜尋這個目錄</string>
   <string name="actionbar_sync">更新檔案列表</string>
   <string name="actionbar_upload">上傳檔案</string>
@@ -18,6 +16,7 @@
   <string name="actionbar_send_file">寄出</string>
   <string name="actionbar_descending">降序</string>
   <string name="actionbar_sort_title">排序依照</string>
+  <string name="fab_new_file">新文件</string>
   <string name="drawer_item_all_files">所有檔案</string>
   <string name="drawer_item_only_available_offline">離線可使用</string>
   <string name="drawer_item_shared_by_link_files">由連結分享</string>
@@ -32,21 +31,39 @@
   <string name="drawer_feedback">反饋</string>
   <string name="drawer_help">說明</string>
   <string name="prefs_category_general">一般</string>
-  <string name="prefs_category_more">更多</string>
-  <string name="prefs_category_security">安全性</string>
+  <string name="prefs_subsection_logging">記錄中</string>
+  <string name="prefs_subsection_more">更多</string>
+  <string name="prefs_subsection_security">安全性</string>
+  <string name="prefs_subsection_whatsnew">最新版本有什麼新功能？</string>
+  <string name="prefs_subsection_security_summary">設置鎖定以訪問軟體並與允許觸摸其他可見窗口</string>
+  <string name="prefs_subsection_logging_summary">跟踪軟體執行產生的記錄</string>
+  <string name="prefs_subsection_more_summary">軟體、反饋和其他</string>
   <string name="prefs_accounts">帳號</string>
   <string name="prefs_manage_accounts">管理帳號</string>
   <string name="prefs_passcode">密碼鎖</string>
   <string name="prefs_biometric">生物識別鎖</string>
   <string name="prefs_biometric_summary">啟用密碼或模式鎖定以啟用此選項。</string>
+  <string name="prefs_lock_application">鎖定應用程式</string>
+  <string name="prefs_lock_application_entries_immediately">立即</string>
+  <string name="prefs_lock_application_entries_1minute">1分鐘後</string>
+  <string name="prefs_lock_application_entries_5minutes">5分鐘後</string>
+  <string name="prefs_lock_application_entries_30minutes">30分鐘後</string>
   <string name="prefs_touches_with_other_visible_windows">與其他可見窗口接觸</string>
   <string name="prefs_touches_with_other_visible_windows_summary">當視圖被另一個可見窗口遮擋時，允許觸摸。 啟用它以使用濾光應用程序。</string>
   <string name="confirmation_touches_with_other_windows_title">您確定要啟用這個功能？</string>
   <string name="confirmation_touches_with_other_windows_message">使用此功能由您自己負責，惡意應用程式可能試圖欺騙您執行某些未覺察到的使用其他視圖的操作。</string>
+  <string name="prefs_subsection_picture_uploads_summary">管理自動地上傳圖片的位置和行為</string>
+  <string name="prefs_subsection_video_uploads_summary">管理自動地上傳的視頻的位置和行為</string>
   <string name="prefs_camera_picture_upload">圖片上傳</string>
   <string name="prefs_camera_picture_upload_summary">自動地上傳相機照片</string>
+  <string name="prefs_camera_picture_upload_path_title">圖片上傳路徑</string>
+  <string name="prefs_camera_picture_upload_on_wifi">經由 wifi 上傳圖片</string>
   <string name="prefs_camera_video_upload">影片上傳</string>
   <string name="prefs_camera_video_upload_summary">將照相機所拍攝完成的影像自動地上傳</string>
+  <string name="prefs_camera_video_upload_path_title">影片上傳路徑</string>
+  <string name="prefs_camera_video_upload_on_wifi">經由 wifi 上傳視訊</string>
+  <string name="prefs_subsection_advanced">進階</string>
+  <string name="prefs_show_hidden_files">顯示隱藏檔案</string>
   <string name="prefs_log_title">啓用記錄</string>
   <string name="prefs_log_summary">這個用來記錄執行的動作以找出問題點</string>
   <string name="prefs_log_title_history">歷史記錄</string>
@@ -61,26 +78,31 @@
   <string name="prefs_remember_last_share_location">記住分享位置</string>
   <string name="prefs_remember_last_upload_location_summary">記住上次分享上傳位置</string>
   <string name="prefs_pattern">圖案鎖</string>
+  <string name="prefs_enable_logging">啓用記錄</string>
+  <string name="prefs_enable_logging_summary">激活後，記錄可能會影響效能並包含敏感信息。 但是，記錄不會自動提交到 ownCloud 服務器。 與他人共享記錄是使用者的唯一責任。</string>
+  <string name="prefs_send_feedback">發送反饋</string>
+  <string name="prefs_app_version">軟體版本</string>
+  <string name="prefs_app_version_summary">%1$s%2$s版本%3$s(%4$s)</string>
   <string name="pattern_enter_pattern">請輸入你的圖案</string>
   <string name="pattern_configure_pattern">確認你的圖案</string>
   <string name="pattern_remove_pattern">移除你的模式</string>
   <string name="pattern_incorrect_pattern">圖案不正確</string>
   <string name="pattern_reenter_pattern">請重新輸入您的圖案</string>
   <string name="pattern_not_same_pattern">模式不一樣</string>
-  <string name="pattern_stored">模式存儲</string>
-  <string name="pattern_removed">圖案已刪除</string>
+  <string name="pattern_error_set">設置模式鎖定時發生錯誤</string>
+  <string name="pattern_error_remove">刪除模式鎖定時發生錯誤</string>
   <string name="pattern_already_set">模式和密碼鎖不能同時已啟用，請先停用模式</string>
   <string name="passcode_already_set">模式和密碼鎖不能同時已啟用，請先停用密碼</string>
   <string name="pattern_no_longer_required">模式將不再被詢問</string>
   <string name="pattern_configure_your_pattern_explanation">每次啟動應用軟體時都會請求該模式</string>
-  <string name="pass_code_locked">密碼與鎖定</string>
-  <string name="pattern_locked">鎖定與圖案</string>
   <string name="illegal_argument_exception_message">傳遞給的Intent中需要有效的ACTION</string>
   <!--Bottom navigation bar-->
   <string name="bottom_nav_files">檔案</string>
+  <string name="bottom_nav_personal">個人</string>
   <string name="bottom_nav_uploads">上傳</string>
   <string name="bottom_nav_offline">下線</string>
   <string name="bottom_nav_links">連結</string>
+  <string name="bottom_nav_shares">分享</string>
   <string name="recommend_subject">在您的手機中試用%1$s!</string>
   <string name="recommend_text">我想邀起您也在智慧型手機上使用%1$s!\n下載:%2$s</string>
   <string name="error_reason">因為</string>
@@ -110,9 +132,10 @@
   <string name="uploader_error_message_source_file_not_found">在該位置無法找到要上傳的檔案. 請檢查該檔案是否存在.</string>
   <string name="uploader_error_message_source_file_not_copied">在複製檔案到暫存資料夾時發生錯誤. 請再試一次.</string>
   <string name="file_list_seconds_ago">幾秒前</string>
-  <string name="file_list_empty">這裡還沒有東西，上傳一些吧！</string>
-  <string name="file_list_empty_available_offline">沒有可用的脫機文件。</string>
-  <string name="file_list_empty_shared_by_links">連結未已分享的任何文件。</string>
+  <string name="file_list_empty_title_all_files">沒有任何檔案</string>
+  <string name="file_list_empty_title_shared_by_links">沒有已分享的連結</string>
+  <string name="file_list_empty_subtitle_all_files">在您的裝置中同步或上傳一些內容</string>
+  <string name="file_list_empty_subtitle_shared_by_links">您分享的檔案與資料夾連結將會顯示在這裡</string>
   <string name="file_list_loading">載入中…</string>
   <string name="file_list_no_app_for_file_type">找不到檔案類型的軟體</string>
   <string name="local_file_list_empty">沒有檔案在這個目錄。</string>
@@ -129,6 +152,7 @@
   <string name="filedetails_size">容量:</string>
   <string name="filedetails_type">類型:</string>
   <string name="filedetails_created">建立:</string>
+  <string name="filedetails_last_sync">最後同步:</string>
   <string name="filedetails_modified">修改:</string>
   <string name="filedetails_download">下載</string>
   <string name="filedetails_sync_file">同步</string>
@@ -148,7 +172,6 @@
   <string name="common_error_unknown">未知的錯誤</string>
   <string name="common_pending">等候中</string>
   <string name="common_important">重要</string>
-  <string name="about_title">關於</string>
   <string name="change_password">變更密碼</string>
   <string name="delete_account">刪除帳號</string>
   <string name="create_account">建立帳號</string>
@@ -164,9 +187,13 @@
   <string name="uploader_upload_failed_ssl_certificate_not_trusted">伺服器憑證不是可信的</string>
   <string name="uploader_upload_text_dialog_title">插入新檔案的名稱</string>
   <string name="uploader_upload_text_dialog_filename_error_empty">檔名不能為空</string>
-  <string name="uploader_upload_text_dialog_filename_error_length_max">檔名不能超過%d個字元</string>
   <string name="uploader_upload_text_filename_hint">檔案名稱</string>
   <string name="uploader_upload_camera_upload_files">上傳相機上傳文件</string>
+  <string name="uploader_upload_picture_upload_files">%d將上傳新圖片</string>
+  <string name="uploader_upload_video_upload_files">%d將上傳新影片</string>
+  <string name="uploader_upload_camera_upload_source_path_error">相機上傳失敗</string>
+  <string name="uploader_upload_picture_upload_error">圖片上傳源路徑不再有效</string>
+  <string name="uploader_upload_video_upload_error">視頻上傳源路徑不再有效</string>
   <string name="uploader_upload_available_offline_files">上載可用的脫機文件</string>
   <string name="uploader_upload_requested_from_wifi_files">從wifi文件上傳請求</string>
   <string name="ssl_certificate_not_trusted">伺服器憑證不是可信的</string>
@@ -211,16 +238,7 @@
   <string name="sync_conflicts_in_favourites_content">%1$d 持續同步未被同步的檔案</string>
   <string name="sync_fail_in_favourites_ticker">同步檔案失敗</string>
   <string name="sync_fail_in_favourites_content">%1$d 未被同步 (%2$d 衝突)</string>
-  <string name="sync_foreign_files_forgotten_ticker">有些本地端的檔案已遺失</string>
-  <string name="sync_foreign_files_forgotten_content">%1$d 檔案超過 %2$s 資料夾可能不能複製進去</string>
-  <string name="sync_foreign_files_forgotten_explanation">在 1.3.16 版之前, 檔案上傳時會先複製到本地的 %1$s 資料夾以避免在多帳戶內同步造成遺失.\n\n由於這個改變, 所以在之前版本上傳的檔案被複製到 %2$s 資料夾中. 為了避免同步發生問題. 你可以保留那些檔案並刪除連結 %3$s, 或搬移檔案到 %1$s 資料夾並取得連結到 %4$s.\n\n下面列表是本地檔案, 與被連結遠端檔案 %5$s.</string>
   <string name="sync_current_folder_was_removed">資料夾 %1$s 不存在</string>
-  <string name="foreign_files_move">移動全部</string>
-  <string name="foreign_files_success">所有檔案已被移動</string>
-  <string name="foreign_files_fail">部份檔案無法被移動</string>
-  <string name="foreign_files_local_text">本地: %1$s</string>
-  <string name="foreign_files_remote_text">遠端: %1$s</string>
-  <string name="upload_query_move_foreign_files">沒有足夠的空間來複製檔案到資料夾 %1$s. 是否改用搬移的方式來處理?</string>
   <string name="pass_code_enter_pass_code">請加入您的密碼</string>
   <string name="pass_code_configure_your_pass_code">輸入您的密碼鎖密碼</string>
   <string name="pass_code_configure_your_pass_code_explanation">這個密碼在你每次啟動這程式時都會被要求輸入</string>
@@ -228,9 +246,11 @@
   <string name="pass_code_remove_your_pass_code">移除您的密碼鎖密碼</string>
   <string name="pass_code_mismatch">密碼不相符</string>
   <string name="pass_code_wrong">不正確的密碼</string>
-  <string name="pass_code_removed">密碼鎖已被移除</string>
-  <string name="pass_code_stored">密碼鎖已設定</string>
-  <string name="biometric_not_hardware_detected">此裝置不支持生物特徵驗證</string>
+  <string name="pass_code_error_set">設置密碼鎖時發生錯誤</string>
+  <string name="pass_code_error_remove">解除密碼鎖時錯誤</string>
+  <string name="numberkeyboard_three">3</string>
+  <string name="numberkeyboard_four">4</string>
+  <string name="numberkeyboard_five">5</string>
   <string name="biometric_not_enrolled">註冊至少一個生物特徵以使用此功能</string>
   <string name="biometric_prompt_title">生物識別登入</string>
   <string name="biometric_prompt_subtitle">登入使用您的生物特徵憑證</string>
@@ -278,7 +298,6 @@
   <string name="auth_expired_basic_auth_toast">請輸入目前的密碼</string>
   <string name="auth_connecting_auth_server">連接驗證伺服器中...</string>
   <string name="auth_unsupported_auth_method">伺服器不支援這種認證方式</string>
-  <string name="auth_unsupported_multiaccount">%1$s 不支援複數賬戶</string>
   <string name="auth_fail_get_user_name">你的伺服器並沒有傳回正確的使用者 ID, 請聯絡伺服器的管理員
 	</string>
   <string name="auth_can_not_auth_against_server">無法驗證這個伺服器</string>
@@ -291,6 +310,7 @@
   <string name="confirmation_remove_folder_alert">您真的要移除 %1$s 與裡頭的檔案?</string>
   <string name="confirmation_remove_local">只有本地</string>
   <string name="confirmation_remove_account_alert">你是否真的要移除這個帳號 %1$s?</string>
+  <string name="confirmation_remove_account_alert_camera_uploads">此帳號已附加相機上傳功能，刪除該帳號將停用相機上傳功能。 您真的要移除帳號嗎%1$s?</string>
   <string name="confirmation_remove_public_share_title">移除連結</string>
   <string name="confirmation_remove_private_share_title">移除私人的分享</string>
   <string name="confirmation_remove_share_message">您真的要移除%1$s分享?</string>
@@ -303,8 +323,7 @@
   <string name="sync_file_fail_msg">無法檢查遠端的檔案</string>
   <string name="sync_file_nothing_to_do_msg">檔案與同步</string>
   <string name="create_dir_fail_msg">資料夾無法建立</string>
-  <string name="filename_forbidden_characters">禁止使用字符: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_charaters_from_server">檔案名稱含有不合法的字元</string>
+  <string name="filename_forbidden_characters_from_server">檔案名稱含有不合法的字元</string>
   <string name="filename_empty">檔名不能為空的</string>
   <string name="wait_a_moment">請稍後</string>
   <string name="wait_checking_credentials">檢查儲存的密碼</string>
@@ -347,14 +366,11 @@
   <string name="placeholder_filesize">389 KB</string>
   <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
   <string name="placeholder_media_time">12:23:45</string>
-  <string name="camera_picture_upload_on_wifi">經由 wifi 上傳圖片</string>
-  <string name="camera_video_upload_on_wifi">經由 wifi 上傳視訊</string>
   <string name="confirmation_disable_camera_uploads_title">確認</string>
   <string name="confirmation_disable_pictures_upload_message">您確定您要停用此功能嗎？ 待處理的圖片將不會上傳</string>
   <string name="confirmation_disable_videos_upload_message">您確定您要停用此功能嗎？ 待處理的視頻將不會上傳</string>
   <string name="proper_pics_folder_warning_camera_upload">請確保選擇的目錄是您正在使用的相機保存所拍攝照片的位置。 否則，該功能將無法檢測您的照片。 請記住，照片將在拍攝後至少15分鐘內上傳。</string>
   <string name="proper_videos_folder_warning_camera_upload">請確保選擇的目錄是您正在使用的相機保存錄製的視頻的位置。 否則，該功能將無法檢測您的視頻。 請記住，視頻將在錄製後至少15分鐘內上傳。</string>
-  <string name="conflict_title">檔案衝突</string>
   <string name="conflict_description">檔案%1$s中存在衝突點擊解決</string>
   <string name="conflict_message">您要保留那個檔案? 如果您同時選擇兩個版本, 本地的檔案將在檔案名稱後面會加上編號</string>
   <string name="conflict_keep_both">都保留</string>
@@ -363,7 +379,6 @@
   <string name="preview_image_description">圖片預覽</string>
   <string name="preview_image_error_unknown_format">無法顯示圖片</string>
   <string name="error__upload__local_file_not_copied">%1$s 無法被複製到本地資料夾 %2$s</string>
-  <string name="prefs_camera_picture_upload_path_title">圖片上傳路徑</string>
   <string name="get_shares_error">無法從伺服器檢索共享</string>
   <string name="get_sharees_error">無法從伺服器檢索用戶和組</string>
   <string name="get_capabilities_error">無法從伺服器檢索功能</string>
@@ -400,7 +415,6 @@
   <string name="drawer_manage_accounts">管理帳號</string>
   <string name="auth_redirect_non_secure_connection_title">加密的連線是由一個未加密的連線轉向過來的.</string>
   <string name="actionbar_logger">記錄</string>
-  <string name="log_open_logs_view">開啟記錄視圖</string>
   <string name="log_send_history_button">傳送歷史</string>
   <string name="log_send_no_mail_app">沒有傳送紀錄的軟體. 請安裝郵件軟體</string>
   <string name="log_send_mail_subject">%1$s Android 應用程式記錄</string>
@@ -421,7 +435,6 @@
   <string name="copy_file_error">嘗試複製檔案或資料夾時發生錯誤</string>
   <string name="forbidden_permissions_copy">複製這個檔案</string>
   <string name="prefs_category_camera_upload">相機上傳</string>
-  <string name="prefs_camera_video_upload_path_title">影片上傳路徑</string>
   <string name="sync_folder_failed_content">%1$s 資料夾的同步作業未完成</string>
   <string name="shared_subject_header">以分享的</string>
   <string name="with_you_subject_header">與你</string>
@@ -439,15 +452,16 @@
   <string name="file_list__footer__files">%1$d 個檔案</string>
   <string name="file_list__footer__files_and_folder">%1$d 個檔案, 1 個資料夾</string>
   <string name="file_list__footer__files_and_folders">%1$d 個檔案, %2$d 個資料夾</string>
+  <string name="prefs_picture_upload_account">上傳圖片的帳號</string>
+  <string name="prefs_video_upload_account">上傳影片的帳號</string>
   <string name="prefs_camera_upload_source_path_title">相機資料夾 (%1$s)</string>
   <string name="prefs_camera_upload_source_path_title_required">必填</string>
-  <string name="prefs_camera_upload_source_path_title_optional">選填</string>
-  <string name="prefs_camera_upload_behaviour_dialogTitle">原始檔案將是</string>
+  <string name="prefs_camera_upload_behaviour_dialog_title">原始檔案將</string>
   <string name="prefs_camera_upload_behaviour_title">原始檔案將</string>
+  <string name="prefs_camera_upload_last_sync_title">上次同步</string>
   <string name="upload_copy_files">複製檔案</string>
   <string name="upload_move_files">移動檔案</string>
   <string name="pref_behaviour_entries_keep_file">保留在原先的資料夾</string>
-  <string name="pref_behaviour_entries_move">移動到應用程式資料夾</string>
   <string name="share_dialog_title">分享</string>
   <string name="share_file">分享 %1$s</string>
   <string name="share_with_user_section_title">使用者及群組</string>
@@ -485,13 +499,7 @@
   <string name="edit_share_done">完成</string>
   <string name="action_upload_retry">重試</string>
   <string name="action_upload_clear">清除</string>
-  <string name="manage_space_title">管理空間</string>
-  <string name="manage_space_description">來自 %1$s 的設定, 資料庫與伺服器的憑證將被永久的刪除.\n\n下載的檔案也將無法存取.\n\n這個動作將花費一些時間.</string>
-  <string name="manage_space_clear_data">清除資料</string>
-  <string name="manage_space_error">某些檔案無法被刪除.</string>
-  <string name="permission_storage_access">需要額外的權限來上傳或下傳檔案.</string>
   <string name="local_file_not_found_toast">在本地的檔案系統中找不到這個檔案</string>
-  <string name="confirmation_remove_files_alert">您真的要移除所選取的項目?</string>
   <string name="confirmation_remove_folders_alert">您真的要移除所選取的項目與裡面的文件?</string>
   <string name="failed_upload_quota_exceeded_text">此帳戶無足夠儲存空間</string>
   <string name="auth_forbidden">禁用的驗證</string>
@@ -516,7 +524,7 @@
   <string name="share_via_link_expiration_date_explanation_label">這個公開的連結會在 %1$d 天後失效</string>
   <string name="share_via_link_default_name_template">%1$s 連結</string>
   <string name="share_via_link_empty_password">密碼為空</string>
-  <string name="private_link_info">這是一個私人連結，只有有權訪問該檔案/目錄的人才能使用它。 使用它作為您自己的永久連結，或將其他人指向共享中的文件。</string>
+  <string name="private_link_info">專用連結：只有有權訪問檔案/目錄的人才能使用它。 使用它作為您自己的永久連結，或將其他人指向共享中的文件</string>
   <string name="file_private_link_error">私人連結不適可用的於此檔案</string>
   <string name="download_notification_channel_name">下載</string>
   <string name="download_notification_channel_description">查看下載檔案的名稱和進度</string>
@@ -547,10 +555,24 @@
   <string name="welcome_feature_4_text">您的圖片/視頻自動地上傳</string>
   <string name="welcome_feature_5_title">視頻流</string>
   <string name="welcome_feature_5_text">播放視頻而不下載它們</string>
-  <string name="no_borwser_installed_alert">未安裝瀏覽器。 請安裝瀏覽器以允許安全登錄。</string>
+  <string name="no_browser_installed_alert">未安裝瀏覽器。 請安裝瀏覽器以允許安全登錄。</string>
   <string name="common_not_found">找不到</string>
   <string name="supports_oauth2_error">無法知道是否支持OAuth2</string>
   <string name="get_base_url_error">無法知道伺服器基本超連結</string>
   <string name="prefs_http_logs">記錄HTTP請求和響應</string>
   <string name="prefs_logs_summary">記錄可能包含敏感信息。 與他人共享記錄與唯一的使用者責任</string>
+  <string name="synchronizing_account">同步帳號</string>
+  <!--Scoped storage migration wizard-->
+  <!--Security Enforced-->
+  <string name="security_enforced_first_option">密碼鎖</string>
+  <string name="folder_upload_some_content_or_sync_devices">在您的裝置中同步或上傳一些內容</string>
+  <!--Webfinger-->
+  <string name="global_proceed">已執行</string>
+  <!--Release Notes-->
+  <string name="release_notes_footer">感謝您使用 %1$s.\n❤</string>
+  <string name="release_notes_proceed">已執行</string>
+  <!--Open in web-->
+  <!--oCIS accounts warning-->
+  <string name="ocis_accounts_warning_checkbox_message">不再顯示</string>
+  <string name="tab_label_ascii">文字</string>
 </resources>

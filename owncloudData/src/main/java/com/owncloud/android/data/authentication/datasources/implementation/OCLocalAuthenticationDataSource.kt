@@ -26,11 +26,13 @@ import android.net.Uri
 import com.owncloud.android.data.authentication.KEY_CLIENT_REGISTRATION_CLIENT_EXPIRATION_DATE
 import com.owncloud.android.data.authentication.KEY_CLIENT_REGISTRATION_CLIENT_ID
 import com.owncloud.android.data.authentication.KEY_CLIENT_REGISTRATION_CLIENT_SECRET
+import com.owncloud.android.data.authentication.KEY_FEATURE_ALLOWED
+import com.owncloud.android.data.authentication.KEY_FEATURE_SPACES
 import com.owncloud.android.data.authentication.KEY_OAUTH2_REFRESH_TOKEN
 import com.owncloud.android.data.authentication.KEY_OAUTH2_SCOPE
 import com.owncloud.android.data.authentication.SELECTED_ACCOUNT
 import com.owncloud.android.data.authentication.datasources.LocalAuthenticationDataSource
-import com.owncloud.android.data.preferences.datasources.SharedPreferencesProvider
+import com.owncloud.android.data.providers.SharedPreferencesProvider
 import com.owncloud.android.domain.authentication.oauth.model.ClientRegistrationInfo
 import com.owncloud.android.domain.exceptions.AccountNotFoundException
 import com.owncloud.android.domain.exceptions.AccountNotNewException
@@ -44,7 +46,6 @@ import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_DISPL
 import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_ID
 import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_OC_ACCOUNT_VERSION
 import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_OC_BASE_URL
-import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_OC_VERSION
 import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.KEY_SUPPORTS_OAUTH2
 import com.owncloud.android.lib.common.accounts.AccountUtils.Constants.OAUTH_SUPPORTED_TRUE
 import com.owncloud.android.lib.common.authentication.OwnCloudBasicCredentials
@@ -164,6 +165,9 @@ class OCLocalAuthenticationDataSource(
             // with external authorizations, the password is never input in the app
             accountManager.addAccountExplicitly(newAccount, password, null)
 
+            // Only fresh accounts will support spaces
+            accountManager.setUserData(newAccount, KEY_FEATURE_SPACES, KEY_FEATURE_ALLOWED)
+
             /// add the new account as default in preferences, if there is none already
             val defaultAccount: Account? = getCurrentAccount()
             if (defaultAccount == null) {
@@ -184,10 +188,6 @@ class OCLocalAuthenticationDataSource(
             newAccount,
             KEY_OC_ACCOUNT_VERSION,
             ACCOUNT_VERSION.toString()
-        )
-
-        accountManager.setUserData(
-            newAccount, KEY_OC_VERSION, serverInfo.ownCloudVersion
         )
 
         accountManager.setUserData(
@@ -216,10 +216,7 @@ class OCLocalAuthenticationDataSource(
             lastAtPos = otherAccount.name.lastIndexOf("@")
             otherHostAndPort = otherAccount.name.substring(lastAtPos + 1)
             otherUsername = otherAccount.name.substring(0, lastAtPos)
-            if (otherHostAndPort == hostAndPort && otherUsername.toLowerCase(currentLocale) == username.toLowerCase(
-                    currentLocale
-                )
-            ) {
+            if (otherHostAndPort == hostAndPort && otherUsername.lowercase(currentLocale) == username.lowercase(currentLocale)) {
                 return otherAccount
             }
         }
@@ -227,9 +224,8 @@ class OCLocalAuthenticationDataSource(
         return null
     }
 
-    private fun getAccounts(): Array<Account> {
-        return accountManager.getAccountsByType(accountType)
-    }
+    private fun getAccounts(): Array<Account> =
+        accountManager.getAccountsByType(accountType)
 
     private fun getCurrentAccount(): Account? {
         val ocAccounts = getAccounts()

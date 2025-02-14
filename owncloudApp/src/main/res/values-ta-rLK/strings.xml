@@ -8,7 +8,7 @@
   <string name="drawer_open">திறக்க</string>
   <string name="drawer_help">உதவி</string>
   <string name="prefs_category_general">பொதுவான</string>
-  <string name="prefs_category_more">மேலதிக</string>
+  <string name="prefs_subsection_more">மேலதிக</string>
   <string name="prefs_accounts">கணக்குகள்</string>
   <string name="prefs_manage_accounts">கணக்குகளை நிர்வகிக்க</string>
   <string name="prefs_help">உதவி</string>
@@ -21,7 +21,6 @@
   <string name="uploader_wrn_no_account_setup_btn_text">அமைப்பு</string>
   <string name="uploader_wrn_no_account_quit_btn_text">விலகுக</string>
   <string name="file_list_seconds_ago">செக்கன்களுக்கு முன்</string>
-  <string name="file_list_empty">இங்கு ஒன்றும் இல்லை. ஏதாவது பதிவேற்றுக!</string>
   <string name="filedetails_select_file">மேலதிக தகவல்களை காட்சிப்படுத்துவதற்கு கோப்பின் மேல் தட்டுக.</string>
   <string name="filedetails_size">அளவு:</string>
   <string name="filedetails_type">வகை:</string>
@@ -35,8 +34,7 @@
     <string name="common_back">பின்னுக்கு</string>
   <string name="common_error">வழு</string>
   <string name="common_pending">நிலுவையிலுள்ள</string>
-  <string name="about_title">பற்றி</string>
-  <string name="change_password">கடவுச்சொல்லை மாற்றுக</string>
+    <string name="change_password">கடவுச்சொல்லை மாற்றுக</string>
   <string name="create_account">கணக்கை உருவாக்குக</string>
   <string name="upload_chooser_title">பதிவேற்றல் படிவம்</string>
   <string name="uploader_info_dirname">கோப்புறை பெயர்</string>
